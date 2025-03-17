@@ -12,7 +12,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
       name: 'Cleothena',
-      formats: ['es', 'cjs'], // Export ES module & CommonJS
+      formats: ['es', 'cjs'],
       fileName: (format) => `cleothena.${format}.js`,
     },
     rollupOptions: {
