@@ -1,3 +1,4 @@
+// vite.config.js
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 import { defineConfig } from 'vite';
@@ -15,6 +16,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
       fileName: (format) => `cleothena.${format}.js`,
     },
+    cssCodeSplit: false, // Inlines all CSS into the JS bundle
     rollupOptions: {
       external: ['react', 'react-dom'],
       output: {
