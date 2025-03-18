@@ -29,12 +29,14 @@ export const theme = {
   
     /* =============================== Borders & Shadows =============================== */
     borders: {
+      radiusXs: '3px',
       radiusSm: '4px',
       radiusMd: '8px',
       radiusLg: '12px',
     },
   
     shadows: {
+      xs: 'rgba(0, 0, 0, 0.15) 0px 1px 3px',
       sm: 'rgba(0, 0, 0, 0.15) 0px 1px 3px',
       md: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
       lg: 'rgba(0, 0, 0, 0.35) 0px 10px 20px',
