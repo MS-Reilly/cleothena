@@ -1,27 +1,122 @@
+@use '../../theme/style/variables' as *; // ✅ This allows direct access to variables
+
 .buttonClass {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #fff;
-    background-color: #007bff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid transparent;
+  user-select: none;
+  transition: all $transition-normal; // ✅ Works now
+
+  cursor: pointer;
+
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+
+  /* Default Button Colors */
+  background-color: $primary;
+  color: $white;
+  border-color: $primary;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.6;
+    background-color: $disabled-bg;
+    color: $disabled-text;
+    border-color: $disabled-border;
+  }
+
+  /* Variant Styles */
+
+  &.xs {
+    font-size: $font-size-xs;
+    padding: 4px 8px;
+    height: 25px;
+    min-width: 40px;
+    border-radius: $border-radius-xs;
+  }
+
+  &.sm {
+    font-size: $font-size-sm;
+    padding: 6px 12px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: $border-radius-sm;
+  }
+
+  &.md {
+    font-size: $font-size-base;
+    padding: 10px 16px;
+    height: 44px;
+    min-width: 100px;
+    border-radius: $border-radius-md;
+  }
+
+  &.lg {
+    font-size: $font-size-lg;
+    padding: 14px 20px;
+    height: 52px;
+    min-width: 120px;
+    border-radius: $border-radius-lg;
+  }
+
+  /* Secondary Variant */
+  &.secondary {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: $black;
+  }
+
+  /* Accent Variant */
+  &.accent {
+    background-color: $accent;
+    border-color: $accent;
+    color: $white;
+  }
+
+  /* Highlight Variant */
+  &.highlight {
+    background-color: $highlight;
+    border-color: $highlight;
+    color: $white;
+  }
+
+  /* Outline Variant */
+  &.outline {
+    background-color: transparent;
+    border-color: currentColor;
+    color: inherit;
+  }
+
+  /* Ghost Variant */
+  &.ghost {
+    background-color: transparent;
     border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    color: inherit;
+    box-shadow: none;
+  }
 
-    &:hover {
-        background-color: #0056b3;
+  /* Responsive Behavior */
+  @media (max-width: $breakpoint-md) {
+    &.md {
+      font-size: $font-size-sm;
+      padding: 8px 14px;
     }
-
-    &:active {
-        transform: scale(0.98);
+    &.lg {
+      font-size: $font-size-base;
+      padding: 12px 18px;
     }
-
-    &:disabled {
-        background-color: #6c757d;
-        cursor: not-allowed;
-    }
+  }
 }

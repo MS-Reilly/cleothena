@@ -1,0 +1,62 @@
+@import './variables';
+
+// Import Google Font
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
+
+/* =============================== Layout Helpers =============================== */
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  gap: $spacer-md;
+}
+
+/* =============================== Shadows =============================== */
+.shadow-xs {
+  box-shadow: $shadow-xs;
+}
+
+.shadow-sm {
+  box-shadow: $shadow-sm;
+}
+
+.shadow-md {
+  box-shadow: $shadow-md;
+}
+
+.shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+/* =============================== Borders =============================== */
+.rounded-xs {
+  border-radius: $border-radius-xs;
+}
+.rounded-sm {
+  border-radius: $border-radius-sm;
+}
+
+.rounded-md {
+  border-radius: $border-radius-md;
+}
+
+.rounded-lg {
+  border-radius: $border-radius-lg;
+}
+
+/* =============================== Responsive Breakpoints =============================== */
+@media (max-width: $breakpoint-md) {
+  .hide-on-mobile {
+    display: none;
+  }
+}

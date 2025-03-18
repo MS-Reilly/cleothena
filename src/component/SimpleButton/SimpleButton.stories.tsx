@@ -1,5 +1,5 @@
 import React from 'react';
-import SimpleButton from './index';
+import SimpleButton from './SimpleButton';
 
 import { Meta, StoryObj } from '@storybook/react';
 

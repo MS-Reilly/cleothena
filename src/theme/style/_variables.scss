@@ -1,0 +1,103 @@
+// Import Google Font
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/*========================= Theme Colors =========================*/
+$primary: #FF9F1A;   // Orange
+$secondary: #FFB516; // Yellow
+$accent: #2EC4B6;    // Aqua
+$highlight: #00ADA9; // Green
+
+/* Transparent Colors */
+$primary-t: #ffa01a54;
+$secondary-t: #ffb51650;
+$accent-t: #2ec4b547;
+$highlight-t: #00adaa68;
+
+/* Additional Colors */
+$blue: #007bff;
+$purple: #6f42c1;
+$teal: #20c997;
+
+/* Neutral Colors */
+$white: #ffffff;
+$black: #000000;
+$light-gray: #f8f9fa;
+$gray: #6c757d;
+$dark-gray: #343a40;
+$dark-blue: #343b5e;
+
+/* Disabled Colors */
+$disabled-bg: #E0E0E0;
+$disabled-text: #9E9E9E;
+$disabled-border: #BDBDBD;
+
+/* Alerts */
+$alert-danger: #f23b4ac5;
+$alert-success: #28a745;
+$alert-warning: #ffc107;
+$alert-info: #17a2b8;
+
+/* Gradients */
+$gradient-primary: linear-gradient(90deg, $primary, $secondary);
+$gradient-secondary: linear-gradient(90deg, $accent, $highlight);
+
+/*========================= Typography =========================*/
+$font-family-base: "Nunito", sans-serif;
+$font-size-xs: 8px;
+$font-size-sm: 12px;
+$font-size-base: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
+
+$text-primary: $primary;
+$text-secondary: $gray;
+$text-white: $white;
+$text-black: $black;
+
+/* Headings */
+$heading-font-weight: 600;
+$h1-size: 2.5rem;
+$h2-size: 2rem;
+$h3-size: 1.75rem;
+$h4-size: 1.5rem;
+$h5-size: 1.25rem;
+$h6-size: 1rem;
+
+$letter-spacing: 0.5px;
+$line-height: 1.5;
+
+/*========================= Spacing =========================*/
+$spacer-xs: 4px;
+$spacer-sm: 8px;
+$spacer-md: 16px;
+$spacer-lg: 24px;
+$spacer-xl: 32px;
+
+/*========================= Breakpoints =========================*/
+$breakpoint-xs: 320px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+/*========================= Borders & Shadows =========================*/
+$border-radius-xs: 3px;
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-full: 50%;
+
+
+$shadow-xs: rgba(0, 0, 0, 0.15) 0px 1px 3px;
+$shadow-sm: rgba(0, 0, 0, 0.15) 0px 1px 3px;
+$shadow-md: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+$shadow-lg: rgba(0, 0, 0, 0.35) 0px 10px 20px;
+
+/*========================= Transitions =========================*/
+$transition-fast: 0.2s ease-in-out;
+$transition-normal: 0.4s ease-in-out;
+$transition-slow: 0.6s ease-in-out;
+
+/*========================= Containers =========================*/
+$max-width-container: 1140px;
