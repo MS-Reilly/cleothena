@@ -6,7 +6,7 @@ import postcss from "rollup-plugin-postcss";
 import babel from "@rollup/plugin-babel"; // You've imported babel, let's use it for potential JS transformations
 import packageJson from "./package.json" assert {type: "json"};
 
-const external = [...Object.keys(packageJson.peerDependencies || {}), 'react', 'react-dom'];
+
 
 export default [
     {
@@ -24,7 +24,10 @@ export default [
             }
         ],
         plugins: [
-            resolve(),
+            resolve({
+                extensions: [".js", ".jsx", ".ts", ".tsx"],
+                skip: ["react", "react-dom"],
+              }),
             commonjs(),
             typescript({
                 tsconfig: "./tsconfig.json",
@@ -46,12 +49,13 @@ export default [
             }),
         ],
         // Mark peer dependencies as external
-        external: external,
+        
+        external: ["react", "react-dom", "react/jsx-runtime"],
     },
     {
         input: "dist/esm/types/index.d.ts", // Point to the emitted declarations
         output: [{ file: "dist/index.d.ts", format: "esm" }],
         plugins: [dts()],
-        external: external.concat([/\.scss$/]), // Keep CSS external for declarations
+        external:[/\.scss$/], // Keep CSS external for declarations
     }
 ];
