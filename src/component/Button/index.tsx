@@ -1,6 +1,6 @@
 import React from 'react';
 import { SimpleButtonProps } from './types';
-import './styles.css';
+import './styles.scss';
 
 const SimpleButton: React.FC<SimpleButtonProps> = ({
   title,

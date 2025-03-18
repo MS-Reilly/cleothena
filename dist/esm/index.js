@@ -2810,9 +2810,41 @@ if (process.env.NODE_ENV === 'production') {
 
 var jsxRuntimeExports = jsxRuntime.exports;
 
-const Page = ({ title, children }) => {
-    return (jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [jsxRuntimeExports.jsx("h1", { children: title }), children] }));
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = ".buttonClass {\n  display: inline-block;\n  padding: 0.5rem 1rem;\n  font-size: 1rem;\n  font-weight: 600;\n  color: #fff;\n  background-color: #007bff;\n  border: none;\n  border-radius: 0.25rem;\n  cursor: pointer;\n  text-align: center;\n  text-decoration: none;\n  transition: background-color 0.3s ease, transform 0.2s ease;\n}\n.buttonClass:hover {\n  background-color: #0056b3;\n}\n.buttonClass:active {\n  transform: scale(0.98);\n}\n.buttonClass:disabled {\n  background-color: #6c757d;\n  cursor: not-allowed;\n}";
+styleInject(css_248z);
+
+const SimpleButton = ({ title, children, onClick, className, disabled, ...rest // To pass down other button attributes
+ }) => {
+    const buttonClassName = `buttonClass ${className || ''}`; // You'll need CSS for .simple-button
+    return (jsxRuntimeExports.jsxs("button", { className: buttonClassName, onClick: onClick, disabled: disabled, ...rest, children: [title, children] }));
 };
 
-export { Page };
+export { SimpleButton as Page };
 //# sourceMappingURL=index.js.map
