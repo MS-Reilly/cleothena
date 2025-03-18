@@ -31,7 +31,7 @@ export default [
                 exclude: ["**/*.test.tsx", "**/*.test.ts", "**/*.stories.tsx"],
                 // Emit declarations here for dts plugin to find
                 declaration: true,
-                declarationDir: 'dist/esm/types', // Or a temp location
+                declarationDir: 'dist/types', // Or a temp location
             }),
             postcss({
                 extensions: [".scss"],
