@@ -1,1 +1,1 @@
-export {default as Page} from "./component/Button"
+export {default as SimpleButton} from "./component/SimpleButton"

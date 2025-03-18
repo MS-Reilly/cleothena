@@ -2848,5 +2848,5 @@ const SimpleButton = ({ title, children, onClick, className, disabled, ...rest /
     return (jsxRuntimeExports.jsxs("button", { className: buttonClassName, onClick: onClick, disabled: disabled, ...rest, children: [title, children] }));
 };
 
-exports.Page = SimpleButton;
+exports.SimpleButton = SimpleButton;
 //# sourceMappingURL=index.js.map
