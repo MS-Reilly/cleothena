@@ -1,0 +1,97 @@
+@use '../../theme/style/variables' as *; // ✅ This allows direct access to variables
+
+
+.sb-show-main {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+.navbar {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  box-shadow: $spacer-md;
+  padding: 10px 10px ;
+
+
+  .navbar-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .navbar-item {
+    position: relative;
+    text-decoration: none;
+
+    .nav-link{
+      font-weight: 500;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    &:hover .navbar-dropdown {
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease-in-out;
+
+      .nav-link{
+        font-weight: 500;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+    }
+  }
+
+  .navbar-dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    
+
+  }
+
+  .navbar-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .navbar-mobile {
+    display: none;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+    }
+    .navbar-toggle {
+      display: block;
+    }
+    .navbar-mobile {
+      display: flex;
+    }
+  }
+}

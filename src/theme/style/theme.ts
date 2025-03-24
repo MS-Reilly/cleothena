@@ -1,14 +1,14 @@
 export const theme = {
     /* =============================== Colors =============================== */
     colors: {
-      primary: '#FF9F1A',
-      secondary: '#FFB516',
+      primary: '#4D55CC',
+      secondary: '#5271ff',
       accent: '#2EC4B6',
       highlight: '#00ADA9',
       neutral: {
         white: '#ffffff',
         black: '#000000',
-        gray: '#6c757d',
+        grey: '#6c757d',
       },
       disabledBg: '#E0E0E0',
       disabledText: '#9E9E9E',

@@ -1,0 +1,245 @@
+@use '../../theme/style/variables' as *; // ✅ This allows direct access to variables
+
+.sidebar {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0; // Default for left sidebar
+  height: 100vh;
+  width: 250px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); // Added subtle shadow
+  transform: translateX(-100%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+
+  &.mobile-open {
+    transform: translateX(0);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  &.mobile-closed {
+    transform: translateX(-100%);
+  }
+
+  // New styles for when the sidebar is on the right
+  &.sidebar-right {
+    right: 0;
+    left: auto; // Override default left
+    transform: translateX(100%);
+    
+    &.mobile-open {
+      transform: translateX(0);
+    }
+    
+    &.mobile-closed {
+      transform: translateX(100%);
+    }
+
+    .close-btn {
+      right: auto;
+      left: 10px;
+    }
+  }
+
+  /* ✅ Close Button Positioned at Absolute Top-Right */
+  .close-btn {
+    position: absolute;
+    top: 10px; // Moves button to the very top
+    right: 10px; // Aligns button to the right
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    z-index: 1100; // Ensures it stays above content
+
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+
+  /* ✅ Sidebar Header */
+  .sidebar-header {
+    display: flex;
+    justify-content: center; // Centers the logo
+    align-items: center;
+    padding: 25px 15px 15px; // Increased top padding for a more open feel
+    border-bottom: 1px solid #e3e6f0;
+    position: relative;
+
+    .logo {
+      max-width: 180px;
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    }
+  }
+
+  /* ✅ Sidebar Content (Scrollable) */
+  .sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    max-height: calc(100vh - 70px - 60px); // Adjusted height to account for header/footer
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1px;
+
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $light-gray;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: $light-gray;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #f0f0f0;
+    }
+  }
+
+  /* ✅ Sidebar Footer */
+  .sidebar-footer {
+    padding: 10px;
+    border-top: 1px solid #e3e6f0;
+    background: white;
+
+    .helper-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 10px;
+      background-color: #e0f7fa;
+      color: $dark-grey;
+      border-radius: 8px;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+
+      &:hover {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        background-color: $accent;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $highlight;
+        }
+      }
+    }
+  }
+}
+
+
+.sidebar-item {
+  box-sizing: border-box;
+  width: 100%;
+
+  .item-header {
+    text-decoration: none; // Ensure links have no underlines
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 7px;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    background-color: transparent;
+    gap: 10px;
+
+
+    &:hover {
+      background-color: #f7f7f7;
+    }
+
+    &.active {
+      background-color: #e0f7fa;
+      color: #344767;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      color: #6e708c;
+    }
+
+    .icon {
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+    }
+
+    .title {
+      flex-grow: 1;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .expand-icon {
+      font-size: 1rem;
+      color: #999999;
+      transition: color 0.3s ease;
+    }
+  }
+
+  .sub-items {
+    margin-top: 0.5rem;
+    padding-left: 20px;
+    list-style: none; // Removes dots from sub-item list
+
+    .sub-item {
+      margin-bottom: 0.5rem;
+
+      .sub-item-link {
+        text-decoration: none; // Ensure sub-item links have no underlines
+        display: flex;
+        align-items: center;
+        padding: 4px 8px;
+        border-radius: 0.5rem;
+        transition: background 0.2s ease, color 0.2s ease;
+
+        &:hover {
+          background-color: #f9f9f9;
+          color: #2ec4b6;
+        }
+
+        &.active {
+          background-color: #d6f5f8;
+          color: #344767;
+          font-weight: bold;
+        }
+
+        &.disabled {
+          cursor: not-allowed;
+          opacity: 0.6;
+        }
+
+        .sub-title {
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

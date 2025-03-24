@@ -9,7 +9,7 @@ export declare const ThemeContext: React.Context<{
         neutral: {
             white: string;
             black: string;
-            gray: string;
+            grey: string;
         };
         disabledBg: string;
         disabledText: string;

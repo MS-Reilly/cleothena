@@ -7,7 +7,7 @@ export declare const useTheme: () => {
         neutral: {
             white: string;
             black: string;
-            gray: string;
+            grey: string;
         };
         disabledBg: string;
         disabledText: string;

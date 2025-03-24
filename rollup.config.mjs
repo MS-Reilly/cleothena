@@ -28,6 +28,7 @@ export default [
                 extensions: [".js", ".jsx", ".ts", ".tsx"],
                 skip: ["react", "react-dom"],
               }),
+              
             commonjs(),
             typescript({
                 tsconfig: "./tsconfig.json",
