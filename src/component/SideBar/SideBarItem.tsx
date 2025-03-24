@@ -117,7 +117,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
 
       {isExpanded && isOpen && item.children && !item.disabled && (
         <ul className="sub-items">
-          {item.children.map((child, index) => (
+          {item.children.map((child, index: number) => (
             <li key={index} className="sub-item">
               <NavLink
                 to={child.disabled ? "#" : child.href || "#"}

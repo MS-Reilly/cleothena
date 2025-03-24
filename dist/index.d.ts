@@ -16,6 +16,45 @@ type SimpleButtonProps = {
 
 declare const SimpleButton: React$1.FC<SimpleButtonProps>;
 
+type NavItem = {
+    label: string;
+    href: string;
+    children?: NavItem[];
+};
+interface NavbarProps {
+    logo?: React.ReactNode;
+    links: NavItem[];
+    position?: 'static' | 'fixed' | 'sticky';
+    theme?: 'light' | 'dark';
+    className?: string;
+    ghost?: boolean;
+    sideBarSide?: 'left' | 'right';
+}
+
+declare const Navbar: React$1.FC<NavbarProps>;
+
+interface SideBarProps {
+    logo: string;
+    sidebarConfig?: SidebarSectionConfig[];
+    side?: "left" | "right";
+}
+interface SidebarSectionConfig {
+    section: string;
+    items: SidebarItemConfig[];
+    [key: string]: any;
+}
+interface SidebarItemConfig {
+    title: string;
+    path?: string;
+    icon?: React.ReactNode;
+    disabled?: boolean;
+    color?: string;
+    subItems?: SidebarItemConfig[];
+    [key: string]: any;
+}
+
+declare const SideBar: React$1.FC<SideBarProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -109,4 +148,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { SimpleButton, type Theme, ThemeProvider, type ThemeProviderProps, theme, useTheme };
+export { Navbar, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
+export type { Theme, ThemeProviderProps };

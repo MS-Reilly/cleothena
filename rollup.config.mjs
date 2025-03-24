@@ -1,4 +1,5 @@
 import resolve from "@rollup/plugin-node-resolve";
+import svgr from '@svgr/rollup';
 import typescript from "@rollup/plugin-typescript";
 import commonjs from "@rollup/plugin-commonjs";
 import dts from "rollup-plugin-dts";
@@ -24,6 +25,7 @@ export default [
             }
         ],
         plugins: [
+            svgr(),
             resolve({
                 extensions: [".js", ".jsx", ".ts", ".tsx"],
                 skip: ["react", "react-dom"],
