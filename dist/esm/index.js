@@ -212,7 +212,7 @@ function styleInject(css, ref) {
 var css_248z$2 = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.buttonClass {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  text-align: center;\n  border: 2px solid transparent;\n  user-select: none;\n  transition: all 0.4s ease-in-out;\n  cursor: pointer;\n  letter-spacing: 0.5px;\n  line-height: 1.5;\n  /* Default Button Colors */\n  background-color: #FF9F1A;\n  color: #ffffff;\n  border-color: #FF9F1A;\n  border-radius: 8px;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;\n  /* Variant Styles */\n  /* Secondary Variant */\n  /* Accent Variant */\n  /* Highlight Variant */\n  /* Outline Variant */\n  /* Ghost Variant */\n  /* Responsive Behavior */\n}\n.buttonClass:hover {\n  opacity: 0.85;\n}\n.buttonClass:active {\n  transform: scale(0.98);\n}\n.buttonClass.disabled {\n  pointer-events: none;\n  opacity: 0.6;\n  background-color: #E0E0E0;\n  color: #9E9E9E;\n  border-color: #BDBDBD;\n}\n.buttonClass.xs {\n  font-size: 8px;\n  padding: 4px 8px;\n  height: 25px;\n  min-width: 20px;\n  border-radius: 3px;\n}\n.buttonClass.sm {\n  font-size: 12px;\n  padding: 6px 12px;\n  height: 25px;\n  min-width: 20px;\n  border-radius: 4px;\n}\n.buttonClass.md {\n  font-size: 16px;\n  padding: 10px 16px;\n  height: 35px;\n  min-width: 30px;\n  border-radius: 8px;\n}\n.buttonClass.lg {\n  font-size: 20px;\n  padding: 14px 20px;\n  height: 52px;\n  min-width: 120px;\n  border-radius: 12px;\n}\n.buttonClass.secondary {\n  background-color: #FFB516;\n  border-color: #FFB516;\n  color: #000000;\n}\n.buttonClass.accent {\n  background-color: #2EC4B6;\n  border-color: #2EC4B6;\n  color: #ffffff;\n}\n.buttonClass.highlight {\n  background-color: #00ADA9;\n  border-color: #00ADA9;\n  color: #ffffff;\n}\n.buttonClass.outline {\n  background-color: transparent;\n  border-color: currentColor;\n  color: inherit;\n}\n.buttonClass.ghost {\n  background-color: transparent;\n  border: none;\n  color: inherit;\n  box-shadow: none;\n}\n@media (max-width: 768px) {\n  .buttonClass.md {\n    font-size: 12px;\n    padding: 8px 14px;\n  }\n  .buttonClass.lg {\n    font-size: 16px;\n    padding: 12px 18px;\n  }\n}";
 styleInject(css_248z$2);
 
-var _excluded$2 = ["title", "children", "onClick", "className", "disabled", "variant", "color", "outline", "ghost"];
+var _excluded = ["title", "children", "onClick", "className", "disabled", "variant", "color", "outline", "ghost"];
 var SimpleButton = function SimpleButton(_ref) {
   var _theme$borders, _theme$borders2, _theme$borders3, _theme$borders4, _theme$shadows, _theme$shadows2, _theme$shadows3, _theme$shadows4;
   var title = _ref.title,
@@ -230,7 +230,7 @@ var SimpleButton = function SimpleButton(_ref) {
     outline = _ref$outline === void 0 ? false : _ref$outline,
     _ref$ghost = _ref.ghost,
     ghost = _ref$ghost === void 0 ? false : _ref$ghost,
-    rest = _objectWithoutProperties(_ref, _excluded$2);
+    rest = _objectWithoutProperties(_ref, _excluded);
   var theme = useTheme() || {};
   var borderRadiusMap = {
     xs: ((_theme$borders = theme.borders) === null || _theme$borders === void 0 ? void 0 : _theme$borders.radiusXs) || '3px',
@@ -306,41 +306,6 @@ var useSafeLocation = function useSafeLocation() {
   return context ? useLocation() : null;
 };
 
-var _excluded$1 = ["to", "children", "className", "style"];
-// This SafeNavLink avoids crashing when router context is missing
-var SafeNavLink = function SafeNavLink(_ref) {
-  var to = _ref.to,
-    children = _ref.children,
-    className = _ref.className,
-    style = _ref.style,
-    rest = _objectWithoutProperties(_ref, _excluded$1);
-  var routerContext = useContext(UNSAFE_LocationContext);
-  if (!routerContext) {
-    console.warn("⚠️ <SafeNavLink> used outside <BrowserRouter>. Rendering <span> fallback.");
-    return jsx("span", _objectSpread2(_objectSpread2({
-      className: typeof className === "function" ? className({
-        isActive: false,
-        isPending: false,
-        isTransitioning: false
-      }) : className,
-      style: typeof style === "function" ? style({
-        isActive: false,
-        isPending: false,
-        isTransitioning: false
-      }) : style
-    }, rest), {}, {
-      children: children
-    }));
-  }
-  return jsx(NavLink, _objectSpread2(_objectSpread2({
-    to: to,
-    className: className,
-    style: style
-  }, rest), {}, {
-    children: children
-  }));
-};
-
 var SidebarItem = function SidebarItem(_ref) {
   var _item$children;
   var item = _ref.item,
@@ -404,7 +369,7 @@ var SidebarItem = function SidebarItem(_ref) {
         },
         children: isExpanded ? "-" : "+"
       })]
-    }) : jsx(SafeNavLink, {
+    }) : jsx(NavLink, {
       to: item.disabled ? "#" : item.href || "#",
       className: function className(_ref2) {
         var isActive = _ref2.isActive;
@@ -440,7 +405,7 @@ var SidebarItem = function SidebarItem(_ref) {
       children: item.children.map(function (child, index) {
         return jsx("li", {
           className: "sub-item",
-          children: jsx(SafeNavLink, {
+          children: jsx(NavLink, {
             to: child.disabled ? "#" : child.href || "#",
             className: function className(_ref5) {
               var isActive = _ref5.isActive;
@@ -594,26 +559,6 @@ var SideBar = function SideBar(_ref) {
   });
 };
 
-var _excluded = ["to", "children"];
-// Same props as Link
-var SafeLink = function SafeLink(_ref) {
-  var to = _ref.to,
-    children = _ref.children,
-    rest = _objectWithoutProperties(_ref, _excluded);
-  var routerContext = useContext(UNSAFE_LocationContext);
-  if (!routerContext) {
-    console.warn("⚠️ <SafeLink> used outside <BrowserRouter>. Rendering <span> fallback.");
-    return jsx("span", _objectSpread2(_objectSpread2({}, rest), {}, {
-      children: children
-    }));
-  }
-  return jsx(Link, _objectSpread2(_objectSpread2({
-    to: to
-  }, rest), {}, {
-    children: children
-  }));
-};
-
 var Navbar = function Navbar(_ref) {
   var logo = _ref.logo,
     _ref$links = _ref.links,
@@ -671,7 +616,7 @@ var Navbar = function Navbar(_ref) {
     style: navbarStyles,
     children: jsxs("div", {
       className: "navbar-container",
-      children: [jsx(SafeLink, {
+      children: [jsx(Link, {
         to: "/",
         children: jsx("div", {
           className: "navbar-logo",
@@ -682,7 +627,7 @@ var Navbar = function Navbar(_ref) {
         children: [links.map(function (link) {
           return jsxs("div", {
             className: "navbar-item",
-            children: [jsx(SafeNavLink, {
+            children: [jsx(NavLink, {
               to: link.href,
               className: "nav-link",
               style: function style(_ref2) {
@@ -698,7 +643,7 @@ var Navbar = function Navbar(_ref) {
             }), link.children && jsx("div", {
               className: "navbar-dropdown",
               children: link.children.map(function (child) {
-                return jsx(SafeNavLink, {
+                return jsx(NavLink, {
                   to: child.href,
                   end: true,
                   className: "nav-link",

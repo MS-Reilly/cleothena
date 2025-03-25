@@ -4,7 +4,8 @@ import { SidebarItemConfig } from "./types";
 import { useTheme } from "../../theme/hooks/useTheme";
 import { lightenColor } from "../../utils/colorUtils";
 import { useSafeLocation } from "../../utils/useSafeLocation";
-import { SafeNavLink as NavLink } from "../../utils/SafeNavLink";
+import { NavLink } from "react-router-dom";
+
 
 
 interface SidebarItemProps {
