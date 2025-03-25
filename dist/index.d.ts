@@ -1,4 +1,4 @@
-import React$1 from 'react';
+import React$1, { ReactNode } from 'react';
 
 type ButtonVariant = 'xs' | 'sm' | 'md' | 'lg';
 type ButtonColor = 'primary' | 'secondary' | 'accent' | 'highlight';
@@ -54,6 +54,19 @@ interface SidebarItemConfig {
 }
 
 declare const SideBar: React$1.FC<SideBarProps>;
+
+interface FullScreenHeroProps {
+    image: string;
+    children: ReactNode;
+    top?: string;
+    left?: string;
+    right?: string;
+    animationThreshold?: number;
+    overlay?: boolean;
+    overlayColor?: string;
+}
+
+declare const FullScreenHero: React$1.FC<FullScreenHeroProps>;
 
 declare const theme: {
     colors: {
@@ -148,5 +161,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { Navbar, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
+export { FullScreenHero, Navbar, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };
