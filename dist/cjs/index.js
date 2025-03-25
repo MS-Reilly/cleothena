@@ -369,7 +369,6 @@ var SidebarItem = function SidebarItem(_ref) {
       onClick: item.disabled ? undefined : toggleExpand,
       style: {
         cursor: item.disabled ? "not-allowed" : "pointer",
-        color: isAnyChildActive ? theme.colors.neutral.white : theme.colors.neutral.grey,
         backgroundColor: isAnyChildActive ? lightenColor(theme.colors.secondary, 0.1) : "transparent"
       },
       children: [jsxRuntime.jsx("span", {
@@ -377,7 +376,9 @@ var SidebarItem = function SidebarItem(_ref) {
         children: Icon && jsxRuntime.jsx(Icon, {
           width: 20,
           height: 20,
-          fill: isAnyChildActive ? theme.colors.neutral.white : theme.colors.accent
+          style: {
+            fill: isAnyChildActive ? theme.colors.neutral.white : theme.colors.accent
+          }
         })
       }), jsxRuntime.jsx("span", {
         className: "title",
@@ -402,7 +403,6 @@ var SidebarItem = function SidebarItem(_ref) {
         var isActive = _ref3.isActive;
         return {
           cursor: item.disabled ? "not-allowed" : "pointer",
-          color: isActive ? theme.colors.neutral.white : theme.colors.neutral.grey,
           backgroundColor: isActive ? lightenColor(theme.colors.secondary, 0.1) : "transparent"
         };
       },
@@ -415,7 +415,9 @@ var SidebarItem = function SidebarItem(_ref) {
             children: Icon && jsxRuntime.jsx(Icon, {
               width: 18,
               height: 18,
-              fill: isActive ? theme.colors.neutral.white : theme.colors.accent
+              style: {
+                fill: isActive ? theme.colors.neutral.white : theme.colors.accent
+              }
             })
           }), jsxRuntime.jsx("span", {
             className: "title",
@@ -437,13 +439,20 @@ var SidebarItem = function SidebarItem(_ref) {
               var isActive = _ref5.isActive;
               return "sub-item-link ".concat(isActive ? "active" : "notActive", " ").concat(child.disabled ? "disabled" : "");
             },
-            style: {
-              pointerEvents: child.disabled ? "none" : "auto",
-              color: child.disabled ? "#b0b0b0" : "inherit"
+            style: function style(_ref6) {
+              var isActive = _ref6.isActive;
+              return {
+                pointerEvents: child.disabled ? "none" : "auto",
+                color: child.disabled ? "#b0b0b0" : isActive ? theme.colors.neutral.white : theme.colors.neutral.grey,
+                backgroundColor: isActive ? lightenColor(theme.colors.secondary, 0.1) : "transparent"
+              };
             },
             end: true,
             children: jsxRuntime.jsx("span", {
               className: "sub-title",
+              style: {
+                color: child.disabled ? "#b0b0b0" : theme.colors.neutral.grey
+              },
               children: child.label
             })
           })
