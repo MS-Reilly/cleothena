@@ -2355,7 +2355,8 @@ var Navbar = function Navbar(_ref) {
           variant: "sm"
         })]
       }), isMobile && jsxRuntime.jsx("div", {
-        className: "flex"
+        className: "flex",
+        children: "test"
       })]
     })
   });

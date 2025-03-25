@@ -2335,7 +2335,8 @@ var Navbar = function Navbar(_ref) {
           variant: "sm"
         })]
       }), isMobile && jsx("div", {
-        className: "flex"
+        className: "flex",
+        children: "test"
       })]
     })
   });

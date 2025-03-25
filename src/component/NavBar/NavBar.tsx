@@ -5,6 +5,9 @@ import "./styles.scss";
 import { NavLink, Link } from "react-router-dom";
 import SimpleButton from "../SimpleButton/SimpleButton";
 import SideBar from "../SideBar/SideBar";
+import { useLocation } from "react-router-dom";
+
+
 
 const Navbar: React.FC<NavbarProps> = ({
   logo,
@@ -16,6 +19,13 @@ const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+
+  try {
+    const location = useLocation();
+    console.log("✅ Navbar in router:", location.pathname);
+  } catch (e) {
+    console.error("❌ Navbar rendered without <BrowserRouter>", e);
+  }
 
   // Detect window resize and update isMobile state
   useEffect(() => {
