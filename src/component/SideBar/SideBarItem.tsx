@@ -56,9 +56,6 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
           onClick={item.disabled ? undefined : toggleExpand}
           style={{
             cursor: item.disabled ? "not-allowed" : "pointer",
-            color: isAnyChildActive
-              ? theme.colors.neutral.white
-              : theme.colors.neutral.grey,
             backgroundColor: isAnyChildActive
               ? lightenColor(theme.colors.secondary, 0.1)
               : "transparent",
@@ -69,26 +66,24 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
               <Icon
                 width={20}
                 height={20}
-                fill={
-                  isAnyChildActive
+                style={{
+                  fill: isAnyChildActive
                     ? theme.colors.neutral.white
-                    : theme.colors.accent
-                }
+                    : theme.colors.accent,
+                }}
               />
             )}
           </span>
-          {
-                <span
-                  className="title"
-                  style={{
-                    color: isAnyChildActive
-                      ? theme.colors.neutral.white
-                      : theme.colors.neutral.grey,
-                  }}
-                >
-                  {item.label}
-                </span>
-              }
+          <span
+            className="title"
+            style={{
+              color: isAnyChildActive
+                ? theme.colors.neutral.white
+                : theme.colors.neutral.grey,
+            }}
+          >
+            {item.label}
+          </span>
           {isOpen && !item.disabled && (
             <span
               className="expand-icon"
@@ -112,9 +107,6 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
           }
           style={({ isActive }) => ({
             cursor: item.disabled ? "not-allowed" : "pointer",
-            color: isActive
-              ? theme.colors.neutral.white
-              : theme.colors.neutral.grey,
             backgroundColor: isActive
               ? lightenColor(theme.colors.secondary, 0.1)
               : "transparent",
@@ -128,26 +120,24 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
                   <Icon
                     width={18}
                     height={18}
-                    fill={
-                      isActive
+                    style={{
+                      fill: isActive
                         ? theme.colors.neutral.white
-                        : theme.colors.accent
-                    }
+                        : theme.colors.accent,
+                    }}
                   />
                 )}
               </span>
-              {
-                <span
-                  className="title"
-                  style={{
-                    color: isActive
-                      ? theme.colors.neutral.white
-                      : theme.colors.neutral.grey,
-                  }}
-                >
-                  {item.label}
-                </span>
-              }
+              <span
+                className="title"
+                style={{
+                  color: isActive
+                    ? theme.colors.neutral.white
+                    : theme.colors.neutral.grey,
+                }}
+              >
+                {item.label}
+              </span>
             </>
           )}
         </NavLink>
@@ -164,14 +154,29 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
                     child.disabled ? "disabled" : ""
                   }`
                 }
-                style={{
+                style={({ isActive }) => ({
                   pointerEvents: child.disabled ? "none" : "auto",
-                  color: child.disabled ? "#b0b0b0" : "inherit",
-                }}
+                  color: child.disabled
+                    ? "#b0b0b0"
+                    : isActive
+                    ? theme.colors.neutral.white
+                    : theme.colors.neutral.grey,
+                  backgroundColor: isActive
+                    ? lightenColor(theme.colors.secondary, 0.1)
+                    : "transparent",
+                })}
                 end
               >
-                {/* Dot element removed */}
-                <span className="sub-title">{child.label}</span>
+                <span
+                  className="sub-title"
+                  style={{
+                    color: child.disabled
+                      ? "#b0b0b0"
+                      : theme.colors.neutral.grey,
+                  }}
+                >
+                  {child.label}
+                </span>
               </NavLink>
             </li>
           ))}
