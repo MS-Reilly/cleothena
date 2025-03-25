@@ -6,7 +6,7 @@ import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import babel from "@rollup/plugin-babel"; // You've imported babel, let's use it for potential JS transformations
 import packageJson from "./package.json" assert {type: "json"};
-
+import image from "@rollup/plugin-image";
 
 
 export default [
@@ -25,6 +25,7 @@ export default [
             }
         ],
         plugins: [
+            image(),
             svgr(),
             resolve({
                 extensions: [".js", ".jsx", ".ts", ".tsx"],
