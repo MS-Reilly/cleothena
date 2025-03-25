@@ -2326,7 +2326,7 @@ var SidebarItem = function SidebarItem(_ref) {
     setIsExpanded = _useState2[1];
   var location = useSafeLocation();
   if (!location) {
-    console.warn("⚠️ Navbar is rendered without router context.");
+    console.warn("⚠️ SidebarItem is rendered without router context.");
   }
   var theme = useTheme() || {};
   var styles = React2.useMemo(function () {
@@ -2338,9 +2338,9 @@ var SidebarItem = function SidebarItem(_ref) {
     };
   }, [theme]);
   // Check if any child is active using the href field.
-  var isAnyChildActive = (_item$children = item.children) === null || _item$children === void 0 ? void 0 : _item$children.some(function (child) {
+  var isAnyChildActive = location ? (_item$children = item.children) === null || _item$children === void 0 ? void 0 : _item$children.some(function (child) {
     return location.pathname.startsWith(child.href || "");
-  });
+  }) : false;
   var toggleExpand = function toggleExpand(e) {
     if (item.disabled) return;
     if (item.children) {
@@ -2480,7 +2480,7 @@ var SideBar = function SideBar(_ref) {
   var hamburgerRef = React2.useRef(null);
   var location = useSafeLocation();
   if (!location) {
-    console.warn("⚠️ Navbar is rendered without router context.");
+    console.warn("⚠️ SideBar is rendered without router context.");
   }
   var theme = useTheme() || {};
   // Close sidebar when clicking outside, except when clicking the hamburger icon.
@@ -2500,8 +2500,10 @@ var SideBar = function SideBar(_ref) {
   }, [isMobileOpen]);
   // Close the sidebar on route change.
   React2.useEffect(function () {
-    setIsMobileOpen(false);
-  }, [location.pathname]);
+    if (location) {
+      setIsMobileOpen(false);
+    }
+  }, [location === null || location === void 0 ? void 0 : location.pathname]);
   return jsxRuntime.jsxs(jsxRuntime.Fragment, {
     children: [!isMobileOpen && jsxRuntime.jsx("img", {
       src: SvgHamburger,

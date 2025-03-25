@@ -21,7 +21,7 @@ const SideBar: React.FC<SideBarProps> = ({
   const hamburgerRef = useRef<HTMLImageElement>(null);
   const location = useSafeLocation();
     if (!location) {
-      console.warn("⚠️ Navbar is rendered without router context.");
+      console.warn("⚠️ SideBar is rendered without router context.");
     }
 
     
@@ -52,8 +52,10 @@ const SideBar: React.FC<SideBarProps> = ({
 
   // Close the sidebar on route change.
   useEffect(() => {
-    setIsMobileOpen(false);
-  }, [location.pathname]);
+    if (location) {
+      setIsMobileOpen(false);
+    }
+  }, [location?.pathname]);
 
   return (
     <>

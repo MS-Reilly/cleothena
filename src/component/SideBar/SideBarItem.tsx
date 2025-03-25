@@ -16,7 +16,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const location = useSafeLocation();
     if (!location) {
-      console.warn("⚠️ Navbar is rendered without router context.");
+      console.warn("⚠️ SidebarItem is rendered without router context.");
     }
 
     
@@ -33,9 +33,9 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
   );
 
   // Check if any child is active using the href field.
-  const isAnyChildActive = item.children?.some((child) =>
-    location.pathname.startsWith(child.href || "")
-  );
+  const isAnyChildActive = location
+  ? item.children?.some((child) => location.pathname.startsWith(child.href || ""))
+  : false;
 
   const toggleExpand = (e: React.MouseEvent<HTMLDivElement>) => {
     if (item.disabled) return;
