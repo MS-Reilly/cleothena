@@ -2247,6 +2247,120 @@ function useViewTransitionState(to, opts = {}) {
 // lib/server-runtime/crypto.ts
 new TextEncoder();
 
+var Navbar = function Navbar(_ref) {
+  var logo = _ref.logo,
+    _ref$links = _ref.links,
+    links = _ref$links === void 0 ? [] : _ref$links,
+    _ref$position = _ref.position,
+    position = _ref$position === void 0 ? "sticky" : _ref$position,
+    _ref$className = _ref.className,
+    className = _ref$className === void 0 ? "" : _ref$className,
+    _ref$ghost = _ref.ghost,
+    ghost = _ref$ghost === void 0 ? false : _ref$ghost;
+    _ref.sideBarSide;
+  var _useState = React2.useState(window.innerWidth < 768),
+    _useState2 = _slicedToArray(_useState, 2),
+    isMobile = _useState2[0],
+    setIsMobile = _useState2[1];
+  var _useState3 = React2.useState(false),
+    _useState4 = _slicedToArray(_useState3, 2);
+    _useState4[0];
+    var setIsMobileOpen = _useState4[1];
+  // Detect window resize and update isMobile state
+  React2.useEffect(function () {
+    var handleResize = function handleResize() {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsMobileOpen(false); // Ensure mobile menu closes when switching back to desktop
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return function () {
+      return window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  // Default theme colors if missing from theme provider
+  var theme = useTheme() || {};
+  var navbarStyles = React2.useMemo(function () {
+    var _theme$colors$neutral, _theme$colors$neutral2, _theme$shadows, _theme$typography;
+    return {
+      backgroundColor: ghost ? "transparent" : (_theme$colors$neutral = theme.colors.neutral) === null || _theme$colors$neutral === void 0 ? void 0 : _theme$colors$neutral.white,
+      color: theme.colors.primary || ((_theme$colors$neutral2 = theme.colors.neutral) === null || _theme$colors$neutral2 === void 0 ? void 0 : _theme$colors$neutral2.black) || "#000000",
+      boxShadow: ghost ? "none" : ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.md) || "0 2px 5px rgba(0,0,0,0.3)",
+      fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Arial, sans-serif",
+      zIndex: ghost ? 0 : 50,
+      position: position === "fixed" ? "fixed" : position === "sticky" ? "sticky" : "static",
+      top: 0,
+      width: "100%"
+    };
+  }, [theme, position, ghost]);
+  return jsxRuntime.jsx("nav", {
+    className: "navbar ".concat(className),
+    style: navbarStyles,
+    children: jsxRuntime.jsxs("div", {
+      className: "navbar-container",
+      children: [jsxRuntime.jsx(Link, {
+        to: "/",
+        children: jsxRuntime.jsx("div", {
+          className: "navbar-logo",
+          children: logo
+        })
+      }), !isMobile && jsxRuntime.jsxs("div", {
+        className: "navbar-links",
+        children: [links.map(function (link) {
+          return jsxRuntime.jsxs("div", {
+            className: "navbar-item",
+            children: [jsxRuntime.jsx(NavLink, {
+              to: link.href,
+              className: "nav-link",
+              style: function style(_ref2) {
+                var _theme$colors$neutral3;
+                var isActive = _ref2.isActive;
+                return {
+                  color: isActive ? navbarStyles.color : (_theme$colors$neutral3 = theme.colors.neutral) === null || _theme$colors$neutral3 === void 0 ? void 0 : _theme$colors$neutral3.grey,
+                  fontWeight: isActive ? "bold" : "normal",
+                  textDecoration: "none"
+                };
+              },
+              children: link.label
+            }), link.children && jsxRuntime.jsx("div", {
+              className: "navbar-dropdown",
+              children: link.children.map(function (child) {
+                return jsxRuntime.jsx(NavLink, {
+                  to: child.href,
+                  end: true,
+                  className: "nav-link",
+                  style: function style(_ref3) {
+                    var _theme$colors$neutral4;
+                    var isActive = _ref3.isActive;
+                    return {
+                      color: isActive ? navbarStyles.color : (_theme$colors$neutral4 = theme.colors.neutral) === null || _theme$colors$neutral4 === void 0 ? void 0 : _theme$colors$neutral4.grey,
+                      fontWeight: isActive ? "bold" : "normal",
+                      textDecoration: "none"
+                    };
+                  },
+                  children: child.label
+                }, child.label);
+              })
+            })]
+          }, link.label);
+        }), jsxRuntime.jsx(SimpleButton, {
+          title: "Sign Up",
+          color: "secondary",
+          outline: true,
+          variant: "sm"
+        }), jsxRuntime.jsx(SimpleButton, {
+          title: "Sign In",
+          color: "primary",
+          variant: "sm"
+        })]
+      }), isMobile && jsxRuntime.jsx("div", {
+        className: "flex"
+      })]
+    })
+  });
+};
+
 var css_248z = "@charset \"UTF-8\";\n@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sidebar {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 250px;\n  background-color: white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transform: translateX(-100%);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  /* ✅ Close Button Positioned at Absolute Top-Right */\n  /* ✅ Sidebar Header */\n  /* ✅ Sidebar Content (Scrollable) */\n  /* ✅ Sidebar Footer */\n}\n.sidebar.mobile-open {\n  transform: translateX(0);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);\n}\n.sidebar.mobile-closed {\n  transform: translateX(-100%);\n}\n.sidebar.sidebar-right {\n  right: 0;\n  left: auto;\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right.mobile-open {\n  transform: translateX(0);\n}\n.sidebar.sidebar-right.mobile-closed {\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right .close-btn {\n  right: auto;\n  left: 10px;\n}\n.sidebar .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n  z-index: 1100;\n}\n.sidebar .close-btn:hover {\n  transform: scale(1.1);\n  opacity: 0.8;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 25px 15px 15px;\n  border-bottom: 1px solid #e3e6f0;\n  position: relative;\n}\n.sidebar .sidebar-header .logo {\n  max-width: 180px;\n}\n.sidebar .sidebar-header .logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.sidebar .sidebar-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 15px;\n  max-height: calc(100vh - 70px - 60px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 1px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background-color: #f8f9fa;\n  border-radius: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background-color: #f8f9fa;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background-color: #f0f0f0;\n}\n.sidebar .sidebar-footer {\n  padding: 10px;\n  border-top: 1px solid #e3e6f0;\n  background: white;\n}\n.sidebar .sidebar-footer .helper-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  text-align: center;\n  font-size: 0.85rem;\n  padding: 10px;\n  background-color: #e0f7fa;\n  color: #343a40;\n  border-radius: 8px;\n  transition: opacity 0.4s ease, transform 0.4s ease;\n}\n.sidebar .sidebar-footer .helper-card:hover {\n  opacity: 1;\n  transform: translateY(0);\n}\n.sidebar .sidebar-footer .helper-card button {\n  margin-top: 10px;\n  padding: 5px 10px;\n  background-color: #2EC4B6;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  transition: background-color 0.3s ease;\n}\n.sidebar .sidebar-footer .helper-card button:hover {\n  background-color: #00ADA9;\n}\n\n.sidebar-item {\n  box-sizing: border-box;\n  width: 100%;\n}\n.sidebar-item .item-header {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 2px 7px;\n  border-radius: 0.5rem;\n  cursor: pointer;\n  transition: background 0.3s ease, color 0.3s ease;\n  background-color: transparent;\n  gap: 10px;\n}\n.sidebar-item .item-header:hover {\n  background-color: #f7f7f7;\n}\n.sidebar-item .item-header.active {\n  background-color: #e0f7fa;\n  color: #344767;\n}\n.sidebar-item .item-header.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n  color: #6e708c;\n}\n.sidebar-item .item-header .icon {\n  font-size: 1.8rem;\n  transition: color 0.3s ease;\n}\n.sidebar-item .item-header .title {\n  flex-grow: 1;\n  font-weight: 600;\n  text-align: left;\n}\n.sidebar-item .item-header .expand-icon {\n  font-size: 1rem;\n  color: #999999;\n  transition: color 0.3s ease;\n}\n.sidebar-item .sub-items {\n  margin-top: 0.5rem;\n  padding-left: 20px;\n  list-style: none;\n}\n.sidebar-item .sub-items .sub-item {\n  margin-bottom: 0.5rem;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  padding: 4px 8px;\n  border-radius: 0.5rem;\n  transition: background 0.2s ease, color 0.2s ease;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link:hover {\n  background-color: #f9f9f9;\n  color: #2ec4b6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.active {\n  background-color: #d6f5f8;\n  color: #344767;\n  font-weight: bold;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n  font-size: 0.9rem;\n  font-weight: 500;\n}";
 styleInject(css_248z);
 
@@ -2523,126 +2637,6 @@ var SideBar = function SideBar(_ref) {
         })
       })]
     })]
-  });
-};
-
-var Navbar = function Navbar(_ref) {
-  var logo = _ref.logo,
-    _ref$links = _ref.links,
-    links = _ref$links === void 0 ? [] : _ref$links,
-    _ref$position = _ref.position,
-    position = _ref$position === void 0 ? "sticky" : _ref$position,
-    _ref$className = _ref.className,
-    className = _ref$className === void 0 ? "" : _ref$className,
-    _ref$ghost = _ref.ghost,
-    ghost = _ref$ghost === void 0 ? false : _ref$ghost,
-    _ref$sideBarSide = _ref.sideBarSide,
-    sideBarSide = _ref$sideBarSide === void 0 ? "left" : _ref$sideBarSide;
-  var _useState = React2.useState(window.innerWidth < 768),
-    _useState2 = _slicedToArray(_useState, 2),
-    isMobile = _useState2[0],
-    setIsMobile = _useState2[1];
-  var _useState3 = React2.useState(false),
-    _useState4 = _slicedToArray(_useState3, 2);
-    _useState4[0];
-    var setIsMobileOpen = _useState4[1];
-  // Detect window resize and update isMobile state
-  React2.useEffect(function () {
-    var handleResize = function handleResize() {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
-        setIsMobileOpen(false); // Ensure mobile menu closes when switching back to desktop
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return function () {
-      return window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-  // Default theme colors if missing from theme provider
-  var theme = useTheme() || {};
-  var navbarStyles = React2.useMemo(function () {
-    var _theme$colors$neutral, _theme$colors$neutral2, _theme$shadows, _theme$typography;
-    return {
-      backgroundColor: ghost ? "transparent" : (_theme$colors$neutral = theme.colors.neutral) === null || _theme$colors$neutral === void 0 ? void 0 : _theme$colors$neutral.white,
-      color: theme.colors.primary || ((_theme$colors$neutral2 = theme.colors.neutral) === null || _theme$colors$neutral2 === void 0 ? void 0 : _theme$colors$neutral2.black) || "#000000",
-      boxShadow: ghost ? "none" : ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.md) || "0 2px 5px rgba(0,0,0,0.3)",
-      fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Arial, sans-serif",
-      zIndex: ghost ? 0 : 50,
-      position: position === "fixed" ? "fixed" : position === "sticky" ? "sticky" : "static",
-      top: 0,
-      width: "100%"
-    };
-  }, [theme, position, ghost]);
-  return jsxRuntime.jsx("nav", {
-    className: "navbar ".concat(className),
-    style: navbarStyles,
-    children: jsxRuntime.jsxs("div", {
-      className: "navbar-container",
-      children: [jsxRuntime.jsx(Link, {
-        to: "/",
-        children: jsxRuntime.jsx("div", {
-          className: "navbar-logo",
-          children: logo
-        })
-      }), !isMobile && jsxRuntime.jsxs("div", {
-        className: "navbar-links",
-        children: [links.map(function (link) {
-          return jsxRuntime.jsxs("div", {
-            className: "navbar-item",
-            children: [jsxRuntime.jsx(NavLink, {
-              to: link.href,
-              className: "nav-link",
-              style: function style(_ref2) {
-                var _theme$colors$neutral3;
-                var isActive = _ref2.isActive;
-                return {
-                  color: isActive ? navbarStyles.color : (_theme$colors$neutral3 = theme.colors.neutral) === null || _theme$colors$neutral3 === void 0 ? void 0 : _theme$colors$neutral3.grey,
-                  fontWeight: isActive ? "bold" : "normal",
-                  textDecoration: "none"
-                };
-              },
-              children: link.label
-            }), link.children && jsxRuntime.jsx("div", {
-              className: "navbar-dropdown",
-              children: link.children.map(function (child) {
-                return jsxRuntime.jsx(NavLink, {
-                  to: child.href,
-                  end: true,
-                  className: "nav-link",
-                  style: function style(_ref3) {
-                    var _theme$colors$neutral4;
-                    var isActive = _ref3.isActive;
-                    return {
-                      color: isActive ? navbarStyles.color : (_theme$colors$neutral4 = theme.colors.neutral) === null || _theme$colors$neutral4 === void 0 ? void 0 : _theme$colors$neutral4.grey,
-                      fontWeight: isActive ? "bold" : "normal",
-                      textDecoration: "none"
-                    };
-                  },
-                  children: child.label
-                }, child.label);
-              })
-            })]
-          }, link.label);
-        }), jsxRuntime.jsx(SimpleButton, {
-          title: "Sign Up",
-          color: "secondary",
-          outline: true,
-          variant: "sm"
-        }), jsxRuntime.jsx(SimpleButton, {
-          title: "Sign In",
-          color: "primary",
-          variant: "sm"
-        })]
-      }), isMobile && jsxRuntime.jsx("div", {
-        className: "flex",
-        children: jsxRuntime.jsx(SideBar, {
-          logo: logo,
-          sidebarConfig: links,
-          side: sideBarSide
-        })
-      })]
-    })
   });
 };
 
