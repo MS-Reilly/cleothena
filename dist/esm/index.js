@@ -2414,7 +2414,13 @@ var SideBar = function SideBar(_ref) {
     setIsMobileOpen = _useState2[1];
   var sidebarRef = useRef(null);
   var hamburgerRef = useRef(null);
-  var location = useLocation();
+  var location;
+  try {
+    location = useLocation();
+  } catch (err) {
+    console.warn("SideBar rendered without <Router> context");
+    return null; // Or fallback
+  }
   var theme = useTheme() || {};
   // Close sidebar when clicking outside, except when clicking the hamburger icon.
   useEffect(function () {

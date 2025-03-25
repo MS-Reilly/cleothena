@@ -116,8 +116,7 @@ const Navbar: React.FC<NavbarProps> = ({
         {/* Mobile Menu Toggle (Only Visible on Mobile) */}
         {isMobile && (
           <div className="flex">
-            <p>Test</p>
-           {/** <SideBar logo={logo} sidebarConfig={links} side={sideBarSide} /> */}
+            <SideBar logo={logo} sidebarConfig={links} side={sideBarSide} />
           </div>
         )}
       </div>
