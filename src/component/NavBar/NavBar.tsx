@@ -2,13 +2,12 @@ import React, { useState, useMemo, useEffect } from "react";
 import { useTheme } from "../../theme/hooks/useTheme";
 import { NavbarProps } from "./types";
 import "./styles.scss";
-import { NavLink, Link } from "react-router-dom";
 import SimpleButton from "../SimpleButton/SimpleButton";
 import SideBar from "../SideBar/SideBar";
 import { useLocation } from "react-router-dom";
 import { useSafeLocation } from "../../utils/useSafeLocation";
-
-
+import { SafeLink } from "../../utils/SafeLink";
+import { SafeNavLink as NavLink } from "../../utils/SafeNavLink";
 
 const Navbar: React.FC<NavbarProps> = ({
   logo,
@@ -66,9 +65,9 @@ const Navbar: React.FC<NavbarProps> = ({
     <nav className={`navbar ${className}`} style={navbarStyles}>
       <div className="navbar-container">
         {/* Logo */}
-        <Link to="/">
+        <SafeLink to="/">
           <div className="navbar-logo">{logo}</div>
-        </Link>
+        </SafeLink>
 
         {/* Desktop Navigation (Only Visible on Desktop) */}
         {!isMobile && (
