@@ -2266,6 +2266,12 @@ var Navbar = function Navbar(_ref) {
     _useState4 = _slicedToArray(_useState3, 2);
     _useState4[0];
     var setIsMobileOpen = _useState4[1];
+  try {
+    var location = useLocation();
+    console.log("✅ Navbar in router:", location.pathname);
+  } catch (e) {
+    console.error("❌ Navbar rendered without <BrowserRouter>", e);
+  }
   // Detect window resize and update isMobile state
   React2.useEffect(function () {
     var handleResize = function handleResize() {
