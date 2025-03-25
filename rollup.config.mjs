@@ -28,7 +28,7 @@ export default [
             svgr(),
             resolve({
                 extensions: [".js", ".jsx", ".ts", ".tsx"],
-                skip: ["react", "react-dom"],
+                skip: ["react", "react-dom",'react-router-dom'],
               }),
               
             commonjs(),
@@ -53,7 +53,7 @@ export default [
         ],
         // Mark peer dependencies as external
         
-        external: ["react", "react-dom", "react/jsx-runtime"],
+        external: ["react", "react-dom","react-router-dom", "react/jsx-runtime"],
     },
     {
         input: "dist/esm/types/index.d.ts", // Point to the emitted declarations
