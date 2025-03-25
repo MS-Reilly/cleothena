@@ -379,8 +379,11 @@ var SidebarItem = function SidebarItem(_ref) {
           height: 20,
           fill: isAnyChildActive ? theme.colors.neutral.white : theme.colors.accent
         })
-      }), isOpen && jsxRuntime.jsx("span", {
+      }), jsxRuntime.jsx("span", {
         className: "title",
+        style: {
+          color: isAnyChildActive ? theme.colors.neutral.white : theme.colors.neutral.grey
+        },
         children: item.label
       }), isOpen && !item.disabled && jsxRuntime.jsx("span", {
         className: "expand-icon",
@@ -414,8 +417,11 @@ var SidebarItem = function SidebarItem(_ref) {
               height: 18,
               fill: isActive ? theme.colors.neutral.white : theme.colors.accent
             })
-          }), isOpen && jsxRuntime.jsx("span", {
+          }), jsxRuntime.jsx("span", {
             className: "title",
+            style: {
+              color: isActive ? theme.colors.neutral.white : theme.colors.neutral.grey
+            },
             children: item.label
           })]
         });

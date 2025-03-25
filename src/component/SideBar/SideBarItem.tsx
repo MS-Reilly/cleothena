@@ -6,8 +6,6 @@ import { lightenColor } from "../../utils/colorUtils";
 import { useSafeLocation } from "../../utils/useSafeLocation";
 import { NavLink } from "react-router-dom";
 
-
-
 interface SidebarItemProps {
   item: SidebarItemConfig;
   isOpen: boolean;
@@ -16,11 +14,9 @@ interface SidebarItemProps {
 const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const location = useSafeLocation();
-    if (!location) {
-      console.warn("⚠️ SidebarItem is rendered without router context.");
-    }
-
-    
+  if (!location) {
+    console.warn("⚠️ SidebarItem is rendered without router context.");
+  }
 
   const theme = useTheme() || {};
 
@@ -35,8 +31,10 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
 
   // Check if any child is active using the href field.
   const isAnyChildActive = location
-  ? item.children?.some((child) => location.pathname.startsWith(child.href || ""))
-  : false;
+    ? item.children?.some((child) =>
+        location.pathname.startsWith(child.href || "")
+      )
+    : false;
 
   const toggleExpand = (e: React.MouseEvent<HTMLDivElement>) => {
     if (item.disabled) return;
@@ -67,11 +65,30 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
           }}
         >
           <span className="icon">
-            {Icon && <Icon width={20} height={20} fill={
-                      isAnyChildActive ? theme.colors.neutral.white : theme.colors.accent
-                    } />}
+            {Icon && (
+              <Icon
+                width={20}
+                height={20}
+                fill={
+                  isAnyChildActive
+                    ? theme.colors.neutral.white
+                    : theme.colors.accent
+                }
+              />
+            )}
           </span>
-          {isOpen && <span className="title">{item.label}</span>}
+          {
+                <span
+                  className="title"
+                  style={{
+                    color: isAnyChildActive
+                      ? theme.colors.neutral.white
+                      : theme.colors.neutral.grey,
+                  }}
+                >
+                  {item.label}
+                </span>
+              }
           {isOpen && !item.disabled && (
             <span
               className="expand-icon"
@@ -112,12 +129,25 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
                     width={18}
                     height={18}
                     fill={
-                      isActive ? theme.colors.neutral.white : theme.colors.accent
+                      isActive
+                        ? theme.colors.neutral.white
+                        : theme.colors.accent
                     }
                   />
                 )}
               </span>
-              {isOpen && <span className="title">{item.label}</span>}
+              {
+                <span
+                  className="title"
+                  style={{
+                    color: isActive
+                      ? theme.colors.neutral.white
+                      : theme.colors.neutral.grey,
+                  }}
+                >
+                  {item.label}
+                </span>
+              }
             </>
           )}
         </NavLink>
