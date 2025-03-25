@@ -18,7 +18,13 @@ const SideBar: React.FC<SideBarProps> = ({
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLImageElement>(null);
-  const location = useLocation();
+  let location;
+  try {
+    location = useLocation();
+  } catch (err) {
+    console.warn("SideBar rendered without <Router> context");
+    return null; // Or fallback
+  }
 
   const theme = useTheme() || {};
 
@@ -63,7 +69,6 @@ const SideBar: React.FC<SideBarProps> = ({
         />
       )}
 
-
       {/* Sidebar */}
       <div
         ref={sidebarRef}
@@ -91,11 +96,15 @@ const SideBar: React.FC<SideBarProps> = ({
 
         {/* Sidebar Footer */}
         <div className="sidebar-footer">
-          <div className="helper-card" style={{ backgroundColor: lightenColor(theme.colors.secondary,0.9) }}>
+          <div
+            className="helper-card"
+            style={{
+              backgroundColor: lightenColor(theme.colors.secondary, 0.9),
+            }}
+          >
             <p>Necesitas Ayuda?</p>
             <span>Envianos un mensaje</span>
-            <SimpleButton color="primary" variant="sm" title="¡Contactanos!"/>
-
+            <SimpleButton color="primary" variant="sm" title="¡Contactanos!" />
           </div>
         </div>
       </div>
