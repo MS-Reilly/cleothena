@@ -1,9 +1,11 @@
 import React, { useState, useMemo } from "react";
-import { NavLink, useLocation } from "react-router-dom";
 import "./styles.scss";
 import { SidebarItemConfig } from "./types";
 import { useTheme } from "../../theme/hooks/useTheme";
 import { lightenColor } from "../../utils/colorUtils";
+import { useSafeLocation } from "../../utils/useSafeLocation";
+import { SafeNavLink as NavLink } from "../../utils/SafeNavLink";
+
 
 interface SidebarItemProps {
   item: SidebarItemConfig;
@@ -12,7 +14,12 @@ interface SidebarItemProps {
 
 const SidebarItem: React.FC<SidebarItemProps> = ({ item, isOpen }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const location = useLocation();
+  const location = useSafeLocation();
+    if (!location) {
+      console.warn("⚠️ Navbar is rendered without router context.");
+    }
+
+    
 
   const theme = useTheme() || {};
 

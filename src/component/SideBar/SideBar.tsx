@@ -8,6 +8,7 @@ import { SideBarProps } from "./types";
 import { useTheme } from "../../theme/hooks/useTheme";
 import { lightenColor } from "../../utils/colorUtils";
 import SimpleButton from "../SimpleButton/SimpleButton";
+import { useSafeLocation } from "../../utils/useSafeLocation";
 
 const SideBar: React.FC<SideBarProps> = ({
   logo,
@@ -18,13 +19,12 @@ const SideBar: React.FC<SideBarProps> = ({
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLImageElement>(null);
-  let location;
-  try {
-    location = useLocation();
-  } catch (err) {
-    console.warn("SideBar rendered without <Router> context");
-    return null; // Or fallback
-  }
+  const location = useSafeLocation();
+    if (!location) {
+      console.warn("⚠️ Navbar is rendered without router context.");
+    }
+
+    
 
   const theme = useTheme() || {};
 

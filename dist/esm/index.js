@@ -1,6 +1,6 @@
 import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
 import * as React2 from 'react';
-import { createContext, useContext, useMemo, useState, useEffect, useRef } from 'react';
+import { createContext, useContext, useMemo, useState, useRef, useEffect } from 'react';
 
 function _arrayLikeToArray(r, a) {
   (null == a || a > r.length) && (a = r.length);
@@ -270,6 +270,34 @@ var SimpleButton = function SimpleButton(_ref) {
 
 var css_248z$1 = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sb-show-main {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\n.navbar {\n  box-sizing: border-box;\n  width: 100%;\n  max-width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  transition: all 0.3s ease;\n  box-shadow: 16px;\n  padding: 10px 10px;\n}\n.navbar .navbar-container {\n  display: flex;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n}\n.navbar .navbar-links {\n  display: flex;\n  gap: 20px;\n  align-items: center;\n}\n.navbar .navbar-item {\n  position: relative;\n  text-decoration: none;\n}\n.navbar .navbar-item .nav-link {\n  font-weight: 500;\n  text-decoration: none;\n  padding: 10px;\n  border-radius: 5px;\n  transition: all 0.3s ease;\n}\n.navbar .navbar-item:hover .navbar-dropdown {\n  display: flex;\n  flex-direction: column;\n  transition: all 0.3s ease-in-out;\n}\n.navbar .navbar-item:hover .navbar-dropdown .nav-link {\n  font-weight: 500;\n  text-decoration: none;\n  padding: 10px;\n  border-radius: 5px;\n  transition: all 0.3s ease;\n}\n.navbar .navbar-dropdown {\n  display: none;\n  position: absolute;\n  background: white;\n  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);\n  padding: 10px;\n  border-radius: 5px;\n}\n.navbar .navbar-toggle {\n  display: none;\n  background: transparent;\n  border: none;\n  cursor: pointer;\n}\n.navbar .navbar-mobile {\n  display: none;\n  flex-direction: column;\n  padding: 10px;\n}\n@media (max-width: 768px) {\n  .navbar .navbar-links {\n    display: none;\n  }\n  .navbar .navbar-toggle {\n    display: block;\n  }\n  .navbar .navbar-mobile {\n    display: flex;\n  }\n}";
 styleInject(css_248z$1);
+
+var css_248z = "@charset \"UTF-8\";\n@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sidebar {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 250px;\n  background-color: white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transform: translateX(-100%);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  /* ✅ Close Button Positioned at Absolute Top-Right */\n  /* ✅ Sidebar Header */\n  /* ✅ Sidebar Content (Scrollable) */\n  /* ✅ Sidebar Footer */\n}\n.sidebar.mobile-open {\n  transform: translateX(0);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);\n}\n.sidebar.mobile-closed {\n  transform: translateX(-100%);\n}\n.sidebar.sidebar-right {\n  right: 0;\n  left: auto;\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right.mobile-open {\n  transform: translateX(0);\n}\n.sidebar.sidebar-right.mobile-closed {\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right .close-btn {\n  right: auto;\n  left: 10px;\n}\n.sidebar .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n  z-index: 1100;\n}\n.sidebar .close-btn:hover {\n  transform: scale(1.1);\n  opacity: 0.8;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 25px 15px 15px;\n  border-bottom: 1px solid #e3e6f0;\n  position: relative;\n}\n.sidebar .sidebar-header .logo {\n  max-width: 180px;\n}\n.sidebar .sidebar-header .logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.sidebar .sidebar-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 15px;\n  max-height: calc(100vh - 70px - 60px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 1px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background-color: #f8f9fa;\n  border-radius: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background-color: #f8f9fa;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background-color: #f0f0f0;\n}\n.sidebar .sidebar-footer {\n  padding: 10px;\n  border-top: 1px solid #e3e6f0;\n  background: white;\n}\n.sidebar .sidebar-footer .helper-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  text-align: center;\n  font-size: 0.85rem;\n  padding: 10px;\n  background-color: #e0f7fa;\n  color: #343a40;\n  border-radius: 8px;\n  transition: opacity 0.4s ease, transform 0.4s ease;\n}\n.sidebar .sidebar-footer .helper-card:hover {\n  opacity: 1;\n  transform: translateY(0);\n}\n.sidebar .sidebar-footer .helper-card button {\n  margin-top: 10px;\n  padding: 5px 10px;\n  background-color: #2EC4B6;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  transition: background-color 0.3s ease;\n}\n.sidebar .sidebar-footer .helper-card button:hover {\n  background-color: #00ADA9;\n}\n\n.sidebar-item {\n  box-sizing: border-box;\n  width: 100%;\n}\n.sidebar-item .item-header {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 2px 7px;\n  border-radius: 0.5rem;\n  cursor: pointer;\n  transition: background 0.3s ease, color 0.3s ease;\n  background-color: transparent;\n  gap: 10px;\n}\n.sidebar-item .item-header:hover {\n  background-color: #f7f7f7;\n}\n.sidebar-item .item-header.active {\n  background-color: #e0f7fa;\n  color: #344767;\n}\n.sidebar-item .item-header.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n  color: #6e708c;\n}\n.sidebar-item .item-header .icon {\n  font-size: 1.8rem;\n  transition: color 0.3s ease;\n}\n.sidebar-item .item-header .title {\n  flex-grow: 1;\n  font-weight: 600;\n  text-align: left;\n}\n.sidebar-item .item-header .expand-icon {\n  font-size: 1rem;\n  color: #999999;\n  transition: color 0.3s ease;\n}\n.sidebar-item .sub-items {\n  margin-top: 0.5rem;\n  padding-left: 20px;\n  list-style: none;\n}\n.sidebar-item .sub-items .sub-item {\n  margin-bottom: 0.5rem;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  padding: 4px 8px;\n  border-radius: 0.5rem;\n  transition: background 0.2s ease, color 0.2s ease;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link:hover {\n  background-color: #f9f9f9;\n  color: #2ec4b6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.active {\n  background-color: #d6f5f8;\n  color: #344767;\n  font-weight: bold;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n  font-size: 0.9rem;\n  font-weight: 500;\n}";
+styleInject(css_248z);
+
+function lightenColor(hex, percent) {
+  // Ensure hex is valid
+  if (!/^#([0-9A-F]{3}){1,2}$/i.test(hex)) {
+    console.warn("Invalid HEX color: ".concat(hex));
+    return hex;
+  }
+  // Convert 3-digit hex to 6-digit
+  if (hex.length === 4) {
+    hex = "#" + _toConsumableArray(hex.slice(1)).map(function (c) {
+      return c + c;
+    }).join("");
+  }
+  var num = parseInt(hex.slice(1), 16);
+  var r = num >> 16 & 0xff;
+  var g = num >> 8 & 0xff;
+  var b = num & 0xff;
+  var lighten = function lighten(c) {
+    return Math.round(c + (255 - c) * percent);
+  };
+  var newColor = "#" + [lighten(r), lighten(g), lighten(b)].map(function (c) {
+    return c.toString(16).padStart(2, "0");
+  }).join("");
+  return newColor;
+}
 
 var dist = {};
 
@@ -2233,34 +2261,14 @@ var useSafeLocation = function useSafeLocation() {
   return context ? useLocation() : null;
 };
 
-var _excluded$1 = ["to", "children"];
-// Same props as Link
-var SafeLink = function SafeLink(_ref) {
-  var to = _ref.to,
-    children = _ref.children,
-    rest = _objectWithoutProperties(_ref, _excluded$1);
-  var routerContext = useContext(LocationContext);
-  if (!routerContext) {
-    console.warn("⚠️ <SafeLink> used outside <BrowserRouter>. Rendering <span> fallback.");
-    return jsx("span", _objectSpread2(_objectSpread2({}, rest), {}, {
-      children: children
-    }));
-  }
-  return jsx(Link, _objectSpread2(_objectSpread2({
-    to: to
-  }, rest), {}, {
-    children: children
-  }));
-};
-
-var _excluded = ["to", "children", "className", "style"];
+var _excluded$1 = ["to", "children", "className", "style"];
 // This SafeNavLink avoids crashing when router context is missing
 var SafeNavLink = function SafeNavLink(_ref) {
   var to = _ref.to,
     children = _ref.children,
     className = _ref.className,
     style = _ref.style,
-    rest = _objectWithoutProperties(_ref, _excluded);
+    rest = _objectWithoutProperties(_ref, _excluded$1);
   var routerContext = useContext(LocationContext);
   if (!routerContext) {
     console.warn("⚠️ <SafeNavLink> used outside <BrowserRouter>. Rendering <span> fallback.");
@@ -2288,6 +2296,277 @@ var SafeNavLink = function SafeNavLink(_ref) {
   }));
 };
 
+var SidebarItem = function SidebarItem(_ref) {
+  var _item$children;
+  var item = _ref.item,
+    isOpen = _ref.isOpen;
+  var _useState = useState(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    isExpanded = _useState2[0],
+    setIsExpanded = _useState2[1];
+  var location = useSafeLocation();
+  if (!location) {
+    console.warn("⚠️ Navbar is rendered without router context.");
+  }
+  var theme = useTheme() || {};
+  var styles = useMemo(function () {
+    var _theme$colors$neutral, _theme$colors$neutral2, _theme$typography;
+    return {
+      backgroundColor: ((_theme$colors$neutral = theme.colors.neutral) === null || _theme$colors$neutral === void 0 ? void 0 : _theme$colors$neutral.white) || "#ffffff",
+      color: theme.colors.primary || ((_theme$colors$neutral2 = theme.colors.neutral) === null || _theme$colors$neutral2 === void 0 ? void 0 : _theme$colors$neutral2.black) || "#000000",
+      fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Arial, sans-serif"
+    };
+  }, [theme]);
+  // Check if any child is active using the href field.
+  var isAnyChildActive = (_item$children = item.children) === null || _item$children === void 0 ? void 0 : _item$children.some(function (child) {
+    return location.pathname.startsWith(child.href || "");
+  });
+  var toggleExpand = function toggleExpand(e) {
+    if (item.disabled) return;
+    if (item.children) {
+      e.preventDefault();
+      setIsExpanded(function (prev) {
+        return !prev;
+      });
+    }
+  };
+  var Icon = item.icon;
+  return jsxs("div", {
+    className: "sidebar-item",
+    style: styles,
+    children: [item.children ? jsxs("div", {
+      className: "item-header ".concat(isAnyChildActive ? "active" : "notActive", " ").concat(item.disabled ? "disabled" : ""),
+      onClick: item.disabled ? undefined : toggleExpand,
+      style: {
+        cursor: item.disabled ? "not-allowed" : "pointer",
+        color: isAnyChildActive ? theme.colors.neutral.white : theme.colors.neutral.grey,
+        backgroundColor: isAnyChildActive ? lightenColor(theme.colors.secondary, 0.1) : "transparent"
+      },
+      children: [jsx("span", {
+        className: "icon",
+        children: Icon && jsx(Icon, {
+          width: 20,
+          height: 20,
+          fill: isAnyChildActive ? theme.colors.neutral.white : theme.colors.accent
+        })
+      }), isOpen && jsx("span", {
+        className: "title",
+        children: item.label
+      }), isOpen && !item.disabled && jsx("span", {
+        className: "expand-icon",
+        style: {
+          color: isAnyChildActive ? theme.colors.neutral.white : theme.colors.neutral.grey
+        },
+        children: isExpanded ? "-" : "+"
+      })]
+    }) : jsx(SafeNavLink, {
+      to: item.disabled ? "#" : item.href || "#",
+      className: function className(_ref2) {
+        var isActive = _ref2.isActive;
+        return "item-header ".concat(isActive ? "active" : "notActive", " ").concat(item.disabled ? "disabled" : "");
+      },
+      style: function style(_ref3) {
+        var isActive = _ref3.isActive;
+        return {
+          cursor: item.disabled ? "not-allowed" : "pointer",
+          color: isActive ? theme.colors.neutral.white : theme.colors.neutral.grey,
+          backgroundColor: isActive ? lightenColor(theme.colors.secondary, 0.1) : "transparent"
+        };
+      },
+      end: true,
+      children: function children(_ref4) {
+        var isActive = _ref4.isActive;
+        return jsxs(Fragment, {
+          children: [jsx("span", {
+            className: "icon",
+            children: Icon && jsx(Icon, {
+              width: 18,
+              height: 18,
+              fill: isActive ? theme.colors.neutral.white : theme.colors.accent
+            })
+          }), isOpen && jsx("span", {
+            className: "title",
+            children: item.label
+          })]
+        });
+      }
+    }), isExpanded && isOpen && item.children && !item.disabled && jsx("ul", {
+      className: "sub-items",
+      children: item.children.map(function (child, index) {
+        return jsx("li", {
+          className: "sub-item",
+          children: jsx(SafeNavLink, {
+            to: child.disabled ? "#" : child.href || "#",
+            className: function className(_ref5) {
+              var isActive = _ref5.isActive;
+              return "sub-item-link ".concat(isActive ? "active" : "notActive", " ").concat(child.disabled ? "disabled" : "");
+            },
+            style: {
+              pointerEvents: child.disabled ? "none" : "auto",
+              color: child.disabled ? "#b0b0b0" : "inherit"
+            },
+            end: true,
+            children: jsx("span", {
+              className: "sub-title",
+              children: child.label
+            })
+          })
+        }, index);
+      })
+    })]
+  });
+};
+
+var _path;
+function _extends$1() { return _extends$1 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$1.apply(null, arguments); }
+var SvgClose = function SvgClose(props) {
+  return /*#__PURE__*/React2.createElement("svg", _extends$1({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 512,
+    height: 512,
+    viewBox: "0 0 64 64"
+  }, props), _path || (_path = /*#__PURE__*/React2.createElement("path", {
+    d: "M4.59 59.41a2 2 0 0 0 2.83 0L32 34.83l24.59 24.58a2 2 0 0 0 2.83-2.83L34.83 32 59.41 7.41a2 2 0 0 0-2.83-2.83L32 29.17 7.41 4.59a2 2 0 0 0-2.82 2.82L29.17 32 4.59 56.59a2 2 0 0 0 0 2.82"
+  })));
+};
+
+var _g;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+var SvgHamburger = function SvgHamburger(props) {
+  return /*#__PURE__*/React2.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 512,
+    height: 512,
+    viewBox: "0 0 16 16"
+  }, props), _g || (_g = /*#__PURE__*/React2.createElement("g", {
+    "data-name": 31
+  }, /*#__PURE__*/React2.createElement("path", {
+    d: "M15.5 4H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1M15.5 9H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1M15.5 14H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1"
+  }))));
+};
+
+var SideBar = function SideBar(_ref) {
+  var logo = _ref.logo,
+    _ref$sidebarConfig = _ref.sidebarConfig,
+    sidebarConfig = _ref$sidebarConfig === void 0 ? [] : _ref$sidebarConfig,
+    _ref$side = _ref.side,
+    side = _ref$side === void 0 ? "left" : _ref$side;
+  // Internal state for sidebar open/closed
+  var _useState = useState(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    isMobileOpen = _useState2[0],
+    setIsMobileOpen = _useState2[1];
+  var sidebarRef = useRef(null);
+  var hamburgerRef = useRef(null);
+  var location = useSafeLocation();
+  if (!location) {
+    console.warn("⚠️ Navbar is rendered without router context.");
+  }
+  var theme = useTheme() || {};
+  // Close sidebar when clicking outside, except when clicking the hamburger icon.
+  useEffect(function () {
+    var handleOutsideClick = function handleOutsideClick(event) {
+      if (hamburgerRef.current && hamburgerRef.current.contains(event.target)) {
+        return;
+      }
+      if (isMobileOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setIsMobileOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return function () {
+      return document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isMobileOpen]);
+  // Close the sidebar on route change.
+  useEffect(function () {
+    setIsMobileOpen(false);
+  }, [location.pathname]);
+  return jsxs(Fragment, {
+    children: [!isMobileOpen && jsx("img", {
+      src: SvgHamburger,
+      alt: "hamburger menu",
+      ref: hamburgerRef,
+      className: "hamburger-icon",
+      style: {
+        height: "15px",
+        width: "15px",
+        cursor: "pointer"
+      },
+      onClick: function onClick() {
+        return setIsMobileOpen(true);
+      }
+    }), jsxs("div", {
+      ref: sidebarRef,
+      className: "sidebar ".concat(isMobileOpen ? "mobile-open" : "mobile-closed", " sidebar-").concat(side),
+      children: [jsxs("div", {
+        className: "sidebar-header",
+        children: [jsx("div", {
+          className: "logo",
+          children: logo
+        }), jsx("img", {
+          src: SvgClose,
+          alt: "close",
+          className: "close-btn",
+          onClick: function onClick() {
+            return setIsMobileOpen(false);
+          },
+          style: {
+            height: "15px",
+            width: "15px",
+            cursor: "pointer"
+          }
+        })]
+      }), jsx("div", {
+        className: "sidebar-content",
+        children: sidebarConfig.map(function (item, idx) {
+          return jsx(SidebarItem, {
+            item: item,
+            isOpen: isMobileOpen
+          }, idx);
+        })
+      }), jsx("div", {
+        className: "sidebar-footer",
+        children: jsxs("div", {
+          className: "helper-card",
+          style: {
+            backgroundColor: lightenColor(theme.colors.secondary, 0.9)
+          },
+          children: [jsx("p", {
+            children: "Necesitas Ayuda?"
+          }), jsx("span", {
+            children: "Envianos un mensaje"
+          }), jsx(SimpleButton, {
+            color: "primary",
+            variant: "sm",
+            title: "\xA1Contactanos!"
+          })]
+        })
+      })]
+    })]
+  });
+};
+
+var _excluded = ["to", "children"];
+// Same props as Link
+var SafeLink = function SafeLink(_ref) {
+  var to = _ref.to,
+    children = _ref.children,
+    rest = _objectWithoutProperties(_ref, _excluded);
+  var routerContext = useContext(LocationContext);
+  if (!routerContext) {
+    console.warn("⚠️ <SafeLink> used outside <BrowserRouter>. Rendering <span> fallback.");
+    return jsx("span", _objectSpread2(_objectSpread2({}, rest), {}, {
+      children: children
+    }));
+  }
+  return jsx(Link, _objectSpread2(_objectSpread2({
+    to: to
+  }, rest), {}, {
+    children: children
+  }));
+};
+
 var Navbar = function Navbar(_ref) {
   var logo = _ref.logo,
     _ref$links = _ref.links,
@@ -2297,8 +2576,9 @@ var Navbar = function Navbar(_ref) {
     _ref$className = _ref.className,
     className = _ref$className === void 0 ? "" : _ref$className,
     _ref$ghost = _ref.ghost,
-    ghost = _ref$ghost === void 0 ? false : _ref$ghost;
-    _ref.sideBarSide;
+    ghost = _ref$ghost === void 0 ? false : _ref$ghost,
+    _ref$sideBarSide = _ref.sideBarSide,
+    sideBarSide = _ref$sideBarSide === void 0 ? "left" : _ref$sideBarSide;
   var _useState = useState(window.innerWidth < 768),
     _useState2 = _slicedToArray(_useState, 2),
     isMobile = _useState2[0],
@@ -2401,288 +2681,13 @@ var Navbar = function Navbar(_ref) {
         })]
       }), isMobile && jsx("div", {
         className: "flex",
-        children: "test"
+        children: jsx(SideBar, {
+          logo: logo,
+          sidebarConfig: links,
+          side: sideBarSide
+        })
       })]
     })
-  });
-};
-
-var css_248z = "@charset \"UTF-8\";\n@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sidebar {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 250px;\n  background-color: white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transform: translateX(-100%);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  /* ✅ Close Button Positioned at Absolute Top-Right */\n  /* ✅ Sidebar Header */\n  /* ✅ Sidebar Content (Scrollable) */\n  /* ✅ Sidebar Footer */\n}\n.sidebar.mobile-open {\n  transform: translateX(0);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);\n}\n.sidebar.mobile-closed {\n  transform: translateX(-100%);\n}\n.sidebar.sidebar-right {\n  right: 0;\n  left: auto;\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right.mobile-open {\n  transform: translateX(0);\n}\n.sidebar.sidebar-right.mobile-closed {\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right .close-btn {\n  right: auto;\n  left: 10px;\n}\n.sidebar .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n  z-index: 1100;\n}\n.sidebar .close-btn:hover {\n  transform: scale(1.1);\n  opacity: 0.8;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 25px 15px 15px;\n  border-bottom: 1px solid #e3e6f0;\n  position: relative;\n}\n.sidebar .sidebar-header .logo {\n  max-width: 180px;\n}\n.sidebar .sidebar-header .logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.sidebar .sidebar-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 15px;\n  max-height: calc(100vh - 70px - 60px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 1px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background-color: #f8f9fa;\n  border-radius: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background-color: #f8f9fa;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background-color: #f0f0f0;\n}\n.sidebar .sidebar-footer {\n  padding: 10px;\n  border-top: 1px solid #e3e6f0;\n  background: white;\n}\n.sidebar .sidebar-footer .helper-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  text-align: center;\n  font-size: 0.85rem;\n  padding: 10px;\n  background-color: #e0f7fa;\n  color: #343a40;\n  border-radius: 8px;\n  transition: opacity 0.4s ease, transform 0.4s ease;\n}\n.sidebar .sidebar-footer .helper-card:hover {\n  opacity: 1;\n  transform: translateY(0);\n}\n.sidebar .sidebar-footer .helper-card button {\n  margin-top: 10px;\n  padding: 5px 10px;\n  background-color: #2EC4B6;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  transition: background-color 0.3s ease;\n}\n.sidebar .sidebar-footer .helper-card button:hover {\n  background-color: #00ADA9;\n}\n\n.sidebar-item {\n  box-sizing: border-box;\n  width: 100%;\n}\n.sidebar-item .item-header {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 2px 7px;\n  border-radius: 0.5rem;\n  cursor: pointer;\n  transition: background 0.3s ease, color 0.3s ease;\n  background-color: transparent;\n  gap: 10px;\n}\n.sidebar-item .item-header:hover {\n  background-color: #f7f7f7;\n}\n.sidebar-item .item-header.active {\n  background-color: #e0f7fa;\n  color: #344767;\n}\n.sidebar-item .item-header.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n  color: #6e708c;\n}\n.sidebar-item .item-header .icon {\n  font-size: 1.8rem;\n  transition: color 0.3s ease;\n}\n.sidebar-item .item-header .title {\n  flex-grow: 1;\n  font-weight: 600;\n  text-align: left;\n}\n.sidebar-item .item-header .expand-icon {\n  font-size: 1rem;\n  color: #999999;\n  transition: color 0.3s ease;\n}\n.sidebar-item .sub-items {\n  margin-top: 0.5rem;\n  padding-left: 20px;\n  list-style: none;\n}\n.sidebar-item .sub-items .sub-item {\n  margin-bottom: 0.5rem;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  padding: 4px 8px;\n  border-radius: 0.5rem;\n  transition: background 0.2s ease, color 0.2s ease;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link:hover {\n  background-color: #f9f9f9;\n  color: #2ec4b6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.active {\n  background-color: #d6f5f8;\n  color: #344767;\n  font-weight: bold;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n  font-size: 0.9rem;\n  font-weight: 500;\n}";
-styleInject(css_248z);
-
-function lightenColor(hex, percent) {
-  // Ensure hex is valid
-  if (!/^#([0-9A-F]{3}){1,2}$/i.test(hex)) {
-    console.warn("Invalid HEX color: ".concat(hex));
-    return hex;
-  }
-  // Convert 3-digit hex to 6-digit
-  if (hex.length === 4) {
-    hex = "#" + _toConsumableArray(hex.slice(1)).map(function (c) {
-      return c + c;
-    }).join("");
-  }
-  var num = parseInt(hex.slice(1), 16);
-  var r = num >> 16 & 0xff;
-  var g = num >> 8 & 0xff;
-  var b = num & 0xff;
-  var lighten = function lighten(c) {
-    return Math.round(c + (255 - c) * percent);
-  };
-  var newColor = "#" + [lighten(r), lighten(g), lighten(b)].map(function (c) {
-    return c.toString(16).padStart(2, "0");
-  }).join("");
-  return newColor;
-}
-
-var SidebarItem = function SidebarItem(_ref) {
-  var _item$children;
-  var item = _ref.item,
-    isOpen = _ref.isOpen;
-  var _useState = useState(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    isExpanded = _useState2[0],
-    setIsExpanded = _useState2[1];
-  var location = useLocation();
-  var theme = useTheme() || {};
-  var styles = useMemo(function () {
-    var _theme$colors$neutral, _theme$colors$neutral2, _theme$typography;
-    return {
-      backgroundColor: ((_theme$colors$neutral = theme.colors.neutral) === null || _theme$colors$neutral === void 0 ? void 0 : _theme$colors$neutral.white) || "#ffffff",
-      color: theme.colors.primary || ((_theme$colors$neutral2 = theme.colors.neutral) === null || _theme$colors$neutral2 === void 0 ? void 0 : _theme$colors$neutral2.black) || "#000000",
-      fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Arial, sans-serif"
-    };
-  }, [theme]);
-  // Check if any child is active using the href field.
-  var isAnyChildActive = (_item$children = item.children) === null || _item$children === void 0 ? void 0 : _item$children.some(function (child) {
-    return location.pathname.startsWith(child.href || "");
-  });
-  var toggleExpand = function toggleExpand(e) {
-    if (item.disabled) return;
-    if (item.children) {
-      e.preventDefault();
-      setIsExpanded(function (prev) {
-        return !prev;
-      });
-    }
-  };
-  var Icon = item.icon;
-  return jsxs("div", {
-    className: "sidebar-item",
-    style: styles,
-    children: [item.children ? jsxs("div", {
-      className: "item-header ".concat(isAnyChildActive ? "active" : "notActive", " ").concat(item.disabled ? "disabled" : ""),
-      onClick: item.disabled ? undefined : toggleExpand,
-      style: {
-        cursor: item.disabled ? "not-allowed" : "pointer",
-        color: isAnyChildActive ? theme.colors.neutral.white : theme.colors.neutral.grey,
-        backgroundColor: isAnyChildActive ? lightenColor(theme.colors.secondary, 0.1) : "transparent"
-      },
-      children: [jsx("span", {
-        className: "icon",
-        children: Icon && jsx(Icon, {
-          width: 20,
-          height: 20,
-          fill: isAnyChildActive ? theme.colors.neutral.white : theme.colors.accent
-        })
-      }), isOpen && jsx("span", {
-        className: "title",
-        children: item.label
-      }), isOpen && !item.disabled && jsx("span", {
-        className: "expand-icon",
-        style: {
-          color: isAnyChildActive ? theme.colors.neutral.white : theme.colors.neutral.grey
-        },
-        children: isExpanded ? "-" : "+"
-      })]
-    }) : jsx(NavLink, {
-      to: item.disabled ? "#" : item.href || "#",
-      className: function className(_ref2) {
-        var isActive = _ref2.isActive;
-        return "item-header ".concat(isActive ? "active" : "notActive", " ").concat(item.disabled ? "disabled" : "");
-      },
-      style: function style(_ref3) {
-        var isActive = _ref3.isActive;
-        return {
-          cursor: item.disabled ? "not-allowed" : "pointer",
-          color: isActive ? theme.colors.neutral.white : theme.colors.neutral.grey,
-          backgroundColor: isActive ? lightenColor(theme.colors.secondary, 0.1) : "transparent"
-        };
-      },
-      end: true,
-      children: function children(_ref4) {
-        var isActive = _ref4.isActive;
-        return jsxs(Fragment, {
-          children: [jsx("span", {
-            className: "icon",
-            children: Icon && jsx(Icon, {
-              width: 18,
-              height: 18,
-              fill: isActive ? theme.colors.neutral.white : theme.colors.accent
-            })
-          }), isOpen && jsx("span", {
-            className: "title",
-            children: item.label
-          })]
-        });
-      }
-    }), isExpanded && isOpen && item.children && !item.disabled && jsx("ul", {
-      className: "sub-items",
-      children: item.children.map(function (child, index) {
-        return jsx("li", {
-          className: "sub-item",
-          children: jsx(NavLink, {
-            to: child.disabled ? "#" : child.href || "#",
-            className: function className(_ref5) {
-              var isActive = _ref5.isActive;
-              return "sub-item-link ".concat(isActive ? "active" : "notActive", " ").concat(child.disabled ? "disabled" : "");
-            },
-            style: {
-              pointerEvents: child.disabled ? "none" : "auto",
-              color: child.disabled ? "#b0b0b0" : "inherit"
-            },
-            end: true,
-            children: jsx("span", {
-              className: "sub-title",
-              children: child.label
-            })
-          })
-        }, index);
-      })
-    })]
-  });
-};
-
-var _path;
-function _extends$1() { return _extends$1 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$1.apply(null, arguments); }
-var SvgClose = function SvgClose(props) {
-  return /*#__PURE__*/React2.createElement("svg", _extends$1({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 512,
-    height: 512,
-    viewBox: "0 0 64 64"
-  }, props), _path || (_path = /*#__PURE__*/React2.createElement("path", {
-    d: "M4.59 59.41a2 2 0 0 0 2.83 0L32 34.83l24.59 24.58a2 2 0 0 0 2.83-2.83L34.83 32 59.41 7.41a2 2 0 0 0-2.83-2.83L32 29.17 7.41 4.59a2 2 0 0 0-2.82 2.82L29.17 32 4.59 56.59a2 2 0 0 0 0 2.82"
-  })));
-};
-
-var _g;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-var SvgHamburger = function SvgHamburger(props) {
-  return /*#__PURE__*/React2.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 512,
-    height: 512,
-    viewBox: "0 0 16 16"
-  }, props), _g || (_g = /*#__PURE__*/React2.createElement("g", {
-    "data-name": 31
-  }, /*#__PURE__*/React2.createElement("path", {
-    d: "M15.5 4H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1M15.5 9H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1M15.5 14H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1"
-  }))));
-};
-
-var SideBar = function SideBar(_ref) {
-  var logo = _ref.logo,
-    _ref$sidebarConfig = _ref.sidebarConfig,
-    sidebarConfig = _ref$sidebarConfig === void 0 ? [] : _ref$sidebarConfig,
-    _ref$side = _ref.side,
-    side = _ref$side === void 0 ? "left" : _ref$side;
-  // Internal state for sidebar open/closed
-  var _useState = useState(false),
-    _useState2 = _slicedToArray(_useState, 2),
-    isMobileOpen = _useState2[0],
-    setIsMobileOpen = _useState2[1];
-  var sidebarRef = useRef(null);
-  var hamburgerRef = useRef(null);
-  var location;
-  try {
-    location = useLocation();
-  } catch (err) {
-    console.warn("SideBar rendered without <Router> context");
-    return null; // Or fallback
-  }
-  var theme = useTheme() || {};
-  // Close sidebar when clicking outside, except when clicking the hamburger icon.
-  useEffect(function () {
-    var handleOutsideClick = function handleOutsideClick(event) {
-      if (hamburgerRef.current && hamburgerRef.current.contains(event.target)) {
-        return;
-      }
-      if (isMobileOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        setIsMobileOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleOutsideClick);
-    return function () {
-      return document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [isMobileOpen]);
-  // Close the sidebar on route change.
-  useEffect(function () {
-    setIsMobileOpen(false);
-  }, [location.pathname]);
-  return jsxs(Fragment, {
-    children: [!isMobileOpen && jsx("img", {
-      src: SvgHamburger,
-      alt: "hamburger menu",
-      ref: hamburgerRef,
-      className: "hamburger-icon",
-      style: {
-        height: "15px",
-        width: "15px",
-        cursor: "pointer"
-      },
-      onClick: function onClick() {
-        return setIsMobileOpen(true);
-      }
-    }), jsxs("div", {
-      ref: sidebarRef,
-      className: "sidebar ".concat(isMobileOpen ? "mobile-open" : "mobile-closed", " sidebar-").concat(side),
-      children: [jsxs("div", {
-        className: "sidebar-header",
-        children: [jsx("div", {
-          className: "logo",
-          children: logo
-        }), jsx("img", {
-          src: SvgClose,
-          alt: "close",
-          className: "close-btn",
-          onClick: function onClick() {
-            return setIsMobileOpen(false);
-          },
-          style: {
-            height: "15px",
-            width: "15px",
-            cursor: "pointer"
-          }
-        })]
-      }), jsx("div", {
-        className: "sidebar-content",
-        children: sidebarConfig.map(function (item, idx) {
-          return jsx(SidebarItem, {
-            item: item,
-            isOpen: isMobileOpen
-          }, idx);
-        })
-      }), jsx("div", {
-        className: "sidebar-footer",
-        children: jsxs("div", {
-          className: "helper-card",
-          style: {
-            backgroundColor: lightenColor(theme.colors.secondary, 0.9)
-          },
-          children: [jsx("p", {
-            children: "Necesitas Ayuda?"
-          }), jsx("span", {
-            children: "Envianos un mensaje"
-          }), jsx(SimpleButton, {
-            color: "primary",
-            variant: "sm",
-            title: "\xA1Contactanos!"
-          })]
-        })
-      })]
-    })]
   });
 };
 
