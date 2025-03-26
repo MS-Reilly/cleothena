@@ -1,0 +1,63 @@
+@use '../../theme/style/variables' as *; // ✅ This allows direct access to variables
+
+.scroll-indicator {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacer-sm;
+  font-family: $font-family-base;
+  font-weight: $heading-font-weight;
+  color: $primary;
+  cursor: pointer;
+  user-select: none;
+  transition: $transition-normal;
+
+  .text {
+    font-size: $font-size-lg;
+
+    @media (max-width: $breakpoint-xl) {
+      font-size: $font-size-base;
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      font-size: $font-size-sm;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 14px;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 12px;
+    }
+  }
+}
+
+.arrow {
+  width: 20px;
+  height: 20px;
+  font-size: 28px;
+  animation: bounce 1.5s infinite;
+}
+
+.arrow:first-child {
+  animation-delay: 0s;
+}
+
+.arrow:last-child {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
