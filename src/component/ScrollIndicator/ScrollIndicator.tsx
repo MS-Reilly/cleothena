@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrowDownIcon from './../../Assets/icons/down-arrow.svg?react';
+import ArrowDownIcon from './../../Assets/icons/down-arrow.svg';
 import { useTheme } from '../../theme/hooks/useTheme';
 import { ScrollIndicatorProps } from './types';
 import './styles.scss';

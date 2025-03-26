@@ -68,6 +68,14 @@ interface FullScreenHeroProps {
 
 declare const FullScreenHero: React$1.FC<FullScreenHeroProps>;
 
+interface ScrollIndicatorProps extends React.HTMLAttributes<HTMLDivElement> {
+    onClick?: () => void;
+    className?: string;
+    text?: string;
+}
+
+declare const ScrollIndicator: React$1.FC<ScrollIndicatorProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -161,5 +169,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { FullScreenHero, Navbar, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
+export { FullScreenHero, Navbar, ScrollIndicator, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };
