@@ -1,9 +1,17 @@
+// .storybook/main.js
 import { mergeConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
-import type { StorybookConfig } from '@storybook/react-vite';
+import { StorybookConfig } from '@storybook/react-vite';
 
-const config: StorybookConfig = {
+/**
+ * Storybook configuration object
+ * For details, see:
+ * https://storybook.js.org/docs/react/configure/overview
+ * https://storybook.js.org/docs/react/builders/vite
+ */
+const config = {
   stories: [
+    // Adjust as needed:
     '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
   ],
@@ -18,11 +26,19 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-
-  // ✅ Fix: Add viteFinal to support SVGR
+  /**
+   * The key part: use viteFinal to merge any custom Vite config.
+   * We add the vite-plugin-svgr plugin here so that .svg files
+   * become React components.
+   */
   viteFinal: async (config, { configType }) => {
     return mergeConfig(config, {
-      plugins: [svgr()],
+      plugins: [
+        svgr({
+          // The defaults are often enough, but you could customize:
+          include: '**/*.svg', exclude: '**/*.svg?url',
+        }),
+      ],
     });
   },
 };

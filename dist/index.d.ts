@@ -76,6 +76,42 @@ interface ScrollIndicatorProps extends React.HTMLAttributes<HTMLDivElement> {
 
 declare const ScrollIndicator: React$1.FC<ScrollIndicatorProps>;
 
+/**
+ * Possible color variants, e.g. for the SVG fill.
+ */
+type ColorVariants = 'primary' | 'secondary' | 'accent' | 'highlight';
+/**
+ * Possible size variants for small responsive changes.
+ */
+type SizeVariants = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+interface SeparatorProps {
+    /**
+     * The SVG React component (from `import Icon from '...svg'` via SVGR).
+     */
+    icon: React$1.FunctionComponent<React$1.SVGProps<SVGSVGElement>>;
+    /**
+     * How many times to repeat the icon.
+     * @default 3
+     */
+    count?: number;
+    /**
+     * Color variant for the icon fill.
+     * @default "primary"
+     */
+    color?: ColorVariants;
+    /**
+     * Size variant to slightly scale the icon dimensions.
+     * @default "md"
+     */
+    size?: SizeVariants;
+    /**
+     * Additional CSS class.
+     */
+    className?: string;
+}
+
+declare const Separator: React$1.FC<SeparatorProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -169,5 +205,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { FullScreenHero, Navbar, ScrollIndicator, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
+export { FullScreenHero, Navbar, ScrollIndicator, Separator, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };
