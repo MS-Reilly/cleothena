@@ -1,17 +1,13 @@
 import React from 'react';
-import { SeparatorProps, ColorVariants } from './types';
+import { useTheme } from "../../theme/hooks/useTheme";
+import { SeparatorProps } from './types';
 import './styles.scss';
 
 /**
  * Map from color variant to actual hex (or theme-based) color.
  * In a real app, you could pull these from a theme or context if desired.
  */
-const colorMap: Record<ColorVariants, string> = {
-  primary: '#007bff',
-  secondary: '#6c757d',
-  accent: '#ff00ff',
-  highlight: '#ffc107',
-};
+
 
 export const Separator: React.FC<SeparatorProps> = ({
   icon: Icon,
@@ -20,7 +16,10 @@ export const Separator: React.FC<SeparatorProps> = ({
   size = 'md',
   className = '',
 }) => {
-  const fillColor = colorMap[color] ?? '#000';
+
+
+  const theme = useTheme();
+  const fillColor = theme.colors[color] ?? '#000';
 
   return (
     <div className={`separator --${size} ${className}`.trim()}>

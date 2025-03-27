@@ -3,41 +3,41 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 4px; // small spacing between icons
+    gap: 15px; // small spacing between icons
   
     // Each size variant slightly changes the SVG width/height
     &.--xs {
-      svg {
-        width: 0.8rem;
-        height: 0.8rem;
-      }
-    }
-  
-    &.--sm {
-      svg {
-        width: 1rem;
-        height: 1rem;
-      }
-    }
-  
-    &.--md {
       svg {
         width: 1.2rem;
         height: 1.2rem;
       }
     }
   
-    &.--lg {
+    &.--sm {
       svg {
         width: 1.4rem;
         height: 1.4rem;
       }
     }
   
-    &.--xl {
+    &.--md {
       svg {
         width: 1.6rem;
         height: 1.6rem;
+      }
+    }
+  
+    &.--lg {
+      svg {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
+    }
+  
+    &.--xl {
+      svg {
+        width: 2rem;
+        height: 2rem;
       }
     }
   }

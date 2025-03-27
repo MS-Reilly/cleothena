@@ -110,6 +110,10 @@ interface SeparatorProps {
     className?: string;
 }
 
+/**
+ * Map from color variant to actual hex (or theme-based) color.
+ * In a real app, you could pull these from a theme or context if desired.
+ */
 declare const Separator: React$1.FC<SeparatorProps>;
 
 declare const theme: {

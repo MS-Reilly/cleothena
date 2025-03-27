@@ -791,21 +791,15 @@ var ScrollIndicator = function ScrollIndicator(_ref) {
   }));
 };
 
-var css_248z = ".separator {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: center;\n  gap: 4px;\n}\n.separator.--xs svg {\n  width: 0.8rem;\n  height: 0.8rem;\n}\n.separator.--sm svg {\n  width: 1rem;\n  height: 1rem;\n}\n.separator.--md svg {\n  width: 1.2rem;\n  height: 1.2rem;\n}\n.separator.--lg svg {\n  width: 1.4rem;\n  height: 1.4rem;\n}\n.separator.--xl svg {\n  width: 1.6rem;\n  height: 1.6rem;\n}";
+var css_248z = ".separator {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: center;\n  gap: 15px;\n}\n.separator.--xs svg {\n  width: 1.2rem;\n  height: 1.2rem;\n}\n.separator.--sm svg {\n  width: 1.4rem;\n  height: 1.4rem;\n}\n.separator.--md svg {\n  width: 1.6rem;\n  height: 1.6rem;\n}\n.separator.--lg svg {\n  width: 1.8rem;\n  height: 1.8rem;\n}\n.separator.--xl svg {\n  width: 2rem;\n  height: 2rem;\n}";
 styleInject(css_248z);
 
 /**
  * Map from color variant to actual hex (or theme-based) color.
  * In a real app, you could pull these from a theme or context if desired.
  */
-var colorMap = {
-  primary: '#007bff',
-  secondary: '#6c757d',
-  accent: '#ff00ff',
-  highlight: '#ffc107'
-};
 var Separator = function Separator(_ref) {
-  var _colorMap$color;
+  var _theme$colors$color;
   var Icon = _ref.icon,
     _ref$count = _ref.count,
     count = _ref$count === void 0 ? 3 : _ref$count,
@@ -815,7 +809,8 @@ var Separator = function Separator(_ref) {
     size = _ref$size === void 0 ? 'md' : _ref$size,
     _ref$className = _ref.className,
     className = _ref$className === void 0 ? '' : _ref$className;
-  var fillColor = (_colorMap$color = colorMap[color]) !== null && _colorMap$color !== void 0 ? _colorMap$color : '#000';
+  var theme = useTheme();
+  var fillColor = (_theme$colors$color = theme.colors[color]) !== null && _theme$colors$color !== void 0 ? _theme$colors$color : '#000';
   return jsx("div", {
     className: "separator --".concat(size, " ").concat(className).trim(),
     children: Array.from({
