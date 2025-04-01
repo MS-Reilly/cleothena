@@ -123,6 +123,19 @@ interface SeparatorProps {
  */
 declare const Separator: React$1.FC<SeparatorProps>;
 
+interface HeroCarouselProps {
+    /** Enable auto-play? */
+    autoPlay?: boolean;
+    /** Interval in ms between slide transitions when autoPlay is true */
+    autoPlayInterval?: number;
+    /** Additional CSS class for the root container */
+    className?: string;
+    /** The slides to display (e.g. <FullScreenHero> children) */
+    children?: React$1.ReactNode;
+}
+
+declare const HeroCarousel: React$1.FC<HeroCarouselProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -216,5 +229,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { FullScreenHero, HeroContentWrapper, Navbar, ScrollIndicator, Separator, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
+export { FullScreenHero, HeroCarousel, HeroContentWrapper, Navbar, ScrollIndicator, Separator, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };

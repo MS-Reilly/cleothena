@@ -5,4 +5,5 @@ export { default as FullScreenHero } from './component/FullScreenHero/FullScreen
 export { default as HeroContentWrapper } from './component/FullScreenHero/HeroContentWrapper';
 export { default as ScrollIndicator } from './component/ScrollIndicator/ScrollIndicator';
 export { default as Separator } from './component/Separator/Separator';
+export { default as HeroCarousel } from './component/HeroCarousel/HeroCarousel';
 export * from './theme/index';
