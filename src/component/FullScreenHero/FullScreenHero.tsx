@@ -5,8 +5,8 @@ import "./styles.scss";
 const FullScreenHero: React.FC<FullScreenHeroProps> = ({
   image,
   children,
-  top = "40%",
-  left = "5%",
+  top = "0%",
+  left = "0%",
   right,
   animationThreshold = 0.5,
   overlay = false,

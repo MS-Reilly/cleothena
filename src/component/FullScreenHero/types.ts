@@ -10,3 +10,9 @@ export interface FullScreenHeroProps {
   overlay?: boolean; // Optional dark overlay
   overlayColor?: string; // Custom overlay colour
 }
+
+export interface HeroContentWrapperProps {
+  children: React.ReactNode;
+  overlayColor?: string;
+  gradientDirection?: string; // e.g. 'to bottom', 'to right'
+}
