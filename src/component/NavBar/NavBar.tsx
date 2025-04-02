@@ -4,10 +4,8 @@ import { NavbarProps } from "./types";
 import "./styles.scss";
 import SimpleButton from "../SimpleButton/SimpleButton";
 import SideBar from "../SideBar/SideBar";
-import { NavLink,Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useSafeLocation } from "../../utils/useSafeLocation";
-
-
 
 const Navbar: React.FC<NavbarProps> = ({
   logo,
@@ -15,7 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({
   position = "sticky",
   className = "",
   ghost = false,
-  sideBarSide = "left",
+  sidebarProps = {},
 }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -124,7 +122,7 @@ const Navbar: React.FC<NavbarProps> = ({
         {/* Mobile Menu Toggle (Only Visible on Mobile) */}
         {isMobile && (
           <div className="flex">
-           <SideBar logo={logo} sidebarConfig={links} side={sideBarSide} />
+            <SideBar logo={logo} sidebarConfig={links} {...sidebarProps} />
           </div>
         )}
       </div>

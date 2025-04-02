@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
 import SidebarItem from "./SidebarItem";
 import "./styles.scss"; // Styles for the sidebar
 import CloseIcon from "./../../Assets/icons/close.svg";
-import hamburgerIcon from "./../../Assets/icons/hamburger.svg"; // Make sure this file exists
+import HamburgerIcon from "./../../Assets/icons/hamburger.svg"; // Make sure this file exists
 import { SideBarProps } from "./types";
 import { useTheme } from "../../theme/hooks/useTheme";
 import { lightenColor } from "../../utils/colorUtils";
@@ -14,11 +13,13 @@ const SideBar: React.FC<SideBarProps> = ({
   logo,
   sidebarConfig = [],
   side = "left",
+  hamburgerStyle ={ height: "25px", width: "25px", cursor: "pointer" },
+  hamburgerFill = "#000000",
 }) => {
   // Internal state for sidebar open/closed
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
-  const hamburgerRef = useRef<HTMLImageElement>(null);
+  const hamburgerRef = useRef<any>(null);
   const location = useSafeLocation();
     if (!location) {
       console.warn("⚠️ SideBar is rendered without router context.");
@@ -61,13 +62,11 @@ const SideBar: React.FC<SideBarProps> = ({
     <>
       {/* Hamburger Icon displayed when sidebar is closed */}
       {!isMobileOpen && (
-        <img
-          src={hamburgerIcon}
-          alt="hamburger menu"
-          ref={hamburgerRef}
+        <HamburgerIcon
           className="hamburger-icon"
-          style={{ height: "15px", width: "15px", cursor: "pointer" }}
+          style={hamburgerStyle}
           onClick={() => setIsMobileOpen(true)}
+          fill={hamburgerFill}
         />
       )}
 
@@ -80,12 +79,10 @@ const SideBar: React.FC<SideBarProps> = ({
       >
         <div className="sidebar-header">
           <div className="logo">{logo}</div>
-          <img
-            src={CloseIcon}
-            alt="close"
+          <CloseIcon
             className="close-btn"
             onClick={() => setIsMobileOpen(false)}
-            style={{ height: "15px", width: "15px", cursor: "pointer" }}
+            style={{ height: "20px", width: "20px", cursor: "pointer" }}
           />
         </div>
 

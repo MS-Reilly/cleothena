@@ -37,6 +37,8 @@ interface SideBarProps {
     logo: string;
     sidebarConfig?: SidebarSectionConfig[];
     side?: "left" | "right";
+    hamburgerStyle?: React.CSSProperties;
+    hamburgerFill?: string;
 }
 interface SidebarSectionConfig {
     section: string;

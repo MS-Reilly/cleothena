@@ -5,12 +5,12 @@ import { NavbarProps } from './types';
 import logo from '../../Assets/logo/logo.svg';
 import { BrowserRouter } from 'react-router-dom';
 import image1 from '../../Assets/images/image1.jpg';
-import HamburgerIcon from "./../../Assets/icons/hamburger.svg?react";
 
-import HomeIcon from "./../../Assets/icons/home.svg?react";
-import docsIcon from "./../../Assets/icons/docs.svg?react";
-import ServicesIcon from "./../../Assets/icons/services.svg?react";
-import ContactIcon from "./../../Assets/icons/contact.svg?react";
+
+import HomeIcon from "./../../Assets/icons/home.svg";
+import docsIcon from "./../../Assets/icons/docs.svg";
+import ServicesIcon from "./../../Assets/icons/services.svg";
+import ContactIcon from "./../../Assets/icons/contact.svg";
 
 
 const meta: Meta<typeof Navbar> = {
@@ -63,6 +63,11 @@ Default.args = {
   links: defaultLinks,
   position: 'sticky',
   ghost: false,
+  sidebarProps: {
+    side: "right",
+    hamburgerFill: "#FF9F1A",
+    hamburgerStyle: { height: "30px", width: "30px", cursor: "pointer" },
+  }
 };
 
 export const FixedTop: Story = Template.bind({});
