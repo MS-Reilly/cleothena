@@ -4,6 +4,25 @@ var jsxRuntime = require('react/jsx-runtime');
 var React = require('react');
 var reactRouterDom = require('react-router-dom');
 
+function _interopNamespaceDefault(e) {
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
+      }
+    });
+  }
+  n.default = e;
+  return Object.freeze(n);
+}
+
+var React__namespace = /*#__PURE__*/_interopNamespaceDefault(React);
+
 function _arrayLikeToArray(r, a) {
   (null == a || a > r.length) && (a = r.length);
   for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
@@ -446,9 +465,33 @@ var SidebarItem = function SidebarItem(_ref) {
   });
 };
 
-var img$2 = "data:image/svg+xml,%3csvg id='Icons' height='512' viewBox='0 0 64 64' width='512' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m4.59 59.41a2 2 0 0 0 2.83 0l24.58-24.58 24.59 24.58a2 2 0 0 0 2.83-2.83l-24.59-24.58 24.58-24.59a2 2 0 0 0 -2.83-2.83l-24.58 24.59-24.59-24.58a2 2 0 0 0 -2.82 2.82l24.58 24.59-24.58 24.59a2 2 0 0 0 0 2.82z'/%3e%3c/svg%3e";
+var _path$1;
+function _extends$2() { return _extends$2 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$2.apply(null, arguments); }
+var SvgClose = function SvgClose(props) {
+  return /*#__PURE__*/React__namespace.createElement("svg", _extends$2({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 512,
+    height: 512,
+    viewBox: "0 0 64 64"
+  }, props), _path$1 || (_path$1 = /*#__PURE__*/React__namespace.createElement("path", {
+    d: "M4.59 59.41a2 2 0 0 0 2.83 0L32 34.83l24.59 24.58a2 2 0 0 0 2.83-2.83L34.83 32 59.41 7.41a2 2 0 0 0-2.83-2.83L32 29.17 7.41 4.59a2 2 0 0 0-2.82 2.82L29.17 32 4.59 56.59a2 2 0 0 0 0 2.82"
+  })));
+};
 
-var img$1 = "data:image/svg+xml,%3csvg height='512' viewBox='0 0 16 16' width='512' xmlns='http://www.w3.org/2000/svg'%3e%3cg id='_31' data-name='31'%3e%3cpath d='m15.5 4h-15a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1z'/%3e%3cpath d='m15.5 9h-15a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1z'/%3e%3cpath d='m15.5 14h-15a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1z'/%3e%3c/g%3e%3c/svg%3e";
+var _g;
+function _extends$1() { return _extends$1 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$1.apply(null, arguments); }
+var SvgHamburger = function SvgHamburger(props) {
+  return /*#__PURE__*/React__namespace.createElement("svg", _extends$1({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 512,
+    height: 512,
+    viewBox: "0 0 16 16"
+  }, props), _g || (_g = /*#__PURE__*/React__namespace.createElement("g", {
+    "data-name": 31
+  }, /*#__PURE__*/React__namespace.createElement("path", {
+    d: "M15.5 4H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1M15.5 9H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1M15.5 14H.5a.5.5 0 0 1 0-1h15a.5.5 0 0 1 0 1"
+  }))));
+};
 
 var SideBar = function SideBar(_ref) {
   var logo = _ref.logo,
@@ -498,7 +541,7 @@ var SideBar = function SideBar(_ref) {
     }
   }, [location === null || location === void 0 ? void 0 : location.pathname]);
   return jsxRuntime.jsxs(jsxRuntime.Fragment, {
-    children: [!isMobileOpen && jsxRuntime.jsx(img$1, {
+    children: [!isMobileOpen && jsxRuntime.jsx(SvgHamburger, {
       className: "hamburger-icon",
       style: hamburgerStyle,
       onClick: function onClick() {
@@ -513,7 +556,7 @@ var SideBar = function SideBar(_ref) {
         children: [jsxRuntime.jsx("div", {
           className: "logo",
           children: logo
-        }), jsxRuntime.jsx(img$2, {
+        }), jsxRuntime.jsx(SvgClose, {
           className: "close-btn",
           onClick: function onClick() {
             return setIsMobileOpen(false);
@@ -753,7 +796,24 @@ var HeroContentWrapper = function HeroContentWrapper(_ref) {
   });
 };
 
-var img = "data:image/svg+xml,%3csvg clip-rule='evenodd' fill-rule='evenodd' height='512' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 16 16' width='512' xmlns='http://www.w3.org/2000/svg'%3e%3cg id='Icon'%3e%3cpath d='m1.47 8.03 6 6c.293.293.767.293 1.06 0l6-6c.293-.292.293-.768 0-1.06-.292-.293-.768-.293-1.06 0l-5.47 5.469s-5.47-5.469-5.47-5.469c-.292-.293-.768-.293-1.06 0-.293.292-.293.768 0 1.06z'/%3e%3cpath d='m1.47 3.03 6 6c.293.293.767.293 1.06 0l6-6c.293-.292.293-.768 0-1.06-.292-.293-.768-.293-1.06 0l-5.47 5.469s-5.47-5.469-5.47-5.469c-.292-.293-.768-.293-1.06 0-.293.292-.293.768 0 1.06z'/%3e%3c/g%3e%3c/svg%3e";
+var _path, _path2;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+var SvgDownArrow = function SvgDownArrow(props) {
+  return /*#__PURE__*/React__namespace.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 512,
+    height: 512,
+    fillRule: "evenodd",
+    strokeLinejoin: "round",
+    strokeMiterlimit: 2,
+    clipRule: "evenodd",
+    viewBox: "0 0 16 16"
+  }, props), _path || (_path = /*#__PURE__*/React__namespace.createElement("path", {
+    d: "m1.47 8.03 6 6a.75.75 0 0 0 1.06 0l6-6a.749.749 0 1 0-1.06-1.06L8 12.439 2.53 6.97a.749.749 0 1 0-1.06 1.06"
+  })), _path2 || (_path2 = /*#__PURE__*/React__namespace.createElement("path", {
+    d: "m1.47 3.03 6 6a.75.75 0 0 0 1.06 0l6-6a.749.749 0 1 0-1.06-1.06L8 7.439 2.53 1.97a.749.749 0 1 0-1.06 1.06"
+  })));
+};
 
 var css_248z$2 = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.scroll-indicator {\n  position: absolute;\n  top: 80%;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 1050;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  font-family: \"Nunito\", sans-serif;\n  font-weight: 600;\n  color: #FF9F1A;\n  cursor: pointer;\n  user-select: none;\n  transition: 0.4s ease-in-out;\n}\n.scroll-indicator .text {\n  font-size: 20px;\n}\n@media (max-width: 1200px) {\n  .scroll-indicator .text {\n    font-size: 16px;\n  }\n}\n@media (max-width: 992px) {\n  .scroll-indicator .text {\n    font-size: 12px;\n  }\n}\n@media (max-width: 768px) {\n  .scroll-indicator .text {\n    font-size: 14px;\n  }\n}\n@media (max-width: 576px) {\n  .scroll-indicator .text {\n    font-size: 12px;\n  }\n}\n\n.arrow {\n  width: 20px;\n  height: 20px;\n  font-size: 28px;\n  animation: bounce 1.5s infinite;\n}\n\n.arrow:first-child {\n  animation-delay: 0s;\n}\n\n.arrow:last-child {\n  animation-delay: 0.3s;\n}\n\n@keyframes bounce {\n  0%, 100% {\n    transform: translateY(0);\n  }\n  50% {\n    transform: translateY(6px);\n  }\n}";
 styleInject(css_248z$2);
@@ -777,14 +837,14 @@ var ScrollIndicator = function ScrollIndicator(_ref) {
     tabIndex: 0,
     "aria-label": "Scroll down indicator"
   }, rest), {}, {
-    children: [jsxRuntime.jsx(img, {
+    children: [jsxRuntime.jsx(SvgDownArrow, {
       className: "arrow bounce",
       fill: defaultStyles.color
     }), jsxRuntime.jsx("span", {
       className: "text",
       style: defaultStyles,
       children: text
-    }), jsxRuntime.jsx(img, {
+    }), jsxRuntime.jsx(SvgDownArrow, {
       className: "arrow bounce",
       fill: defaultStyles.color
     })]

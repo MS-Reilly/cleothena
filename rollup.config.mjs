@@ -26,9 +26,13 @@ export default [
         ],
         plugins: [
             svgr({
-                exportType: 'default',     // ensures `default` export is used
+                include: '**/*.svg',
+                exclude: '**/*.svg?url',
+              })
+              ,
+            image({
+                exclude: ['**/*.svg'],
               }),
-            image(),
             resolve({
                 extensions: [".js", ".jsx", ".ts", ".tsx"],
                 skip: ["react", "react-dom",'react-router-dom'],

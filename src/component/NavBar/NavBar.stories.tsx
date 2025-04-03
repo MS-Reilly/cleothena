@@ -8,7 +8,7 @@ import image1 from '../../Assets/images/image1.jpg';
 
 
 import HomeIcon from "./../../Assets/icons/home.svg";
-import docsIcon from "./../../Assets/icons/docs.svg";
+import DocsIcon from "./../../Assets/icons/docs.svg";
 import ServicesIcon from "./../../Assets/icons/services.svg";
 import ContactIcon from "./../../Assets/icons/contact.svg";
 
@@ -37,7 +37,7 @@ type Story = StoryObj<typeof Navbar>;
 
 const defaultLinks = [
   { label: 'Home', href: '/', icon: HomeIcon},
-  { label: 'Docs', href: '/docs',icon: docsIcon  },
+  { label: 'Docs', href: '/docs',icon: DocsIcon  },
   {
     label: 'Services',
     href: '#',
