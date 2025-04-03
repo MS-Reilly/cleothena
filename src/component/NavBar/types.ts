@@ -11,6 +11,6 @@ export type NavItem = {
     theme?: 'light' | 'dark';
     className?: string;
     ghost?: boolean; // ✅ Ghost variant
-    sideBarSide?: 'left' | 'right';
+    sidebarProps?: Omit<SideBarProps, "sidebarConfig" | "logo">;
   }
   

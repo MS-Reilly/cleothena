@@ -28,12 +28,12 @@ interface NavbarProps {
     theme?: 'light' | 'dark';
     className?: string;
     ghost?: boolean;
-    sideBarSide?: 'left' | 'right';
+    sidebarProps?: Omit<SideBarProps, "sidebarConfig" | "logo">;
 }
 
 declare const Navbar: React$1.FC<NavbarProps>;
 
-interface SideBarProps {
+interface SideBarProps$1 {
     logo: string;
     sidebarConfig?: SidebarSectionConfig[];
     side?: "left" | "right";
@@ -55,7 +55,7 @@ interface SidebarItemConfig {
     [key: string]: any;
 }
 
-declare const SideBar: React$1.FC<SideBarProps>;
+declare const SideBar: React$1.FC<SideBarProps$1>;
 
 interface FullScreenHeroProps {
     image: string;

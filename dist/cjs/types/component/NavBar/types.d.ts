@@ -10,5 +10,5 @@ export interface NavbarProps {
     theme?: 'light' | 'dark';
     className?: string;
     ghost?: boolean;
-    sideBarSide?: 'left' | 'right';
+    sidebarProps?: Omit<SideBarProps, "sidebarConfig" | "logo">;
 }
