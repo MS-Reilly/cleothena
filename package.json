@@ -1,6 +1,6 @@
 {
   "name": "cleothena",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Component Library for Cleothena Software company",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
