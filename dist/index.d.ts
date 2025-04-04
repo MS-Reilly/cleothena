@@ -77,12 +77,14 @@ declare const FullScreenHero: React$1.FC<FullScreenHeroProps>;
 
 declare const HeroContentWrapper: React$1.FC<HeroContentWrapperProps>;
 
-interface ScrollIndicatorProps extends React$1.HTMLAttributes<HTMLDivElement> {
+type ScrollDirection = 'up' | 'down' | 'left' | 'right' | 'bothSides';
+interface ScrollIndicatorProps extends React.HTMLAttributes<HTMLDivElement> {
     onClick?: () => void;
     className?: string;
     text?: string;
-    arrowProps?: React$1.SVGProps<SVGSVGElement>;
-    textProps?: React$1.HTMLAttributes<HTMLSpanElement>;
+    arrowProps?: React.SVGProps<SVGSVGElement>;
+    textProps?: React.HTMLAttributes<HTMLSpanElement>;
+    direction?: ScrollDirection;
 }
 
 declare const ScrollIndicator: React$1.FC<ScrollIndicatorProps>;

@@ -16,6 +16,7 @@
   cursor: pointer;
   user-select: none;
   transition: $transition-normal;
+  width: 100%;
 
   .text {
     font-size: $font-size-lg;

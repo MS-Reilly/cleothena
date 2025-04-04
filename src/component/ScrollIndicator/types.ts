@@ -1,4 +1,4 @@
-import React from 'react';
+export type ScrollDirection = 'up' | 'down' | 'left' | 'right' | 'bothSides';
 
 export interface ScrollIndicatorProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: () => void;
@@ -6,4 +6,5 @@ export interface ScrollIndicatorProps extends React.HTMLAttributes<HTMLDivElemen
   text?: string;
   arrowProps?: React.SVGProps<SVGSVGElement>;
   textProps?: React.HTMLAttributes<HTMLSpanElement>;
+  direction?: ScrollDirection;
 }
