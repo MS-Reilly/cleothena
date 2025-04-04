@@ -980,7 +980,7 @@ var Separator = function Separator(_ref) {
   });
 };
 
-var css_248z = ".hero-carousel.horizontal {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  min-height: 500px;\n  overflow: hidden;\n}\n.hero-carousel.horizontal .carousel-track {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  height: 100%;\n  transition: transform 0.5s ease;\n}\n.hero-carousel.horizontal .carousel-slide {\n  flex: 0 0 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.hero-carousel.horizontal .nav-button {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 2;\n  background: rgba(0, 0, 0, 0.4);\n  color: #fff;\n  border: none;\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n  font-size: 1.5rem;\n  line-height: 1;\n  border-radius: 50%;\n}\n.hero-carousel.horizontal .nav-button.prev {\n  left: 10px;\n}\n.hero-carousel.horizontal .nav-button.next {\n  right: 10px;\n}";
+var css_248z = ".hero-carousel.horizontal {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  min-height: 500px;\n  overflow: hidden;\n  touch-action: pan-y;\n}\n.hero-carousel.horizontal .carousel-track {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  height: 100%;\n  transition: transform 0.5s ease;\n  will-change: transform;\n}\n.hero-carousel.horizontal .carousel-slide {\n  flex: 0 0 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  user-select: none;\n  touch-action: manipulation;\n}\n.hero-carousel.horizontal .nav-button {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 2;\n  background: rgba(0, 0, 0, 0.4);\n  color: #fff;\n  border: none;\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n  font-size: 1.5rem;\n  line-height: 1;\n  border-radius: 50%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: background 0.2s ease;\n}\n.hero-carousel.horizontal .nav-button:hover {\n  background: rgba(0, 0, 0, 0.6);\n}\n.hero-carousel.horizontal .nav-button.prev {\n  left: 10px;\n}\n.hero-carousel.horizontal .nav-button.next {\n  right: 10px;\n}";
 styleInject(css_248z);
 
 var HeroCarousel = function HeroCarousel(_ref) {
@@ -999,7 +999,41 @@ var HeroCarousel = function HeroCarousel(_ref) {
     currentIndex = _useState2[0],
     setCurrentIndex = _useState2[1];
   var intervalRef = useRef(null);
-  // Auto-play effect
+  var touchStartX = useRef(null);
+  var touchEndX = useRef(null);
+  var swipeThreshold = 50; // pixels
+  var handleTouchStart = function handleTouchStart(e) {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    touchStartX.current = e.touches[0].clientX;
+  };
+  var handleTouchMove = function handleTouchMove(e) {
+    touchEndX.current = e.touches[0].clientX;
+  };
+  var handleTouchEnd = function handleTouchEnd() {
+    if (touchStartX.current !== null && touchEndX.current !== null && Math.abs(touchStartX.current - touchEndX.current) > swipeThreshold) {
+      if (touchStartX.current > touchEndX.current) {
+        handleNext(); // Swiped left
+      } else {
+        handlePrev(); // Swiped right
+      }
+    }
+    // Reset
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+  var handleNext = function handleNext() {
+    setCurrentIndex(function (prev) {
+      return (prev + 1) % slidesArray.length;
+    });
+  };
+  var handlePrev = function handlePrev() {
+    setCurrentIndex(function (prev) {
+      return (prev - 1 + slidesArray.length) % slidesArray.length;
+    });
+  };
   useEffect(function () {
     if (autoPlay && slidesArray.length > 1) {
       intervalRef.current = setInterval(function () {
@@ -1015,16 +1049,6 @@ var HeroCarousel = function HeroCarousel(_ref) {
       }
     };
   }, [autoPlay, autoPlayInterval, slidesArray.length]);
-  var handleNext = function handleNext() {
-    setCurrentIndex(function (prev) {
-      return (prev + 1) % slidesArray.length;
-    });
-  };
-  var handlePrev = function handlePrev() {
-    setCurrentIndex(function (prev) {
-      return (prev - 1 + slidesArray.length) % slidesArray.length;
-    });
-  };
   return jsxs("div", {
     className: "hero-carousel horizontal ".concat(className).trim(),
     children: [jsx("div", {
@@ -1032,6 +1056,9 @@ var HeroCarousel = function HeroCarousel(_ref) {
       style: {
         transform: "translateX(-".concat(currentIndex * 100, "%)")
       },
+      onTouchStart: handleTouchStart,
+      onTouchMove: handleTouchMove,
+      onTouchEnd: handleTouchEnd,
       children: slidesArray.map(function (slide, idx) {
         return jsx("div", {
           className: "carousel-slide",
