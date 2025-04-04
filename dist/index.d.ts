@@ -138,6 +138,7 @@ interface HeroCarouselProps {
     className?: string;
     /** The slides to display (e.g. <FullScreenHero> children) */
     children?: React$1.ReactNode;
+    showNavButtons?: boolean;
 }
 
 declare const HeroCarousel: React$1.FC<HeroCarouselProps>;

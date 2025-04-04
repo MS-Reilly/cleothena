@@ -10,4 +10,6 @@ export interface HeroCarouselProps {
   className?: string;
   /** The slides to display (e.g. <FullScreenHero> children) */
   children?: React.ReactNode;
+
+  showNavButtons?: boolean; // Show navigation buttons
 }

@@ -1,12 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { HeroCarouselProps } from './types';
-import './styles.scss';
+import React, { useEffect, useRef, useState } from "react";
+import { HeroCarouselProps } from "./types";
+import "./styles.scss";
 
 const HeroCarousel: React.FC<HeroCarouselProps> = ({
   autoPlay = false,
   autoPlayInterval = 5000,
-  className = '',
+  className = "",
   children,
+  showNavButtons = false,
 }) => {
   const slidesArray = React.Children.toArray(children).flatMap((child) =>
     React.isValidElement(child) && child.type === React.Fragment
@@ -56,7 +57,9 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + slidesArray.length) % slidesArray.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + slidesArray.length) % slidesArray.length
+    );
   };
 
   useEffect(() => {
@@ -89,7 +92,7 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({
         ))}
       </div>
 
-      {slidesArray.length > 1 && (
+      {slidesArray.length > 1 && showNavButtons && (
         <>
           <button className="nav-button prev" onClick={handlePrev}>
             &lt;

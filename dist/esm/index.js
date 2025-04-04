@@ -989,8 +989,10 @@ var HeroCarousel = function HeroCarousel(_ref) {
     _ref$autoPlayInterval = _ref.autoPlayInterval,
     autoPlayInterval = _ref$autoPlayInterval === void 0 ? 5000 : _ref$autoPlayInterval,
     _ref$className = _ref.className,
-    className = _ref$className === void 0 ? '' : _ref$className,
-    children = _ref.children;
+    className = _ref$className === void 0 ? "" : _ref$className,
+    children = _ref.children,
+    _ref$showNavButtons = _ref.showNavButtons,
+    showNavButtons = _ref$showNavButtons === void 0 ? false : _ref$showNavButtons;
   var slidesArray = React__default.Children.toArray(children).flatMap(function (child) {
     return /*#__PURE__*/React__default.isValidElement(child) && child.type === React__default.Fragment ? React__default.Children.toArray(child.props.children) : [child];
   });
@@ -1065,7 +1067,7 @@ var HeroCarousel = function HeroCarousel(_ref) {
           children: slide
         }, idx);
       })
-    }), slidesArray.length > 1 && jsxs(Fragment, {
+    }), slidesArray.length > 1 && showNavButtons && jsxs(Fragment, {
       children: [jsx("button", {
         className: "nav-button prev",
         onClick: handlePrev,
