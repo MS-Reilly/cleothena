@@ -1,14 +1,23 @@
-import React from 'react';
-import ArrowDownIcon from './../../Assets/icons/down-arrow.svg';
-import { useTheme } from '../../theme/hooks/useTheme';
-import { ScrollIndicatorProps } from './types';
-import './styles.scss';
+import React from "react";
+import ArrowDownIcon from "./../../Assets/icons/down-arrow.svg";
+import { useTheme } from "../../theme/hooks/useTheme";
+import { ScrollIndicatorProps } from "./types";
+import "./styles.scss";
 
-const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ className = '', onClick, text = 'Descubre más', ...rest }) => {
-  const theme = useTheme() || {};
+const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({
+  className = "",
+  onClick,
+  text = "Descubre más",
+  arrowProps = {},
+  textProps = {},
+  ...rest
+}) => {
+  const arrowStyle = {
+    ...(arrowProps.style || {}),
+  };
 
-  const defaultStyles = {
-    color: theme.colors.primary || '#ffffff',
+  const textStyle = {
+    ...(textProps.style || {}),
   };
 
   return (
@@ -20,9 +29,11 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({ className = '', onCli
       aria-label="Scroll down indicator"
       {...rest}
     >
-      <ArrowDownIcon className="arrow bounce" fill={defaultStyles.color}/>
-      <span className="text" style={defaultStyles}>{text}</span>
-      <ArrowDownIcon className="arrow bounce" fill={defaultStyles.color} />
+      <ArrowDownIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
+      <span className="text" style={textStyle} {...textProps}>
+        {text}
+      </span>
+      <ArrowDownIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
     </div>
   );
 };

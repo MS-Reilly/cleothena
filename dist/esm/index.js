@@ -801,18 +801,20 @@ var SvgDownArrow = function SvgDownArrow(props) {
 var css_248z$2 = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.scroll-indicator {\n  position: absolute;\n  top: 80%;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 1050;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  font-family: \"Nunito\", sans-serif;\n  font-weight: 600;\n  color: #FF9F1A;\n  cursor: pointer;\n  user-select: none;\n  transition: 0.4s ease-in-out;\n}\n.scroll-indicator .text {\n  font-size: 20px;\n}\n@media (max-width: 1200px) {\n  .scroll-indicator .text {\n    font-size: 16px;\n  }\n}\n@media (max-width: 992px) {\n  .scroll-indicator .text {\n    font-size: 12px;\n  }\n}\n@media (max-width: 768px) {\n  .scroll-indicator .text {\n    font-size: 14px;\n  }\n}\n@media (max-width: 576px) {\n  .scroll-indicator .text {\n    font-size: 12px;\n  }\n}\n\n.arrow {\n  width: 20px;\n  height: 20px;\n  font-size: 28px;\n  animation: bounce 1.5s infinite;\n}\n\n.arrow:first-child {\n  animation-delay: 0s;\n}\n\n.arrow:last-child {\n  animation-delay: 0.3s;\n}\n\n@keyframes bounce {\n  0%, 100% {\n    transform: translateY(0);\n  }\n  50% {\n    transform: translateY(6px);\n  }\n}";
 styleInject(css_248z$2);
 
-var _excluded = ["className", "onClick", "text"];
+var _excluded = ["className", "onClick", "text", "arrowProps", "textProps"];
 var ScrollIndicator = function ScrollIndicator(_ref) {
   var _ref$className = _ref.className,
-    className = _ref$className === void 0 ? '' : _ref$className,
+    className = _ref$className === void 0 ? "" : _ref$className,
     onClick = _ref.onClick,
     _ref$text = _ref.text,
-    text = _ref$text === void 0 ? 'Descubre más' : _ref$text,
+    text = _ref$text === void 0 ? "Descubre más" : _ref$text,
+    _ref$arrowProps = _ref.arrowProps,
+    arrowProps = _ref$arrowProps === void 0 ? {} : _ref$arrowProps,
+    _ref$textProps = _ref.textProps,
+    textProps = _ref$textProps === void 0 ? {} : _ref$textProps,
     rest = _objectWithoutProperties(_ref, _excluded);
-  var theme = useTheme() || {};
-  var defaultStyles = {
-    color: theme.colors.primary || '#ffffff'
-  };
+  var arrowStyle = _objectSpread2({}, arrowProps.style || {});
+  var textStyle = _objectSpread2({}, textProps.style || {});
   return jsxs("div", _objectSpread2(_objectSpread2({
     className: "scroll-indicator ".concat(className),
     onClick: onClick,
@@ -820,17 +822,18 @@ var ScrollIndicator = function ScrollIndicator(_ref) {
     tabIndex: 0,
     "aria-label": "Scroll down indicator"
   }, rest), {}, {
-    children: [jsx(SvgDownArrow, {
+    children: [jsx(SvgDownArrow, _objectSpread2({
       className: "arrow bounce",
-      fill: defaultStyles.color
-    }), jsx("span", {
+      style: arrowStyle
+    }, arrowProps)), jsx("span", _objectSpread2(_objectSpread2({
       className: "text",
-      style: defaultStyles,
+      style: textStyle
+    }, textProps), {}, {
       children: text
-    }), jsx(SvgDownArrow, {
+    })), jsx(SvgDownArrow, _objectSpread2({
       className: "arrow bounce",
-      fill: defaultStyles.color
-    })]
+      style: arrowStyle
+    }, arrowProps))]
   }));
 };
 

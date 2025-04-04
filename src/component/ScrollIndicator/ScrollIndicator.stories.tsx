@@ -20,6 +20,14 @@ const meta: Meta<typeof ScrollIndicator> = {
       control: 'text',
       description: 'Optional additional CSS class names.',
     },
+    arrowProps: {
+      control: 'object',
+      description: 'Props applied to both arrow icons (e.g., style, className).',
+    },
+    textProps: {
+      control: 'object',
+      description: 'Props applied to the text span (e.g., style, className).',
+    },
   },
 };
 
@@ -42,4 +50,23 @@ export const WithClickHandler: Story = Template.bind({});
 WithClickHandler.args = {
   text: 'Click to Scroll',
   onClick: () => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' }),
+};
+
+export const CustomStyled: Story = Template.bind({});
+CustomStyled.args = {
+  text: 'Personalizado',
+  arrowProps: {
+    style: {
+      fill: '#FF5733',
+      width: '20px',
+      height: '20px',
+    },
+  },
+  textProps: {
+    style: {
+      color: '#FF5733',
+      fontSize: '20px',
+      fontWeight: 'bold',
+    },
+  },
 };
