@@ -11,6 +11,7 @@ const FullScreenHero: React.FC<FullScreenHeroProps> = ({
   animationThreshold = 0.5,
   overlay = false,
   overlayColor = "rgba(0, 0, 0, 0.4)",
+ style = {},
 }) => {
   const textRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -29,7 +30,7 @@ const FullScreenHero: React.FC<FullScreenHeroProps> = ({
   }, [animationThreshold]);
 
   return (
-    <div className="fullscreen-hero">
+    <div className="fullscreen-hero" style={{ ...style }}>
       <img src={image} alt="Hero Background" className="fullscreen-hero__image" />
 
       {overlay && (

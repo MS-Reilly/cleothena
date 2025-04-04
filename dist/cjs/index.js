@@ -736,7 +736,9 @@ var FullScreenHero = function FullScreenHero(_ref) {
     _ref$overlay = _ref.overlay,
     overlay = _ref$overlay === void 0 ? false : _ref$overlay,
     _ref$overlayColor = _ref.overlayColor,
-    overlayColor = _ref$overlayColor === void 0 ? "rgba(0, 0, 0, 0.4)" : _ref$overlayColor;
+    overlayColor = _ref$overlayColor === void 0 ? "rgba(0, 0, 0, 0.4)" : _ref$overlayColor,
+    _ref$style = _ref.style,
+    style = _ref$style === void 0 ? {} : _ref$style;
   var textRef = React.useRef(null);
   var _useState = React.useState(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -757,6 +759,7 @@ var FullScreenHero = function FullScreenHero(_ref) {
   }, [animationThreshold]);
   return jsxRuntime.jsxs("div", {
     className: "fullscreen-hero",
+    style: _objectSpread2({}, style),
     children: [jsxRuntime.jsx("img", {
       src: image,
       alt: "Hero Background",

@@ -30,7 +30,7 @@ export const HorizontalSlider: Story = {
     autoPlayInterval: 5000,
     children: (
       <>
-        <FullScreenHero image={image2} overlay={false} overlayColor="rgba(0, 0, 0, 0.28)">
+        <FullScreenHero image={image2} overlay={false} overlayColor="rgba(0, 0, 0, 0.28)" style={{ height: '90vh' }}>
           <HeroContentWrapper overlayColor="#00ADA9" gradientDirection='to right'>
             <div
               style={{
