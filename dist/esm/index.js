@@ -1081,7 +1081,7 @@ var HeroCarousel = function HeroCarousel(_ref) {
   });
 };
 
-var css_248z = ".service-card {\n  background-color: #f2f2f2;\n  padding: 2rem;\n  text-align: center;\n  border-radius: 8px;\n  width: 100%;\n}\n.service-card__image-wrapper {\n  width: 60px;\n  height: 60px;\n  border-radius: 50%;\n  overflow: hidden;\n  margin: 0 auto 1rem;\n  border: 2px solid #ccc;\n}\n.service-card__image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.service-card__title {\n  margin: 0 0 0.5rem;\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.service-card__description {\n  color: #666;\n  font-size: 0.9rem;\n  margin: 0 0 1rem;\n}\n.service-card__link {\n  color: #000;\n  text-decoration: none;\n  font-weight: bold;\n}";
+var css_248z = ".service-card {\n  background-color: #f2f2f2;\n  padding: 2rem;\n  text-align: center;\n  border-radius: 8px;\n  width: 100%;\n}\n.service-card__image-wrapper {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  overflow: hidden;\n  margin: 0 auto 1rem;\n  border: 2px solid #ccc;\n}\n.service-card__image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.service-card__title {\n  margin: 0 0 0.5rem;\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.service-card__description {\n  color: #666;\n  font-size: 0.9rem;\n  margin: 0 0 1rem;\n}\n.service-card__link {\n  color: #000;\n  text-decoration: none;\n  font-weight: bold;\n}";
 styleInject(css_248z);
 
 var ServiceCard = function ServiceCard(_ref) {
