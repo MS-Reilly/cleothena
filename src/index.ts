@@ -6,4 +6,5 @@ export { default as HeroContentWrapper } from './component/FullScreenHero/HeroCo
 export { default as ScrollIndicator } from './component/ScrollIndicator/ScrollIndicator';
 export { default as Separator } from './component/Separator/Separator';
 export { default as HeroCarousel } from './component/HeroCarousel/HeroCarousel';
+export {default as ServiceCard} from './component/ServiceCard/ServiceCard'
 export * from './theme/index';

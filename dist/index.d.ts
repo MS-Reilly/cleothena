@@ -143,6 +143,17 @@ interface HeroCarouselProps {
 
 declare const HeroCarousel: React$1.FC<HeroCarouselProps>;
 
+interface ServiceCardProps {
+    title: string;
+    description: string;
+    imageUrl: string;
+    altText?: string;
+    className?: string;
+    buttonProps?: Omit<SimpleButtonProps, 'children' | 'title'>;
+}
+
+declare const ServiceCard: React$1.FC<ServiceCardProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -236,5 +247,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { FullScreenHero, HeroCarousel, HeroContentWrapper, Navbar, ScrollIndicator, Separator, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
+export { FullScreenHero, HeroCarousel, HeroContentWrapper, Navbar, ScrollIndicator, Separator, ServiceCard, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };
