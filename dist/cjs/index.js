@@ -1209,7 +1209,7 @@ var TestimonialCard = function TestimonialCard(_ref) {
   });
 };
 
-var css_248z = ".icon-card {\n  background-color: #ffffff;\n  padding: 1rem;\n  border-radius: 10px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  height: 100px;\n  transition: transform 0.2s ease;\n}\n.icon-card:hover {\n  transform: translateY(-2px);\n}\n.icon-card__icon {\n  font-size: 1.8rem;\n  margin-bottom: 0.3rem;\n}\n.icon-card__title {\n  font-size: 0.85rem;\n  font-weight: 600;\n  color: #333;\n}";
+var css_248z = ".icon-card {\n  background-color: #ffffff;\n  padding: 0.5rem;\n  border-radius: 10px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  height: 100px;\n  transition: transform 0.2s ease;\n}\n.icon-card:hover {\n  transform: translateY(-2px);\n}\n.icon-card__icon {\n  font-size: 1.8rem;\n  margin-bottom: 0rem;\n}\n.icon-card__title {\n  font-size: 0.85rem;\n  font-weight: 600;\n  color: #333;\n}";
 styleInject(css_248z);
 
 var IconCard = function IconCard(_ref) {
