@@ -1353,7 +1353,9 @@ styleInject(css_248z);
 var PricingCarousel = function PricingCarousel(_ref) {
   var children = _ref.children,
     _ref$className = _ref.className,
-    className = _ref$className === void 0 ? "" : _ref$className;
+    className = _ref$className === void 0 ? "" : _ref$className,
+    _ref$arrowStyle = _ref.arrowStyle,
+    arrowStyle = _ref$arrowStyle === void 0 ? {} : _ref$arrowStyle;
   var _useState = useState(0),
     _useState2 = _slicedToArray(_useState, 2),
     currentIndex = _useState2[0],
@@ -1368,6 +1370,12 @@ var PricingCarousel = function PricingCarousel(_ref) {
       arrowFill: ((_theme$colors = theme.colors) === null || _theme$colors === void 0 ? void 0 : _theme$colors.primary) || "#2ec4b6"
     };
   }, [theme]);
+  var combinedArrowStyle = _objectSpread2({
+    width: "20px",
+    height: "20px",
+    fill: styles.arrowFill,
+    display: "block"
+  }, arrowStyle);
   var nextSlide = function nextSlide() {
     setCurrentIndex(function (prev) {
       return (prev + 1) % totalCards;
@@ -1384,13 +1392,9 @@ var PricingCarousel = function PricingCarousel(_ref) {
       fontFamily: styles.fontFamily
     },
     children: [jsx(SvgRightArrow, {
-      style: {
-        width: "20px",
-        height: "20px",
-        fill: styles.arrowFill,
-        display: "block",
+      style: _objectSpread2(_objectSpread2({}, combinedArrowStyle), {}, {
         transform: "scaleX(-1)"
-      },
+      }),
       className: "carousel__arrow carousel__arrow--left",
       onClick: prevSlide
     }), jsx("div", {
@@ -1414,12 +1418,7 @@ var PricingCarousel = function PricingCarousel(_ref) {
       className: "carousel__arrow carousel__arrow--right",
       onClick: nextSlide,
       children: jsx(SvgRightArrow, {
-        style: {
-          width: "20px",
-          height: "20px",
-          fill: styles.arrowFill,
-          display: "block"
-        }
+        style: combinedArrowStyle
       })
     })]
   });

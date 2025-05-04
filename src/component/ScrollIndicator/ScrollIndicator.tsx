@@ -29,40 +29,82 @@ const ScrollIndicator: React.FC<ScrollIndicatorProps> = ({
       case "up":
         return (
           <>
-            <ArrowUpIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
-            <span className="text" style={textStyle} {...textProps}>{text}</span>
-            <ArrowUpIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
+            <ArrowUpIcon
+              className="arrow bounce"
+              style={arrowStyle}
+              {...arrowProps}
+            />
+            <span className="text" style={textStyle} {...textProps}>
+              {text}
+            </span>
+            <ArrowUpIcon
+              className="arrow bounce"
+              style={arrowStyle}
+              {...arrowProps}
+            />
           </>
         );
       case "left":
         return (
           <>
-            <ArrowLeftIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
-            <span className="text" style={textStyle} {...textProps}>{text}</span>
+            <ArrowLeftIcon
+              className="arrow bounce"
+              style={arrowStyle}
+              {...arrowProps}
+            />
+            <span className="text" style={textStyle} {...textProps}>
+              {text}
+            </span>
           </>
         );
       case "right":
         return (
           <>
-            <span className="text" style={textStyle} {...textProps}>{text}</span>
-            <ArrowRightIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
+            <span className="text" style={textStyle} {...textProps}>
+              {text}
+            </span>
+            <ArrowRightIcon
+              className="arrow bounce"
+              style={arrowStyle}
+              {...arrowProps}
+            />
           </>
         );
       case "bothSides":
         return (
           <>
-            <ArrowLeftIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
-            <span className="text" style={textStyle} {...textProps}>{text}</span>
-            <ArrowRightIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
+            <ArrowLeftIcon
+              className="arrow bounce"
+              style={arrowStyle}
+              {...arrowProps}
+            />
+            <span className="text" style={textStyle} {...textProps}>
+              {text}
+            </span>
+            <ArrowRightIcon
+              className="arrow bounce"
+              style={arrowStyle}
+              {...arrowProps}
+            />
           </>
         );
       case "down":
       default:
         return (
           <>
-            <ArrowDownIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
-            <span className="text" style={textStyle} {...textProps}>{text}</span>
-            <ArrowDownIcon className="arrow bounce" style={arrowStyle} {...arrowProps} />
+            <ArrowDownIcon
+              className="arrow bounce"
+              style={arrowStyle}
+              {...arrowProps}
+            />
+            <span className="text" style={textStyle} {...textProps}>
+              {text}
+            </span>
+            <ArrowDownIcon
+              className="arrow bounce"
+              style={arrowStyle}
+              {...arrowProps}
+            />
           </>
         );
     }

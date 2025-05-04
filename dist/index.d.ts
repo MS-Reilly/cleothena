@@ -1,4 +1,4 @@
-import React$1, { ReactNode } from 'react';
+import React$1, { ReactNode, CSSProperties } from 'react';
 
 type ButtonVariant = 'xs' | 'sm' | 'md' | 'lg';
 type ButtonColor = 'primary' | 'secondary' | 'accent' | 'highlight';
@@ -205,8 +205,8 @@ declare const PricingCard: React$1.FC<PricingCardProps>;
 
 interface PricingCarouselProps {
     children: ReactNode;
-    title?: string;
     className?: string;
+    arrowStyle?: CSSProperties;
 }
 
 declare const PricingCarousel: React$1.FC<PricingCarouselProps>;

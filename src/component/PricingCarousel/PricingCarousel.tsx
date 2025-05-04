@@ -1,13 +1,13 @@
 import React, { useState, useMemo } from "react";
 import { PricingCarouselProps } from "./PricingCarousel.types";
 import "./PricingCarousel.scss";
-import ArrowLeftIcon from "./../../Assets/icons/left-arrow.svg";
 import ArrowRightIcon from "./../../Assets/icons/right-arrow.svg";
 import { useTheme } from "../../theme/hooks/useTheme";
 
 const PricingCarousel: React.FC<PricingCarouselProps> = ({
   children,
   className = "",
+  arrowStyle = {},
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalCards = React.Children.count(children);
@@ -21,6 +21,14 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({
     }),
     [theme]
   );
+
+  const combinedArrowStyle = {
+    width: "20px",
+    height: "20px",
+    fill: styles.arrowFill,
+    display: "block",
+    ...arrowStyle, // ✅ Apply overrides from props
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % totalCards);
@@ -36,13 +44,7 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({
       style={{ fontFamily: styles.fontFamily }}
     >
       <ArrowRightIcon
-        style={{
-          width: "20px",
-          height: "20px",
-          fill: styles.arrowFill,
-          display: "block",
-          transform: "scaleX(-1)",
-        }}
+        style={{ ...combinedArrowStyle, transform: "scaleX(-1)" }}
         className="carousel__arrow carousel__arrow--left"
         onClick={prevSlide}
       />
@@ -68,14 +70,7 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({
         className="carousel__arrow carousel__arrow--right"
         onClick={nextSlide}
       >
-        <ArrowRightIcon
-          style={{
-            width: "20px",
-            height: "20px",
-            fill: styles.arrowFill,
-            display: "block",
-          }}
-        />
+        <ArrowRightIcon style={combinedArrowStyle} />
       </div>
     </div>
   );
