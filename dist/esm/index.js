@@ -1383,12 +1383,13 @@ var PricingCarousel = function PricingCarousel(_ref) {
     style: {
       fontFamily: styles.fontFamily
     },
-    children: [jsx(SvgLeftArrow, {
+    children: [jsx(SvgRightArrow, {
       style: {
         width: "20px",
         height: "20px",
         fill: styles.arrowFill,
-        display: "block"
+        display: "block",
+        transform: "scaleX(-1)"
       },
       className: "carousel__arrow carousel__arrow--left",
       onClick: prevSlide
@@ -1412,12 +1413,11 @@ var PricingCarousel = function PricingCarousel(_ref) {
     }), jsx("div", {
       className: "carousel__arrow carousel__arrow--right",
       onClick: nextSlide,
-      children: jsx(SvgLeftArrow, {
+      children: jsx(SvgRightArrow, {
         style: {
           width: "20px",
           height: "20px",
           fill: styles.arrowFill,
-          transform: "scaleX(-1)",
           display: "block"
         }
       })
