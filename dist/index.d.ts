@@ -166,6 +166,17 @@ interface TestimonialCardProps {
 
 declare const TestimonialCard: React$1.FC<TestimonialCardProps>;
 
+interface IconCardProps {
+    icon: React.ComponentType<any>;
+    title: string;
+    color?: string;
+    backgroundColor?: string;
+    iconSize?: number;
+    className?: string;
+}
+
+declare const IconCard: React$1.FC<IconCardProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -259,5 +270,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { FullScreenHero, HeroCarousel, HeroContentWrapper, Navbar, ScrollIndicator, Separator, ServiceCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
+export { FullScreenHero, HeroCarousel, HeroContentWrapper, IconCard, Navbar, ScrollIndicator, Separator, ServiceCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };

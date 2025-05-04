@@ -8,4 +8,5 @@ export { default as Separator } from './component/Separator/Separator';
 export { default as HeroCarousel } from './component/HeroCarousel/HeroCarousel';
 export {default as ServiceCard} from './component/ServiceCard/ServiceCard'
 export {default as TestimonialCard} from './component/TestimonialCard/TestimonialCard'
+export {default as IconCard} from './component/IconCard/IconCard'
 export * from './theme/index';
