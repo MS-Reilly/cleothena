@@ -188,6 +188,29 @@ interface ServiceHighlightCardProps {
 
 declare const ServiceHighlightCard: React$1.FC<ServiceHighlightCardProps>;
 
+interface PricingCardProps {
+    planName: string;
+    price?: string;
+    billingCycle?: string;
+    description: string;
+    features: string[];
+    isPopular?: boolean;
+    popularLabel?: string;
+    buttonText?: string;
+    onButtonClick?: () => void;
+    className?: string;
+}
+
+declare const PricingCard: React$1.FC<PricingCardProps>;
+
+interface PricingCarouselProps {
+    children: ReactNode;
+    title?: string;
+    className?: string;
+}
+
+declare const PricingCarousel: React$1.FC<PricingCarouselProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -281,5 +304,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { FullScreenHero, HeroCarousel, HeroContentWrapper, IconCard, Navbar, ScrollIndicator, Separator, ServiceCard, ServiceHighlightCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
+export { FullScreenHero, HeroCarousel, HeroContentWrapper, IconCard, Navbar, PricingCard, PricingCarousel, ScrollIndicator, Separator, ServiceCard, ServiceHighlightCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };

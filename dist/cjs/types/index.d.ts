@@ -10,4 +10,6 @@ export { default as ServiceCard } from './component/ServiceCard/ServiceCard';
 export { default as TestimonialCard } from './component/TestimonialCard/TestimonialCard';
 export { default as IconCard } from './component/IconCard/IconCard';
 export { default as ServiceHighlightCard } from './component/ServiceHighlightCard/ServiceHighlightCard';
+export { default as PricingCard } from './component/PricingCard/PricingCard';
+export { default as PricingCarousel } from './component/PricingCarousel/PricingCarousel';
 export * from './theme/index';

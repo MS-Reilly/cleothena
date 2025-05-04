@@ -1,0 +1,87 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 1rem 0;
+
+    &__title {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #2ec4b6;
+        margin-bottom: 1rem;
+    }
+
+    &__wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    &__cards {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    &__card {
+        min-width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: #2ec4b6;
+            transition: fill 0.3s ease;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            svg {
+                fill: #ff9f1a;
+            }
+        }
+
+        &--left {
+            left: 10px;
+        }
+
+        &--right {
+            right: 10px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__arrow {
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            &--left {
+                left: 4px;
+            }
+
+            &--right {
+                right: 4px;
+            }
+        }
+
+        &__card {
+            padding: 0; // no external padding on card container
+        }
+    }
+}

@@ -232,8 +232,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$a = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.buttonClass {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  text-align: center;\n  border: 2px solid transparent;\n  user-select: none;\n  transition: all 0.4s ease-in-out;\n  cursor: pointer;\n  letter-spacing: 0.5px;\n  line-height: 1.5;\n  /* Default Button Colors */\n  background-color: #FF9F1A;\n  color: #ffffff;\n  border-color: #FF9F1A;\n  border-radius: 8px;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;\n  /* Variant Styles */\n  /* Secondary Variant */\n  /* Accent Variant */\n  /* Highlight Variant */\n  /* Outline Variant */\n  /* Ghost Variant */\n  /* Responsive Behavior */\n}\n.buttonClass:hover {\n  opacity: 0.85;\n}\n.buttonClass:active {\n  transform: scale(0.98);\n}\n.buttonClass.disabled {\n  pointer-events: none;\n  opacity: 0.6;\n  background-color: #E0E0E0;\n  color: #9E9E9E;\n  border-color: #BDBDBD;\n}\n.buttonClass.xs {\n  font-size: 8px;\n  padding: 4px 8px;\n  height: 25px;\n  min-width: 20px;\n  border-radius: 3px;\n}\n.buttonClass.sm {\n  font-size: 12px;\n  padding: 6px 12px;\n  height: 25px;\n  min-width: 20px;\n  border-radius: 4px;\n}\n.buttonClass.md {\n  font-size: 16px;\n  padding: 10px 16px;\n  height: 35px;\n  min-width: 30px;\n  border-radius: 8px;\n}\n.buttonClass.lg {\n  font-size: 20px;\n  padding: 14px 20px;\n  height: 52px;\n  min-width: 120px;\n  border-radius: 12px;\n}\n.buttonClass.secondary {\n  background-color: #FFB516;\n  border-color: #FFB516;\n  color: #000000;\n}\n.buttonClass.accent {\n  background-color: #2EC4B6;\n  border-color: #2EC4B6;\n  color: #ffffff;\n}\n.buttonClass.highlight {\n  background-color: #00ADA9;\n  border-color: #00ADA9;\n  color: #ffffff;\n}\n.buttonClass.outline {\n  background-color: transparent;\n  border-color: currentColor;\n  color: inherit;\n}\n.buttonClass.ghost {\n  background-color: transparent;\n  border: none;\n  color: inherit;\n  box-shadow: none;\n}\n@media (max-width: 768px) {\n  .buttonClass.md {\n    font-size: 12px;\n    padding: 8px 14px;\n  }\n  .buttonClass.lg {\n    font-size: 16px;\n    padding: 12px 18px;\n  }\n}";
-styleInject(css_248z$a);
+var css_248z$c = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.buttonClass {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  text-align: center;\n  border: 2px solid transparent;\n  user-select: none;\n  transition: all 0.4s ease-in-out;\n  cursor: pointer;\n  letter-spacing: 0.5px;\n  line-height: 1.5;\n  /* Default Button Colors */\n  background-color: #FF9F1A;\n  color: #ffffff;\n  border-color: #FF9F1A;\n  border-radius: 8px;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;\n  /* Variant Styles */\n  /* Secondary Variant */\n  /* Accent Variant */\n  /* Highlight Variant */\n  /* Outline Variant */\n  /* Ghost Variant */\n  /* Responsive Behavior */\n}\n.buttonClass:hover {\n  opacity: 0.85;\n}\n.buttonClass:active {\n  transform: scale(0.98);\n}\n.buttonClass.disabled {\n  pointer-events: none;\n  opacity: 0.6;\n  background-color: #E0E0E0;\n  color: #9E9E9E;\n  border-color: #BDBDBD;\n}\n.buttonClass.xs {\n  font-size: 8px;\n  padding: 4px 8px;\n  height: 25px;\n  min-width: 20px;\n  border-radius: 3px;\n}\n.buttonClass.sm {\n  font-size: 12px;\n  padding: 6px 12px;\n  height: 25px;\n  min-width: 20px;\n  border-radius: 4px;\n}\n.buttonClass.md {\n  font-size: 16px;\n  padding: 10px 16px;\n  height: 35px;\n  min-width: 30px;\n  border-radius: 8px;\n}\n.buttonClass.lg {\n  font-size: 20px;\n  padding: 14px 20px;\n  height: 52px;\n  min-width: 120px;\n  border-radius: 12px;\n}\n.buttonClass.secondary {\n  background-color: #FFB516;\n  border-color: #FFB516;\n  color: #000000;\n}\n.buttonClass.accent {\n  background-color: #2EC4B6;\n  border-color: #2EC4B6;\n  color: #ffffff;\n}\n.buttonClass.highlight {\n  background-color: #00ADA9;\n  border-color: #00ADA9;\n  color: #ffffff;\n}\n.buttonClass.outline {\n  background-color: transparent;\n  border-color: currentColor;\n  color: inherit;\n}\n.buttonClass.ghost {\n  background-color: transparent;\n  border: none;\n  color: inherit;\n  box-shadow: none;\n}\n@media (max-width: 768px) {\n  .buttonClass.md {\n    font-size: 12px;\n    padding: 8px 14px;\n  }\n  .buttonClass.lg {\n    font-size: 16px;\n    padding: 12px 18px;\n  }\n}";
+styleInject(css_248z$c);
 
 var _excluded$1 = ["title", "children", "onClick", "className", "disabled", "variant", "color", "outline", "ghost"];
 var SimpleButton = function SimpleButton(_ref) {
@@ -292,11 +292,11 @@ var SimpleButton = function SimpleButton(_ref) {
   }));
 };
 
-var css_248z$9 = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sb-show-main {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\n.navbar {\n  box-sizing: border-box;\n  width: 100%;\n  max-width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  transition: all 0.3s ease;\n  box-shadow: 16px;\n  padding: 10px 10px;\n}\n.navbar .navbar-container {\n  display: flex;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n}\n.navbar .navbar-links {\n  display: flex;\n  gap: 20px;\n  align-items: center;\n}\n.navbar .navbar-item {\n  position: relative;\n  text-decoration: none;\n}\n.navbar .navbar-item .nav-link {\n  font-weight: 500;\n  text-decoration: none;\n  padding: 10px;\n  border-radius: 5px;\n  transition: all 0.3s ease;\n}\n.navbar .navbar-item:hover .navbar-dropdown {\n  display: flex;\n  flex-direction: column;\n  transition: all 0.3s ease-in-out;\n}\n.navbar .navbar-item:hover .navbar-dropdown .nav-link {\n  font-weight: 500;\n  text-decoration: none;\n  padding: 10px;\n  border-radius: 5px;\n  transition: all 0.3s ease;\n}\n.navbar .navbar-dropdown {\n  display: none;\n  position: absolute;\n  background: white;\n  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);\n  padding: 10px;\n  border-radius: 5px;\n}\n.navbar .navbar-toggle {\n  display: none;\n  background: transparent;\n  border: none;\n  cursor: pointer;\n}\n.navbar .navbar-mobile {\n  display: none;\n  flex-direction: column;\n  padding: 10px;\n}\n@media (max-width: 768px) {\n  .navbar .navbar-links {\n    display: none;\n  }\n  .navbar .navbar-toggle {\n    display: block;\n  }\n  .navbar .navbar-mobile {\n    display: flex;\n  }\n}";
-styleInject(css_248z$9);
+var css_248z$b = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sb-show-main {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\n.navbar {\n  box-sizing: border-box;\n  width: 100%;\n  max-width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  transition: all 0.3s ease;\n  box-shadow: 16px;\n  padding: 10px 10px;\n}\n.navbar .navbar-container {\n  display: flex;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n}\n.navbar .navbar-links {\n  display: flex;\n  gap: 20px;\n  align-items: center;\n}\n.navbar .navbar-item {\n  position: relative;\n  text-decoration: none;\n}\n.navbar .navbar-item .nav-link {\n  font-weight: 500;\n  text-decoration: none;\n  padding: 10px;\n  border-radius: 5px;\n  transition: all 0.3s ease;\n}\n.navbar .navbar-item:hover .navbar-dropdown {\n  display: flex;\n  flex-direction: column;\n  transition: all 0.3s ease-in-out;\n}\n.navbar .navbar-item:hover .navbar-dropdown .nav-link {\n  font-weight: 500;\n  text-decoration: none;\n  padding: 10px;\n  border-radius: 5px;\n  transition: all 0.3s ease;\n}\n.navbar .navbar-dropdown {\n  display: none;\n  position: absolute;\n  background: white;\n  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);\n  padding: 10px;\n  border-radius: 5px;\n}\n.navbar .navbar-toggle {\n  display: none;\n  background: transparent;\n  border: none;\n  cursor: pointer;\n}\n.navbar .navbar-mobile {\n  display: none;\n  flex-direction: column;\n  padding: 10px;\n}\n@media (max-width: 768px) {\n  .navbar .navbar-links {\n    display: none;\n  }\n  .navbar .navbar-toggle {\n    display: block;\n  }\n  .navbar .navbar-mobile {\n    display: flex;\n  }\n}";
+styleInject(css_248z$b);
 
-var css_248z$8 = "@charset \"UTF-8\";\n@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sidebar {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 250px;\n  background-color: white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transform: translateX(-100%);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  /* ✅ Close Button Positioned at Absolute Top-Right */\n  /* ✅ Sidebar Header */\n  /* ✅ Sidebar Content (Scrollable) */\n  /* ✅ Sidebar Footer */\n}\n.sidebar.mobile-open {\n  transform: translateX(0);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);\n}\n.sidebar.mobile-closed {\n  transform: translateX(-100%);\n}\n.sidebar.sidebar-right {\n  right: 0;\n  left: auto;\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right.mobile-open {\n  transform: translateX(0);\n}\n.sidebar.sidebar-right.mobile-closed {\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right .close-btn {\n  right: auto;\n  left: 10px;\n}\n.sidebar .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n  z-index: 1100;\n}\n.sidebar .close-btn:hover {\n  transform: scale(1.1);\n  opacity: 0.8;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 25px 15px 15px;\n  border-bottom: 1px solid #e3e6f0;\n  position: relative;\n}\n.sidebar .sidebar-header .logo {\n  max-width: 180px;\n}\n.sidebar .sidebar-header .logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.sidebar .sidebar-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 15px;\n  max-height: calc(100vh - 70px - 60px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 1px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background-color: #f8f9fa;\n  border-radius: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background-color: #f8f9fa;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background-color: #f0f0f0;\n}\n.sidebar .sidebar-footer {\n  padding: 10px;\n  border-top: 1px solid #e3e6f0;\n  background: white;\n}\n.sidebar .sidebar-footer .helper-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  text-align: center;\n  font-size: 0.85rem;\n  padding: 10px;\n  background-color: #e0f7fa;\n  color: #343a40;\n  border-radius: 8px;\n  transition: opacity 0.4s ease, transform 0.4s ease;\n}\n.sidebar .sidebar-footer .helper-card:hover {\n  opacity: 1;\n  transform: translateY(0);\n}\n.sidebar .sidebar-footer .helper-card button {\n  margin-top: 10px;\n  padding: 5px 10px;\n  background-color: #2EC4B6;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  transition: background-color 0.3s ease;\n}\n.sidebar .sidebar-footer .helper-card button:hover {\n  background-color: #00ADA9;\n}\n\n.sidebar-item {\n  box-sizing: border-box;\n  width: 100%;\n}\n.sidebar-item .item-header {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 2px 7px;\n  border-radius: 0.5rem;\n  cursor: pointer;\n  transition: background 0.3s ease, color 0.3s ease;\n  background-color: transparent;\n  gap: 10px;\n}\n.sidebar-item .item-header:hover {\n  background-color: #f7f7f7;\n}\n.sidebar-item .item-header.active {\n  background-color: #e0f7fa;\n  color: #344767;\n}\n.sidebar-item .item-header.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n  color: #6e708c;\n}\n.sidebar-item .item-header .icon {\n  font-size: 1.8rem;\n  transition: color 0.3s ease;\n}\n.sidebar-item .item-header .title {\n  flex-grow: 1;\n  font-weight: 600;\n  text-align: left;\n}\n.sidebar-item .item-header .expand-icon {\n  font-size: 1rem;\n  color: #999999;\n  transition: color 0.3s ease;\n}\n.sidebar-item .sub-items {\n  margin-top: 0.5rem;\n  padding-left: 20px;\n  list-style: none;\n}\n.sidebar-item .sub-items .sub-item {\n  margin-bottom: 0.5rem;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  padding: 4px 8px;\n  border-radius: 0.5rem;\n  transition: background 0.2s ease, color 0.2s ease;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link:hover {\n  background-color: #f9f9f9;\n  color: #2ec4b6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.active {\n  background-color: #d6f5f8;\n  color: #344767;\n  font-weight: bold;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n  font-size: 0.9rem;\n  font-weight: 500;\n}";
-styleInject(css_248z$8);
+var css_248z$a = "@charset \"UTF-8\";\n@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sidebar {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 250px;\n  background-color: white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transform: translateX(-100%);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  /* ✅ Close Button Positioned at Absolute Top-Right */\n  /* ✅ Sidebar Header */\n  /* ✅ Sidebar Content (Scrollable) */\n  /* ✅ Sidebar Footer */\n}\n.sidebar.mobile-open {\n  transform: translateX(0);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);\n}\n.sidebar.mobile-closed {\n  transform: translateX(-100%);\n}\n.sidebar.sidebar-right {\n  right: 0;\n  left: auto;\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right.mobile-open {\n  transform: translateX(0);\n}\n.sidebar.sidebar-right.mobile-closed {\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right .close-btn {\n  right: auto;\n  left: 10px;\n}\n.sidebar .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n  z-index: 1100;\n}\n.sidebar .close-btn:hover {\n  transform: scale(1.1);\n  opacity: 0.8;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 25px 15px 15px;\n  border-bottom: 1px solid #e3e6f0;\n  position: relative;\n}\n.sidebar .sidebar-header .logo {\n  max-width: 180px;\n}\n.sidebar .sidebar-header .logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.sidebar .sidebar-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 15px;\n  max-height: calc(100vh - 70px - 60px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 1px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background-color: #f8f9fa;\n  border-radius: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background-color: #f8f9fa;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background-color: #f0f0f0;\n}\n.sidebar .sidebar-footer {\n  padding: 10px;\n  border-top: 1px solid #e3e6f0;\n  background: white;\n}\n.sidebar .sidebar-footer .helper-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  text-align: center;\n  font-size: 0.85rem;\n  padding: 10px;\n  background-color: #e0f7fa;\n  color: #343a40;\n  border-radius: 8px;\n  transition: opacity 0.4s ease, transform 0.4s ease;\n}\n.sidebar .sidebar-footer .helper-card:hover {\n  opacity: 1;\n  transform: translateY(0);\n}\n.sidebar .sidebar-footer .helper-card button {\n  margin-top: 10px;\n  padding: 5px 10px;\n  background-color: #2EC4B6;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  transition: background-color 0.3s ease;\n}\n.sidebar .sidebar-footer .helper-card button:hover {\n  background-color: #00ADA9;\n}\n\n.sidebar-item {\n  box-sizing: border-box;\n  width: 100%;\n}\n.sidebar-item .item-header {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 2px 7px;\n  border-radius: 0.5rem;\n  cursor: pointer;\n  transition: background 0.3s ease, color 0.3s ease;\n  background-color: transparent;\n  gap: 10px;\n}\n.sidebar-item .item-header:hover {\n  background-color: #f7f7f7;\n}\n.sidebar-item .item-header.active {\n  background-color: #e0f7fa;\n  color: #344767;\n}\n.sidebar-item .item-header.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n  color: #6e708c;\n}\n.sidebar-item .item-header .icon {\n  font-size: 1.8rem;\n  transition: color 0.3s ease;\n}\n.sidebar-item .item-header .title {\n  flex-grow: 1;\n  font-weight: 600;\n  text-align: left;\n}\n.sidebar-item .item-header .expand-icon {\n  font-size: 1rem;\n  color: #999999;\n  transition: color 0.3s ease;\n}\n.sidebar-item .sub-items {\n  margin-top: 0.5rem;\n  padding-left: 20px;\n  list-style: none;\n}\n.sidebar-item .sub-items .sub-item {\n  margin-bottom: 0.5rem;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  padding: 4px 8px;\n  border-radius: 0.5rem;\n  transition: background 0.2s ease, color 0.2s ease;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link:hover {\n  background-color: #f9f9f9;\n  color: #2ec4b6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.active {\n  background-color: #d6f5f8;\n  color: #344767;\n  font-weight: bold;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n  font-size: 0.9rem;\n  font-weight: 500;\n}";
+styleInject(css_248z$a);
 
 function lightenColor(hex, percent) {
   // Ensure hex is valid
@@ -720,8 +720,8 @@ var Navbar = function Navbar(_ref) {
   });
 };
 
-var css_248z$7 = ".fullscreen-hero {\n  width: 100%;\n  overflow: hidden;\n  position: relative;\n  z-index: -1;\n}\n.fullscreen-hero__image {\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -2;\n}\n.fullscreen-hero__overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  z-index: -1;\n}\n.fullscreen-hero__content {\n  height: 100%;\n  padding: 0;\n  transition: opacity 0.6s ease, transform 0.6s ease;\n}\n.fullscreen-hero .animate-in {\n  opacity: 1;\n  transform: translateX(0);\n}\n.fullscreen-hero .animate-out {\n  opacity: 0;\n  transform: translateX(-100px);\n}\n\n.heroWrapper {\n  position: relative;\n  z-index: 1;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n  color: #fff;\n  width: 100%;\n}\n\n.heroOverlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -1;\n  width: 100%;\n  height: 100%;\n}";
-styleInject(css_248z$7);
+var css_248z$9 = ".fullscreen-hero {\n  width: 100%;\n  overflow: hidden;\n  position: relative;\n  z-index: -1;\n}\n.fullscreen-hero__image {\n  height: 100%;\n  width: 100%;\n  object-fit: cover;\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -2;\n}\n.fullscreen-hero__overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 100%;\n  width: 100%;\n  z-index: -1;\n}\n.fullscreen-hero__content {\n  height: 100%;\n  padding: 0;\n  transition: opacity 0.6s ease, transform 0.6s ease;\n}\n.fullscreen-hero .animate-in {\n  opacity: 1;\n  transform: translateX(0);\n}\n.fullscreen-hero .animate-out {\n  opacity: 0;\n  transform: translateX(-100px);\n}\n\n.heroWrapper {\n  position: relative;\n  z-index: 1;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  text-align: center;\n  color: #fff;\n  width: 100%;\n}\n\n.heroOverlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -1;\n  width: 100%;\n  height: 100%;\n}";
+styleInject(css_248z$9);
 
 var FullScreenHero = function FullScreenHero(_ref) {
   var image = _ref.image,
@@ -864,8 +864,8 @@ var SvgUpArrow = function SvgUpArrow(props) {
   })));
 };
 
-var css_248z$6 = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.scroll-indicator {\n  position: absolute;\n  top: 80%;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 1050;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  font-family: \"Nunito\", sans-serif;\n  font-weight: 600;\n  color: #FF9F1A;\n  cursor: pointer;\n  user-select: none;\n  transition: 0.4s ease-in-out;\n  width: 100%;\n}\n.scroll-indicator .text {\n  font-size: 20px;\n}\n@media (max-width: 1200px) {\n  .scroll-indicator .text {\n    font-size: 16px;\n  }\n}\n@media (max-width: 992px) {\n  .scroll-indicator .text {\n    font-size: 12px;\n  }\n}\n@media (max-width: 768px) {\n  .scroll-indicator .text {\n    font-size: 14px;\n  }\n}\n@media (max-width: 576px) {\n  .scroll-indicator .text {\n    font-size: 12px;\n  }\n}\n\n.arrow {\n  width: 20px;\n  height: 20px;\n  font-size: 28px;\n  animation: bounce 1.5s infinite;\n}\n\n.arrow:first-child {\n  animation-delay: 0s;\n}\n\n.arrow:last-child {\n  animation-delay: 0.3s;\n}\n\n@keyframes bounce {\n  0%, 100% {\n    transform: translateY(0);\n  }\n  50% {\n    transform: translateY(6px);\n  }\n}";
-styleInject(css_248z$6);
+var css_248z$8 = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.scroll-indicator {\n  position: absolute;\n  top: 80%;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 1050;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  font-family: \"Nunito\", sans-serif;\n  font-weight: 600;\n  color: #FF9F1A;\n  cursor: pointer;\n  user-select: none;\n  transition: 0.4s ease-in-out;\n  width: 100%;\n}\n.scroll-indicator .text {\n  font-size: 20px;\n}\n@media (max-width: 1200px) {\n  .scroll-indicator .text {\n    font-size: 16px;\n  }\n}\n@media (max-width: 992px) {\n  .scroll-indicator .text {\n    font-size: 12px;\n  }\n}\n@media (max-width: 768px) {\n  .scroll-indicator .text {\n    font-size: 14px;\n  }\n}\n@media (max-width: 576px) {\n  .scroll-indicator .text {\n    font-size: 12px;\n  }\n}\n\n.arrow {\n  width: 20px;\n  height: 20px;\n  font-size: 28px;\n  animation: bounce 1.5s infinite;\n}\n\n.arrow:first-child {\n  animation-delay: 0s;\n}\n\n.arrow:last-child {\n  animation-delay: 0.3s;\n}\n\n@keyframes bounce {\n  0%, 100% {\n    transform: translateY(0);\n  }\n  50% {\n    transform: translateY(6px);\n  }\n}";
+styleInject(css_248z$8);
 
 var _excluded = ["className", "onClick", "text", "arrowProps", "textProps", "direction"];
 var ScrollIndicator = function ScrollIndicator(_ref) {
@@ -968,8 +968,8 @@ var ScrollIndicator = function ScrollIndicator(_ref) {
   }));
 };
 
-var css_248z$5 = ".separator {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: center;\n  gap: 15px;\n}\n.separator.--xs svg {\n  width: 1.2rem;\n  height: 1.2rem;\n}\n.separator.--sm svg {\n  width: 1.4rem;\n  height: 1.4rem;\n}\n.separator.--md svg {\n  width: 1.6rem;\n  height: 1.6rem;\n}\n.separator.--lg svg {\n  width: 1.8rem;\n  height: 1.8rem;\n}\n.separator.--xl svg {\n  width: 2rem;\n  height: 2rem;\n}";
-styleInject(css_248z$5);
+var css_248z$7 = ".separator {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: center;\n  gap: 15px;\n}\n.separator.--xs svg {\n  width: 1.2rem;\n  height: 1.2rem;\n}\n.separator.--sm svg {\n  width: 1.4rem;\n  height: 1.4rem;\n}\n.separator.--md svg {\n  width: 1.6rem;\n  height: 1.6rem;\n}\n.separator.--lg svg {\n  width: 1.8rem;\n  height: 1.8rem;\n}\n.separator.--xl svg {\n  width: 2rem;\n  height: 2rem;\n}";
+styleInject(css_248z$7);
 
 /**
  * Map from color variant to actual hex (or theme-based) color.
@@ -1000,8 +1000,8 @@ var Separator = function Separator(_ref) {
   });
 };
 
-var css_248z$4 = ".hero-carousel.horizontal {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  min-height: 500px;\n  overflow: hidden;\n  touch-action: pan-y;\n}\n.hero-carousel.horizontal .carousel-track {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  height: 100%;\n  transition: transform 0.5s ease;\n  will-change: transform;\n}\n.hero-carousel.horizontal .carousel-slide {\n  flex: 0 0 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  user-select: none;\n  touch-action: manipulation;\n}\n.hero-carousel.horizontal .nav-button {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 2;\n  background: rgba(0, 0, 0, 0.4);\n  color: #fff;\n  border: none;\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n  font-size: 1.5rem;\n  line-height: 1;\n  border-radius: 50%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: background 0.2s ease;\n}\n.hero-carousel.horizontal .nav-button:hover {\n  background: rgba(0, 0, 0, 0.6);\n}\n.hero-carousel.horizontal .nav-button.prev {\n  left: 10px;\n}\n.hero-carousel.horizontal .nav-button.next {\n  right: 10px;\n}";
-styleInject(css_248z$4);
+var css_248z$6 = ".hero-carousel.horizontal {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  min-height: 500px;\n  overflow: hidden;\n  touch-action: pan-y;\n}\n.hero-carousel.horizontal .carousel-track {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: nowrap;\n  height: 100%;\n  transition: transform 0.5s ease;\n  will-change: transform;\n}\n.hero-carousel.horizontal .carousel-slide {\n  flex: 0 0 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  user-select: none;\n  touch-action: manipulation;\n}\n.hero-carousel.horizontal .nav-button {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 2;\n  background: rgba(0, 0, 0, 0.4);\n  color: #fff;\n  border: none;\n  width: 30px;\n  height: 30px;\n  cursor: pointer;\n  font-size: 1.5rem;\n  line-height: 1;\n  border-radius: 50%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: background 0.2s ease;\n}\n.hero-carousel.horizontal .nav-button:hover {\n  background: rgba(0, 0, 0, 0.6);\n}\n.hero-carousel.horizontal .nav-button.prev {\n  left: 10px;\n}\n.hero-carousel.horizontal .nav-button.next {\n  right: 10px;\n}";
+styleInject(css_248z$6);
 
 var HeroCarousel = function HeroCarousel(_ref) {
   var _ref$autoPlay = _ref.autoPlay,
@@ -1101,8 +1101,8 @@ var HeroCarousel = function HeroCarousel(_ref) {
   });
 };
 
-var css_248z$3 = ".service-card {\n  background-color: #f2f2f2;\n  padding: 2rem;\n  text-align: center;\n  border-radius: 8px;\n  width: 100%;\n}\n.service-card__image-wrapper {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  overflow: hidden;\n  margin: 0 auto 1rem;\n  border: 2px solid #ccc;\n}\n.service-card__image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.service-card__title {\n  margin: 0 0 0.5rem;\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.service-card__description {\n  color: #666;\n  font-size: 0.9rem;\n  margin: 0 0 1rem;\n}\n.service-card__link {\n  color: #000;\n  text-decoration: none;\n  font-weight: bold;\n}";
-styleInject(css_248z$3);
+var css_248z$5 = ".service-card {\n  background-color: #f2f2f2;\n  padding: 2rem;\n  text-align: center;\n  border-radius: 8px;\n  width: 100%;\n}\n.service-card__image-wrapper {\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  overflow: hidden;\n  margin: 0 auto 1rem;\n  border: 2px solid #ccc;\n}\n.service-card__image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n.service-card__title {\n  margin: 0 0 0.5rem;\n  font-size: 1.2rem;\n  font-weight: bold;\n}\n.service-card__description {\n  color: #666;\n  font-size: 0.9rem;\n  margin: 0 0 1rem;\n}\n.service-card__link {\n  color: #000;\n  text-decoration: none;\n  font-weight: bold;\n}";
+styleInject(css_248z$5);
 
 var ServiceCard = function ServiceCard(_ref) {
   var _theme$typography;
@@ -1140,8 +1140,8 @@ var ServiceCard = function ServiceCard(_ref) {
   });
 };
 
-var css_248z$2 = ".testimonial-card {\n  background-color: #ffffff;\n  border-radius: 12px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  padding: 1.5rem;\n  max-width: 350px;\n  font-family: \"Nunito\", sans-serif;\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  transition: transform 0.3s ease;\n}\n.testimonial-card:hover {\n  transform: translateY(-5px);\n}\n.testimonial-card__top {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.testimonial-card__person {\n  display: flex;\n  align-items: center;\n  gap: 0.75rem;\n}\n.testimonial-card__image {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  object-fit: cover;\n}\n.testimonial-card__name {\n  font-weight: bold;\n  color: #222;\n}\n.testimonial-card__role {\n  font-size: 0.85rem;\n  color: #666;\n}\n.testimonial-card__stars {\n  display: flex;\n  gap: 0.2rem;\n  font-size: 1.1rem;\n  color: #ddd;\n}\n.testimonial-card__star.filled {\n  color: #ffb400;\n}\n.testimonial-card__message {\n  font-size: 1rem;\n  font-style: italic;\n  color: #444;\n  line-height: 1.5;\n  margin-top: 0.5rem;\n}";
-styleInject(css_248z$2);
+var css_248z$4 = ".testimonial-card {\n  background-color: #ffffff;\n  border-radius: 12px;\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n  padding: 1.5rem;\n  max-width: 350px;\n  font-family: \"Nunito\", sans-serif;\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  transition: transform 0.3s ease;\n}\n.testimonial-card:hover {\n  transform: translateY(-5px);\n}\n.testimonial-card__top {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.testimonial-card__person {\n  display: flex;\n  align-items: center;\n  gap: 0.75rem;\n}\n.testimonial-card__image {\n  width: 48px;\n  height: 48px;\n  border-radius: 50%;\n  object-fit: cover;\n}\n.testimonial-card__name {\n  font-weight: bold;\n  color: #222;\n}\n.testimonial-card__role {\n  font-size: 0.85rem;\n  color: #666;\n}\n.testimonial-card__stars {\n  display: flex;\n  gap: 0.2rem;\n  font-size: 1.1rem;\n  color: #ddd;\n}\n.testimonial-card__star.filled {\n  color: #ffb400;\n}\n.testimonial-card__message {\n  font-size: 1rem;\n  font-style: italic;\n  color: #444;\n  line-height: 1.5;\n  margin-top: 0.5rem;\n}";
+styleInject(css_248z$4);
 
 var TestimonialCard = function TestimonialCard(_ref) {
   var _theme$shadows, _theme$shadows2, _theme$shadows3, _theme$shadows4;
@@ -1209,8 +1209,8 @@ var TestimonialCard = function TestimonialCard(_ref) {
   });
 };
 
-var css_248z$1 = ".icon-card {\n  background-color: #ffffff;\n  padding: 0.5rem;\n  border-radius: 10px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  height: 100px;\n  transition: transform 0.2s ease;\n}\n.icon-card:hover {\n  transform: translateY(-2px);\n}\n.icon-card__icon {\n  font-size: 1.8rem;\n  margin-bottom: 0rem;\n}\n.icon-card__title {\n  font-size: 0.75rem;\n  font-weight: 600;\n  color: #333;\n}";
-styleInject(css_248z$1);
+var css_248z$3 = ".icon-card {\n  background-color: #ffffff;\n  padding: 0.5rem;\n  border-radius: 10px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  height: 100px;\n  transition: transform 0.2s ease;\n}\n.icon-card:hover {\n  transform: translateY(-2px);\n}\n.icon-card__icon {\n  font-size: 1.8rem;\n  margin-bottom: 0rem;\n}\n.icon-card__title {\n  font-size: 0.75rem;\n  font-weight: 600;\n  color: #333;\n}";
+styleInject(css_248z$3);
 
 var IconCard = function IconCard(_ref) {
   var Icon = _ref.icon,
@@ -1254,8 +1254,8 @@ var IconCard = function IconCard(_ref) {
   });
 };
 
-var css_248z = ".service-highlight-card {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n  padding: 1rem;\n  border-radius: 10px;\n  background-color: #fff;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n.service-highlight-card__image {\n  width: 64px;\n  height: 64px;\n  object-fit: cover;\n  border-radius: 50%;\n  flex-shrink: 0;\n}\n.service-highlight-card__content {\n  flex: 1;\n  text-align: left;\n}\n.service-highlight-card__title {\n  margin: 0 0 0.25rem 0;\n  font-size: 1rem;\n  font-weight: 600;\n  color: #2ec4b6;\n}\n.service-highlight-card__description {\n  margin: 0;\n  font-size: 0.9rem;\n  color: #555;\n}";
-styleInject(css_248z);
+var css_248z$2 = ".service-highlight-card {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n  padding: 1rem;\n  border-radius: 10px;\n  background-color: #fff;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n.service-highlight-card__image {\n  width: 64px;\n  height: 64px;\n  object-fit: cover;\n  border-radius: 50%;\n  flex-shrink: 0;\n}\n.service-highlight-card__content {\n  flex: 1;\n  text-align: left;\n}\n.service-highlight-card__title {\n  margin: 0 0 0.25rem 0;\n  font-size: 1rem;\n  font-weight: 600;\n  color: #2ec4b6;\n}\n.service-highlight-card__description {\n  margin: 0;\n  font-size: 0.9rem;\n  color: #555;\n}";
+styleInject(css_248z$2);
 
 var ServiceHighlightCard = function ServiceHighlightCard(_ref) {
   var imageUrl = _ref.imageUrl,
@@ -1298,11 +1298,160 @@ var ServiceHighlightCard = function ServiceHighlightCard(_ref) {
   });
 };
 
+var css_248z$1 = "@charset \"UTF-8\";\n.pricing-card {\n  width: 100%;\n  max-width: 300px;\n  background-color: #fff;\n  border: 1px solid #eee;\n  border-radius: 8px;\n  padding: 2rem 1.5rem;\n  text-align: center;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  transition: box-shadow 0.3s ease;\n}\n.pricing-card:hover {\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n}\n.pricing-card__badge {\n  position: absolute;\n  top: 0.7rem;\n  right: 3rem;\n  background-color: orange;\n  color: #fff;\n  font-size: 0.55rem;\n  font-weight: 600;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.pricing-card__header {\n  margin-bottom: 1rem;\n}\n.pricing-card__price {\n  font-size: 2rem;\n  font-weight: 700;\n  margin: 0;\n}\n.pricing-card__price .pricing-card__billing-cycle {\n  font-size: 1rem;\n  font-weight: 400;\n  margin-left: 4px;\n  color: #555;\n}\n.pricing-card__plan-name {\n  font-size: 1.2rem;\n  font-weight: 600;\n  margin: 0.5rem 0 0;\n}\n.pricing-card__description {\n  font-size: 0.9rem;\n  color: #666;\n  margin: 0.5rem 0;\n}\n.pricing-card__features {\n  list-style: none;\n  padding: 0;\n  margin: 1rem 0;\n  text-align: left;\n}\n.pricing-card__feature {\n  position: relative;\n  padding-left: 1.5rem;\n  margin-bottom: 0.5rem;\n  font-size: 0.9rem;\n}\n.pricing-card__feature::before {\n  content: \"✔\";\n  color: #2ec4b6;\n  position: absolute;\n  left: 0;\n}";
+styleInject(css_248z$1);
+
+var PricingCard = function PricingCard(_ref) {
+  var planName = _ref.planName,
+    price = _ref.price,
+    billingCycle = _ref.billingCycle,
+    description = _ref.description,
+    features = _ref.features,
+    _ref$isPopular = _ref.isPopular,
+    isPopular = _ref$isPopular === void 0 ? false : _ref$isPopular,
+    _ref$popularLabel = _ref.popularLabel,
+    popularLabel = _ref$popularLabel === void 0 ? "MÁS POPULAR" : _ref$popularLabel,
+    _ref$buttonText = _ref.buttonText,
+    buttonText = _ref$buttonText === void 0 ? "Cotizar" : _ref$buttonText,
+    onButtonClick = _ref.onButtonClick,
+    _ref$className = _ref.className,
+    className = _ref$className === void 0 ? "" : _ref$className;
+  var theme = useTheme() || {};
+  var themedStyles = React.useMemo(function () {
+    var _theme$typography, _theme$shadows;
+    return {
+      fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Nunito, sans-serif",
+      boxShadow: ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.sm) || "0 2px 6px rgba(0, 0, 0, 0.05)"
+    };
+  }, [theme]);
+  return jsxRuntime.jsxs("div", {
+    className: "pricing-card ".concat(className),
+    style: themedStyles,
+    children: [isPopular && jsxRuntime.jsx("div", {
+      className: "pricing-card__badge",
+      children: popularLabel
+    }), jsxRuntime.jsxs("div", {
+      className: "pricing-card__header",
+      children: [price ? jsxRuntime.jsxs(jsxRuntime.Fragment, {
+        children: [jsxRuntime.jsxs("h2", {
+          className: "pricing-card__price",
+          children: [price, jsxRuntime.jsx("span", {
+            className: "pricing-card__billing-cycle",
+            children: billingCycle
+          })]
+        }), jsxRuntime.jsx("h3", {
+          className: "pricing-card__plan-name",
+          children: planName
+        })]
+      }) : jsxRuntime.jsx("h2", {
+        className: "pricing-card__plan-duration",
+        children: planName
+      }), jsxRuntime.jsx("p", {
+        className: "pricing-card__description",
+        children: description
+      })]
+    }), jsxRuntime.jsx("ul", {
+      className: "pricing-card__features",
+      children: features.map(function (feature, index) {
+        return jsxRuntime.jsx("li", {
+          className: "pricing-card__feature",
+          children: feature
+        }, index);
+      })
+    }), jsxRuntime.jsx(SimpleButton, {
+      title: buttonText,
+      onClick: onButtonClick,
+      variant: "md",
+      color: "primary"
+    })]
+  });
+};
+
+var css_248z = ".carousel {\n  position: relative;\n  width: 100%;\n  max-width: 1200px;\n  margin: 0 auto;\n  overflow: hidden;\n  padding: 1rem 0;\n}\n.carousel__title {\n  text-align: center;\n  font-size: 1.5rem;\n  color: #2ec4b6;\n  margin-bottom: 1rem;\n}\n.carousel__wrapper {\n  width: 100%;\n  overflow: hidden;\n}\n.carousel__cards {\n  display: flex;\n  transition: transform 0.5s ease;\n}\n.carousel__card {\n  min-width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.carousel__arrow {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 2;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.carousel__arrow svg {\n  width: 20px;\n  height: 20px;\n  fill: #2ec4b6;\n  transition: fill 0.3s ease;\n}\n.carousel__arrow:hover {\n  cursor: pointer;\n}\n.carousel__arrow:hover svg {\n  fill: #ff9f1a;\n}\n.carousel__arrow--left {\n  left: 10px;\n}\n.carousel__arrow--right {\n  right: 10px;\n}\n@media (max-width: 768px) {\n  .carousel__arrow svg {\n    width: 16px;\n    height: 16px;\n  }\n  .carousel__arrow--left {\n    left: 4px;\n  }\n  .carousel__arrow--right {\n    right: 4px;\n  }\n  .carousel__card {\n    padding: 0;\n  }\n}";
+styleInject(css_248z);
+
+var PricingCarousel = function PricingCarousel(_ref) {
+  var children = _ref.children,
+    _ref$className = _ref.className,
+    className = _ref$className === void 0 ? "" : _ref$className;
+  var _useState = React.useState(0),
+    _useState2 = _slicedToArray(_useState, 2),
+    currentIndex = _useState2[0],
+    setCurrentIndex = _useState2[1];
+  var totalCards = React.Children.count(children);
+  var theme = useTheme() || {};
+  var styles = React.useMemo(function () {
+    var _theme$shadows, _theme$typography, _theme$colors;
+    return {
+      boxShadow: ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.sm) || "0 2px 6px rgba(0, 0, 0, 0.1)",
+      fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Nunito, sans-serif",
+      arrowFill: ((_theme$colors = theme.colors) === null || _theme$colors === void 0 ? void 0 : _theme$colors.primary) || "#2ec4b6"
+    };
+  }, [theme]);
+  var nextSlide = function nextSlide() {
+    setCurrentIndex(function (prev) {
+      return (prev + 1) % totalCards;
+    });
+  };
+  var prevSlide = function prevSlide() {
+    setCurrentIndex(function (prev) {
+      return (prev - 1 + totalCards) % totalCards;
+    });
+  };
+  return jsxRuntime.jsxs("div", {
+    className: "carousel ".concat(className),
+    style: {
+      fontFamily: styles.fontFamily
+    },
+    children: [jsxRuntime.jsx(SvgLeftArrow, {
+      style: {
+        width: "20px",
+        height: "20px",
+        fill: styles.arrowFill,
+        display: "block"
+      },
+      className: "carousel__arrow carousel__arrow--left",
+      onClick: prevSlide
+    }), jsxRuntime.jsx("div", {
+      className: "carousel__wrapper",
+      children: jsxRuntime.jsx("div", {
+        className: "carousel__cards",
+        style: {
+          transform: "translateX(-".concat(currentIndex * 100, "%)")
+        },
+        children: React.Children.map(children, function (child, index) {
+          return jsxRuntime.jsx("div", {
+            className: "carousel__card",
+            style: {
+              boxShadow: styles.boxShadow
+            },
+            children: child
+          }, index);
+        })
+      })
+    }), jsxRuntime.jsx("div", {
+      className: "carousel__arrow carousel__arrow--right",
+      onClick: nextSlide,
+      children: jsxRuntime.jsx(SvgLeftArrow, {
+        style: {
+          width: "20px",
+          height: "20px",
+          fill: styles.arrowFill,
+          transform: "scaleX(-1)",
+          display: "block"
+        }
+      })
+    })]
+  });
+};
+
 exports.FullScreenHero = FullScreenHero;
 exports.HeroCarousel = HeroCarousel;
 exports.HeroContentWrapper = HeroContentWrapper;
 exports.IconCard = IconCard;
 exports.Navbar = Navbar;
+exports.PricingCard = PricingCard;
+exports.PricingCarousel = PricingCarousel;
 exports.ScrollIndicator = ScrollIndicator;
 exports.Separator = Separator;
 exports.ServiceCard = ServiceCard;
