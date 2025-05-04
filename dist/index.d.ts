@@ -154,6 +154,18 @@ interface ServiceCardProps {
 
 declare const ServiceCard: React$1.FC<ServiceCardProps>;
 
+interface TestimonialCardProps {
+    name: string;
+    role: string;
+    message: string;
+    imageUrl: string;
+    rating?: number;
+    className?: string;
+    variant?: 'xs' | 'sm' | 'md' | 'lg';
+}
+
+declare const TestimonialCard: React$1.FC<TestimonialCardProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -247,5 +259,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { FullScreenHero, HeroCarousel, HeroContentWrapper, Navbar, ScrollIndicator, Separator, ServiceCard, SideBar, SimpleButton, ThemeProvider, theme, useTheme };
+export { FullScreenHero, HeroCarousel, HeroContentWrapper, Navbar, ScrollIndicator, Separator, ServiceCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };
