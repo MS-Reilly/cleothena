@@ -6,16 +6,10 @@
     overflow: hidden;
     padding: 1rem 0;
 
-    &__title {
-        text-align: center;
-        font-size: 1.5rem;
-        color: #2ec4b6;
-        margin-bottom: 1rem;
-    }
-
     &__wrapper {
         width: 100%;
         overflow: hidden;
+        padding: 10px;
     }
 
     &__cards {

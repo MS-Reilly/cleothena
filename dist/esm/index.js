@@ -1347,7 +1347,7 @@ var PricingCard = function PricingCard(_ref) {
   });
 };
 
-var css_248z = ".carousel {\n  position: relative;\n  width: 100%;\n  max-width: 1200px;\n  margin: 0 auto;\n  overflow: hidden;\n  padding: 1rem 0;\n}\n.carousel__title {\n  text-align: center;\n  font-size: 1.5rem;\n  color: #2ec4b6;\n  margin-bottom: 1rem;\n}\n.carousel__wrapper {\n  width: 100%;\n  overflow: hidden;\n}\n.carousel__cards {\n  display: flex;\n  transition: transform 0.5s ease;\n}\n.carousel__card {\n  min-width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.carousel__arrow {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 2;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.carousel__arrow svg {\n  width: 20px;\n  height: 20px;\n  fill: #2ec4b6;\n  transition: fill 0.3s ease;\n}\n.carousel__arrow:hover {\n  cursor: pointer;\n}\n.carousel__arrow:hover svg {\n  fill: #ff9f1a;\n}\n.carousel__arrow--left {\n  left: 10px;\n}\n.carousel__arrow--right {\n  right: 10px;\n}\n@media (max-width: 768px) {\n  .carousel__arrow svg {\n    width: 16px;\n    height: 16px;\n  }\n  .carousel__arrow--left {\n    left: 4px;\n  }\n  .carousel__arrow--right {\n    right: 4px;\n  }\n  .carousel__card {\n    padding: 0;\n  }\n}";
+var css_248z = ".carousel {\n  position: relative;\n  width: 100%;\n  max-width: 1200px;\n  margin: 0 auto;\n  overflow: hidden;\n  padding: 1rem 0;\n}\n.carousel__wrapper {\n  width: 100%;\n  overflow: hidden;\n  padding: 10px;\n}\n.carousel__cards {\n  display: flex;\n  transition: transform 0.5s ease;\n}\n.carousel__card {\n  min-width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.carousel__arrow {\n  position: absolute;\n  top: 50%;\n  transform: translateY(-50%);\n  z-index: 2;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.carousel__arrow svg {\n  width: 20px;\n  height: 20px;\n  fill: #2ec4b6;\n  transition: fill 0.3s ease;\n}\n.carousel__arrow:hover {\n  cursor: pointer;\n}\n.carousel__arrow:hover svg {\n  fill: #ff9f1a;\n}\n.carousel__arrow--left {\n  left: 10px;\n}\n.carousel__arrow--right {\n  right: 10px;\n}\n@media (max-width: 768px) {\n  .carousel__arrow svg {\n    width: 16px;\n    height: 16px;\n  }\n  .carousel__arrow--left {\n    left: 4px;\n  }\n  .carousel__arrow--right {\n    right: 4px;\n  }\n  .carousel__card {\n    padding: 0;\n  }\n}";
 styleInject(css_248z);
 
 var PricingCarousel = function PricingCarousel(_ref) {
@@ -1409,9 +1409,6 @@ var PricingCarousel = function PricingCarousel(_ref) {
         children: React__default.Children.map(children, function (child, index) {
           return jsx("div", {
             className: "carousel__card",
-            style: {
-              boxShadow: styles.boxShadow
-            },
             children: child
           }, index);
         })

@@ -57,11 +57,7 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {React.Children.map(children, (child, index) => (
-            <div
-              className="carousel__card"
-              key={index}
-              style={{ boxShadow: styles.boxShadow }}
-            >
+            <div className="carousel__card" key={index}>
               {child}
             </div>
           ))}
