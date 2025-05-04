@@ -43,12 +43,14 @@ const PricingCarousel: React.FC<PricingCarouselProps> = ({
       className={`carousel ${className}`}
       style={{ fontFamily: styles.fontFamily }}
     >
-      <ArrowRightIcon
-        style={{ ...combinedArrowStyle, transform: "scaleX(-1)" }}
+      <div
         className="carousel__arrow carousel__arrow--left"
         onClick={prevSlide}
-      />
-
+      >
+        <ArrowRightIcon
+          style={{ ...combinedArrowStyle, transform: "scaleX(-1)" }}
+        />
+      </div>
       <div className="carousel__wrapper">
         <div
           className="carousel__cards"

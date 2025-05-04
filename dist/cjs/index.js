@@ -1298,7 +1298,7 @@ var ServiceHighlightCard = function ServiceHighlightCard(_ref) {
   });
 };
 
-var css_248z$1 = "@charset \"UTF-8\";\n.pricing-card {\n  width: 100%;\n  max-width: 300px;\n  background-color: #fff;\n  border: 1px solid #eee;\n  border-radius: 8px;\n  padding: 2rem 1.5rem;\n  text-align: center;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  transition: box-shadow 0.3s ease;\n}\n.pricing-card:hover {\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n}\n.pricing-card__badge {\n  position: absolute;\n  top: 0.7rem;\n  right: 3rem;\n  background-color: orange;\n  color: #fff;\n  font-size: 0.55rem;\n  font-weight: 600;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.pricing-card__header {\n  margin-bottom: 1rem;\n}\n.pricing-card__price {\n  font-size: 2rem;\n  font-weight: 700;\n  margin: 0;\n}\n.pricing-card__price .pricing-card__billing-cycle {\n  font-size: 1rem;\n  font-weight: 400;\n  margin-left: 4px;\n  color: #555;\n}\n.pricing-card__plan-name {\n  font-size: 1.2rem;\n  font-weight: 600;\n  margin: 0.5rem 0 0;\n}\n.pricing-card__description {\n  font-size: 0.9rem;\n  color: #666;\n  margin: 0.5rem 0;\n}\n.pricing-card__features {\n  list-style: none;\n  padding: 0;\n  margin: 1rem 0;\n  text-align: left;\n}\n.pricing-card__feature {\n  position: relative;\n  padding-left: 1.5rem;\n  margin-bottom: 0.5rem;\n  font-size: 0.9rem;\n}\n.pricing-card__feature::before {\n  content: \"✔\";\n  color: #2ec4b6;\n  position: absolute;\n  left: 0;\n}";
+var css_248z$1 = "@charset \"UTF-8\";\n.pricing-card {\n  position: relative;\n  width: 100%;\n  max-width: 300px;\n  background-color: #fff;\n  border: 1px solid #eee;\n  border-radius: 8px;\n  padding: 2rem 1.5rem;\n  text-align: center;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  transition: box-shadow 0.3s ease;\n}\n.pricing-card:hover {\n  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);\n}\n.pricing-card__badge {\n  position: absolute;\n  top: 0.7rem;\n  right: 1rem;\n  background-color: orange;\n  color: #fff;\n  font-size: 0.55rem;\n  font-weight: 600;\n  padding: 4px 8px;\n  border-radius: 4px;\n}\n.pricing-card__header {\n  margin-bottom: 1rem;\n}\n.pricing-card__price {\n  font-size: 2rem;\n  font-weight: 700;\n  margin: 0;\n}\n.pricing-card__price .pricing-card__billing-cycle {\n  font-size: 1rem;\n  font-weight: 400;\n  margin-left: 4px;\n  color: #555;\n}\n.pricing-card__plan-name {\n  font-size: 1.2rem;\n  font-weight: 600;\n  margin: 0.5rem 0 0;\n}\n.pricing-card__description {\n  font-size: 0.9rem;\n  color: #666;\n  margin: 0.5rem 0;\n}\n.pricing-card__features {\n  list-style: none;\n  padding: 0;\n  margin: 1rem 0;\n  text-align: left;\n}\n.pricing-card__feature {\n  position: relative;\n  padding-left: 1.5rem;\n  margin-bottom: 0.5rem;\n  font-size: 0.9rem;\n}\n.pricing-card__feature::before {\n  content: \"✔\";\n  color: #2ec4b6;\n  position: absolute;\n  left: 0;\n}";
 styleInject(css_248z$1);
 
 var PricingCard = function PricingCard(_ref) {
@@ -1411,12 +1411,14 @@ var PricingCarousel = function PricingCarousel(_ref) {
     style: {
       fontFamily: styles.fontFamily
     },
-    children: [jsxRuntime.jsx(SvgRightArrow, {
-      style: _objectSpread2(_objectSpread2({}, combinedArrowStyle), {}, {
-        transform: "scaleX(-1)"
-      }),
+    children: [jsxRuntime.jsx("div", {
       className: "carousel__arrow carousel__arrow--left",
-      onClick: prevSlide
+      onClick: prevSlide,
+      children: jsxRuntime.jsx(SvgRightArrow, {
+        style: _objectSpread2(_objectSpread2({}, combinedArrowStyle), {}, {
+          transform: "scaleX(-1)"
+        })
+      })
     }), jsxRuntime.jsx("div", {
       className: "carousel__wrapper",
       children: jsxRuntime.jsx("div", {
