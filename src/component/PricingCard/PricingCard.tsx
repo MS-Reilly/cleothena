@@ -21,7 +21,7 @@ const PricingCard: React.FC<PricingCardProps> = ({
   const themedStyles = useMemo(
     () => ({
       fontFamily: theme.typography?.fontFamily || "Nunito, sans-serif",
-      boxShadow: theme.shadows?.sm || "0 2px 6px rgba(0, 0, 0, 0.05)",
+      boxShadow: theme.shadows?.md || "0 2px 6px rgba(0, 0, 0, 0.05)",
     }),
     [theme]
   );

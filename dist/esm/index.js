@@ -1301,7 +1301,7 @@ var PricingCard = function PricingCard(_ref) {
     var _theme$typography, _theme$shadows;
     return {
       fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Nunito, sans-serif",
-      boxShadow: ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.sm) || "0 2px 6px rgba(0, 0, 0, 0.05)"
+      boxShadow: ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.md) || "0 2px 6px rgba(0, 0, 0, 0.05)"
     };
   }, [theme]);
   return jsxs("div", {
