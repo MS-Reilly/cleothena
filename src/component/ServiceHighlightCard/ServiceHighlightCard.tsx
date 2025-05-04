@@ -16,6 +16,7 @@ const ServiceHighlightCard: React.FC<ServiceHighlightCardProps> = ({
   const styles = useMemo(
     () => ({
       fontFamily: theme.typography?.fontFamily || "Nunito, sans-serif",
+      boxShadow: theme.shadows?.md || "0 2px 6px rgba(0, 0, 0, 0.05)",
     }),
     [theme]
   );

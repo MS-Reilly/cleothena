@@ -1269,9 +1269,10 @@ var ServiceHighlightCard = function ServiceHighlightCard(_ref) {
     className = _ref$className === void 0 ? "" : _ref$className;
   var theme = useTheme() || {};
   var styles = React.useMemo(function () {
-    var _theme$typography;
+    var _theme$typography, _theme$shadows;
     return {
-      fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Nunito, sans-serif"
+      fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Nunito, sans-serif",
+      boxShadow: ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.md) || "0 2px 6px rgba(0, 0, 0, 0.05)"
     };
   }, [theme]);
   return jsxRuntime.jsxs("div", {
