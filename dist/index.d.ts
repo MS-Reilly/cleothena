@@ -177,6 +177,17 @@ interface IconCardProps {
 
 declare const IconCard: React$1.FC<IconCardProps>;
 
+interface ServiceHighlightCardProps {
+    imageUrl: string;
+    altText?: string;
+    title: string;
+    description: string;
+    titleColor?: string;
+    className?: string;
+}
+
+declare const ServiceHighlightCard: React$1.FC<ServiceHighlightCardProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -270,5 +281,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { FullScreenHero, HeroCarousel, HeroContentWrapper, IconCard, Navbar, ScrollIndicator, Separator, ServiceCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
+export { FullScreenHero, HeroCarousel, HeroContentWrapper, IconCard, Navbar, ScrollIndicator, Separator, ServiceCard, ServiceHighlightCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };

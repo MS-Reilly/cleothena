@@ -1,0 +1,35 @@
+.service-highlight-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+    &__image {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    &__content {
+        flex: 1;
+        text-align: left;
+    }
+
+    &__title {
+        margin: 0 0 0.25rem 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #2ec4b6;
+    }
+
+    &__description {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #555;
+    }
+}
