@@ -1,4 +1,5 @@
 import React$1, { ReactNode, CSSProperties } from 'react';
+import * as react_jsx_runtime from 'react/jsx-runtime';
 
 type ButtonVariant = 'xs' | 'sm' | 'md' | 'lg';
 type ButtonColor = 'primary' | 'secondary' | 'accent' | 'highlight';
@@ -234,6 +235,16 @@ interface AccordionProps {
 
 declare const Accordion: React$1.FC<AccordionProps>;
 
+interface ImageCarouselProps {
+    images: string[];
+    title?: string;
+    interval?: number;
+    imageWidth?: string;
+    imageHeight?: string;
+}
+
+declare const ImageCarousel: ({ images, title, interval, imageWidth, imageHeight, }: ImageCarouselProps) => react_jsx_runtime.JSX.Element;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -327,5 +338,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { Accordion, FullScreenHero, HeroCarousel, HeroContentWrapper, IconCard, Navbar, PricingCard, PricingCarousel, ScrollIndicator, Separator, ServiceCard, ServiceHighlightCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
+export { Accordion, FullScreenHero, HeroCarousel, HeroContentWrapper, IconCard, ImageCarousel, Navbar, PricingCard, PricingCarousel, ScrollIndicator, Separator, ServiceCard, ServiceHighlightCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };

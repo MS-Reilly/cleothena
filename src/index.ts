@@ -13,4 +13,5 @@ export {default as ServiceHighlightCard} from './component/ServiceHighlightCard/
 export {default as PricingCard} from './component/PricingCard/PricingCard'
 export {default as PricingCarousel} from './component/PricingCarousel/PricingCarousel'
 export {default as Accordion} from './component/Accordion/Accordion'
+export {default as ImageCarousel} from './component/ImageCarousel/ImageCarousel'
 export * from './theme/index';
