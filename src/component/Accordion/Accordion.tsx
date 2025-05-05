@@ -1,21 +1,35 @@
 import React, { useState, useMemo } from "react";
 import { AccordionProps } from "./Accordion.types";
 import { useTheme } from "../../theme/hooks/useTheme";
-import Arrow from "./../../Assets/icons/menu-arrow.svg"; // Fixed: use up-arrow.svg
+import Arrow from "../../Assets/icons/menu-arrow.svg"; // using ReactComponent for inline SVG
 import "./Accordion.scss";
 
 const Accordion: React.FC<AccordionProps> = ({
   questions,
-  openColor,
   className = "",
+  colors = {},
+  arrow = {},
 }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const theme = useTheme() || {};
 
   const borderRadius = theme.borders?.radiusMd || "8px";
   const boxShadow = theme.shadows?.sm || "rgba(0, 0, 0, 0.1) 0px 3px 6px";
-  const primaryColor = openColor || theme.colors?.primary || "#FF9F1A";
   const fontFamily = theme.typography?.fontFamily || "Nunito, sans-serif";
+
+  const {
+    openTextColor = "#ffffff",
+    closedTextColor = "#000000",
+    openBg = theme.colors?.primary || "#FF9F1A",
+    closedBg = "#ffffff",
+  } = colors;
+
+  const {
+    width = "16px",
+    height = "16px",
+    fillOpen = "#ffffff",
+    fillClosed = "#000000",
+  } = arrow;
 
   const toggleAccordion = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -30,8 +44,8 @@ const Accordion: React.FC<AccordionProps> = ({
 
         const headerStyle = useMemo(
           () => ({
-            backgroundColor: isOpen ? primaryColor : "#ffffff",
-            color: isOpen ? "#ffffff" : "#000000",
+            backgroundColor: isOpen ? openBg : closedBg,
+            color: isOpen ? openTextColor : closedTextColor,
             borderRadius,
             boxShadow,
           }),
@@ -42,7 +56,7 @@ const Accordion: React.FC<AccordionProps> = ({
           <div
             key={index}
             className="accordion-item"
-            style={{ borderRadius, boxShadow, fontFamily }}
+            style={{ borderRadius, boxShadow }}
           >
             <button
               className={`accordion-header ${isOpen ? "open" : ""}`}
@@ -50,8 +64,20 @@ const Accordion: React.FC<AccordionProps> = ({
               style={headerStyle}
             >
               {item.question}
-              <span className={`arrow ${isOpen ? "rotated" : ""}`}>
-                <Arrow style={{ fill: isOpen ? "white" : "black" }} />
+              <span
+                className={`arrow-icon ${isOpen ? "rotated" : ""}`}
+                style={{
+                  width,
+                  height,
+                }}
+              >
+                <Arrow
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    fill: isOpen ? fillOpen : fillClosed,
+                  }}
+                />
               </span>
             </button>
             <div className={`accordion-content ${isOpen ? "show" : ""}`}>

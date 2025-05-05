@@ -1459,15 +1459,18 @@ var SvgMenuArrow = function SvgMenuArrow(props) {
   })));
 };
 
-var css_248z = ".accordion {\n  width: 100%;\n  max-width: 600px;\n  margin: auto;\n  font-family: \"Arial\", sans-serif;\n  padding: 10px;\n}\n.accordion .accordion-item {\n  border: 1px solid #ddd;\n  border-radius: 5px;\n  margin-bottom: 8px;\n  background-color: #fff;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);\n  overflow: hidden;\n}\n.accordion .accordion-item .accordion-header {\n  width: 100%;\n  border: none;\n  padding: 16px;\n  text-align: left;\n  font-size: 16px;\n  font-weight: 500;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #ffffff;\n  color: #000000;\n  transition: background-color 0.3s ease, color 0.3s ease;\n}\n.accordion .accordion-item .accordion-header:hover {\n  background-color: #f5f5f5;\n}\n.accordion .accordion-item .accordion-header .icon {\n  transition: transform 0.3s ease;\n  color: inherit;\n}\n.accordion .accordion-item .accordion-header.open .icon {\n  transform: rotate(180deg);\n}\n.accordion .accordion-item .accordion-content {\n  max-height: 0;\n  overflow: hidden;\n  padding: 0 16px;\n  background-color: #fafafa;\n  font-size: 14px;\n  color: #555;\n  transition: max-height 0.3s ease-out, padding 0.3s ease-out;\n}\n.accordion .accordion-item .accordion-content.show {\n  max-height: 200px;\n  padding: 12px 16px;\n}";
+var css_248z = ".accordion {\n  width: 100%;\n  max-width: 600px;\n  margin: auto;\n  padding: 10px;\n}\n.accordion .accordion-item {\n  border: 1px solid #eee;\n  border-radius: 8px;\n  margin-bottom: 12px;\n  overflow: hidden;\n  transition: box-shadow 0.3s ease;\n}\n.accordion .accordion-item:last-child {\n  margin-bottom: 0;\n}\n.accordion .accordion-item .accordion-header {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 500;\n  padding: 16px;\n  cursor: pointer;\n  transition: background-color 0.3s ease, color 0.3s ease;\n  border: none;\n  background: none;\n  outline: none;\n  appearance: none;\n}\n.accordion .accordion-item .accordion-header:focus {\n  outline: none;\n  box-shadow: none;\n}\n.accordion .accordion-item .accordion-header .arrow-icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  transition: transform 0.3s ease;\n}\n.accordion .accordion-item .accordion-header .arrow-icon svg {\n  width: 100%;\n  height: 100%;\n  display: block;\n  transition: fill 0.3s ease;\n}\n.accordion .accordion-item .accordion-header .arrow-icon.rotated {\n  transform: rotate(180deg);\n}\n.accordion .accordion-item .accordion-content {\n  max-height: 0;\n  overflow: hidden;\n  font-size: 14px;\n  padding: 0 16px;\n  background-color: #fafafa;\n  color: #444;\n  transition: max-height 0.3s ease-out, padding 0.3s ease-out;\n}\n.accordion .accordion-item .accordion-content.show {\n  max-height: 300px;\n  padding: 12px 16px;\n}";
 styleInject(css_248z);
 
 var Accordion = function Accordion(_ref) {
-  var _theme$borders, _theme$shadows, _theme$colors, _theme$typography;
+  var _theme$borders, _theme$shadows, _theme$typography, _theme$colors;
   var questions = _ref.questions,
-    openColor = _ref.openColor,
     _ref$className = _ref.className,
-    className = _ref$className === void 0 ? "" : _ref$className;
+    className = _ref$className === void 0 ? "" : _ref$className,
+    _ref$colors = _ref.colors,
+    colors = _ref$colors === void 0 ? {} : _ref$colors,
+    _ref$arrow = _ref.arrow,
+    arrow = _ref$arrow === void 0 ? {} : _ref$arrow;
   var _useState = React.useState(null),
     _useState2 = _slicedToArray(_useState, 2),
     openIndex = _useState2[0],
@@ -1475,8 +1478,23 @@ var Accordion = function Accordion(_ref) {
   var theme = useTheme() || {};
   var borderRadius = ((_theme$borders = theme.borders) === null || _theme$borders === void 0 ? void 0 : _theme$borders.radiusMd) || "8px";
   var boxShadow = ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.sm) || "rgba(0, 0, 0, 0.1) 0px 3px 6px";
-  var primaryColor = openColor || ((_theme$colors = theme.colors) === null || _theme$colors === void 0 ? void 0 : _theme$colors.primary) || "#FF9F1A";
   var fontFamily = ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Nunito, sans-serif";
+  var _colors$openTextColor = colors.openTextColor,
+    openTextColor = _colors$openTextColor === void 0 ? "#ffffff" : _colors$openTextColor,
+    _colors$closedTextCol = colors.closedTextColor,
+    closedTextColor = _colors$closedTextCol === void 0 ? "#000000" : _colors$closedTextCol,
+    _colors$openBg = colors.openBg,
+    openBg = _colors$openBg === void 0 ? ((_theme$colors = theme.colors) === null || _theme$colors === void 0 ? void 0 : _theme$colors.primary) || "#FF9F1A" : _colors$openBg,
+    _colors$closedBg = colors.closedBg,
+    closedBg = _colors$closedBg === void 0 ? "#ffffff" : _colors$closedBg;
+  var _arrow$width = arrow.width,
+    width = _arrow$width === void 0 ? "16px" : _arrow$width,
+    _arrow$height = arrow.height,
+    height = _arrow$height === void 0 ? "16px" : _arrow$height,
+    _arrow$fillOpen = arrow.fillOpen,
+    fillOpen = _arrow$fillOpen === void 0 ? "#ffffff" : _arrow$fillOpen,
+    _arrow$fillClosed = arrow.fillClosed,
+    fillClosed = _arrow$fillClosed === void 0 ? "#000000" : _arrow$fillClosed;
   var toggleAccordion = function toggleAccordion(index) {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -1490,8 +1508,8 @@ var Accordion = function Accordion(_ref) {
       var isOpen = openIndex === index;
       var headerStyle = React.useMemo(function () {
         return {
-          backgroundColor: isOpen ? primaryColor : "#ffffff",
-          color: isOpen ? "#ffffff" : "#000000",
+          backgroundColor: isOpen ? openBg : closedBg,
+          color: isOpen ? openTextColor : closedTextColor,
           borderRadius: borderRadius,
           boxShadow: boxShadow
         };
@@ -1500,8 +1518,7 @@ var Accordion = function Accordion(_ref) {
         className: "accordion-item",
         style: {
           borderRadius: borderRadius,
-          boxShadow: boxShadow,
-          fontFamily: fontFamily
+          boxShadow: boxShadow
         },
         children: [jsxRuntime.jsxs("button", {
           className: "accordion-header ".concat(isOpen ? "open" : ""),
@@ -1510,10 +1527,16 @@ var Accordion = function Accordion(_ref) {
           },
           style: headerStyle,
           children: [item.question, jsxRuntime.jsx("span", {
-            className: "arrow ".concat(isOpen ? "rotated" : ""),
+            className: "arrow-icon ".concat(isOpen ? "rotated" : ""),
+            style: {
+              width: width,
+              height: height
+            },
             children: jsxRuntime.jsx(SvgMenuArrow, {
               style: {
-                fill: isOpen ? "white" : "black"
+                width: "50px",
+                height: "50px",
+                fill: isOpen ? fillOpen : fillClosed
               }
             })
           })]
