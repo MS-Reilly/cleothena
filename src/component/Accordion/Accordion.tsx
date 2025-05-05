@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { AccordionProps } from "./Accordion.types";
 import { useTheme } from "../../theme/hooks/useTheme";
-import Arrow from "../../Assets/icons/menu-arrow1.svg"; // using ReactComponent for inline SVG
+import Arrow from "../../Assets/icons/menu-arrow3.svg"; // using ReactComponent for inline SVG
 import "./Accordion.scss";
 
 const Accordion: React.FC<AccordionProps> = ({

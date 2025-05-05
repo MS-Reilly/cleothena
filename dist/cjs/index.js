@@ -1445,14 +1445,14 @@ var PricingCarousel = function PricingCarousel(_ref) {
 
 var _path;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-var SvgMenuArrow1 = function SvgMenuArrow1(props) {
+var SvgMenuArrow3 = function SvgMenuArrow3(props) {
   return /*#__PURE__*/React__namespace.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
     xmlSpace: "preserve",
-    width: 612.007,
-    height: 612.007
+    width: 451.847,
+    height: 451.847
   }, props), _path || (_path = /*#__PURE__*/React__namespace.createElement("path", {
-    d: "M596.168 130.647c-21.119-21.169-55.382-21.169-76.526 0L306.013 366.44 92.384 130.647c-21.144-21.169-55.382-21.169-76.525 0s-21.144 55.458 0 76.627l248.504 274.31c11.438 11.438 26.672 16.482 41.651 15.54 14.953.942 30.213-4.102 41.65-15.54l248.505-274.31c21.118-21.169 21.118-55.457-.001-76.627"
+    d: "M225.923 354.706c-8.098 0-16.195-3.092-22.369-9.263L9.27 151.157c-12.359-12.359-12.359-32.397 0-44.751 12.354-12.354 32.388-12.354 44.748 0l171.905 171.915 171.906-171.909c12.359-12.354 32.391-12.354 44.744 0 12.365 12.354 12.365 32.392 0 44.751L248.292 345.449c-6.177 6.172-14.274 9.257-22.369 9.257"
   })));
 };
 
@@ -1525,7 +1525,7 @@ var Accordion = function Accordion(_ref) {
           style: headerStyle,
           children: [item.question, jsxRuntime.jsx("span", {
             className: "arrow-icon ".concat(isOpen ? "rotated" : ""),
-            children: jsxRuntime.jsx(SvgMenuArrow1, {
+            children: jsxRuntime.jsx(SvgMenuArrow3, {
               style: {
                 width: width,
                 height: height,
