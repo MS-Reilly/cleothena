@@ -243,7 +243,7 @@ interface ImageCarouselProps {
     imageHeight?: string;
 }
 
-declare const ImageCarousel: ({ images, title, interval, imageWidth, imageHeight, }: ImageCarouselProps) => react_jsx_runtime.JSX.Element;
+declare const ImageCarousel: ({ images, interval, imageWidth, imageHeight, }: ImageCarouselProps) => react_jsx_runtime.JSX.Element;
 
 declare const theme: {
     colors: {

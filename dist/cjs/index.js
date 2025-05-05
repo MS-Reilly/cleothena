@@ -1552,8 +1552,6 @@ styleInject(css_248z);
 var ImageCarousel = function ImageCarousel(_ref) {
   var _theme$typography;
   var images = _ref.images,
-    _ref$title = _ref.title,
-    title = _ref$title === void 0 ? "Section Title" : _ref$title,
     _ref$interval = _ref.interval,
     interval = _ref$interval === void 0 ? 3000 : _ref$interval,
     _ref$imageWidth = _ref.imageWidth,
@@ -1581,10 +1579,7 @@ var ImageCarousel = function ImageCarousel(_ref) {
     style: {
       fontFamily: (_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily
     },
-    children: [jsxRuntime.jsx("h3", {
-      className: "carousel-title",
-      children: title
-    }), jsxRuntime.jsx("div", {
+    children: [jsxRuntime.jsx("div", {
       className: "carousel-track",
       style: {
         transform: "translateX(-".concat(currentIndex * 100, "%)")

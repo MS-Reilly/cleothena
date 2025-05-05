@@ -5,7 +5,6 @@ import "./ImageCarousel.scss";
 
 const ImageCarousel = ({
   images,
-  title = "Section Title",
   interval = 3000,
   imageWidth = "80%",
   imageHeight = "auto",
@@ -29,7 +28,6 @@ const ImageCarousel = ({
       className="image-carousel"
       style={{ fontFamily: theme.typography?.fontFamily }}
     >
-      <h3 className="carousel-title">{title}</h3>
       <div
         className="carousel-track"
         style={{
