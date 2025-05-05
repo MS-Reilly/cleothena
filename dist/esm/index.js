@@ -445,23 +445,23 @@ var SidebarItem = function SidebarItem(_ref) {
   });
 };
 
-var _path$3;
-function _extends$5() { return _extends$5 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$5.apply(null, arguments); }
+var _path$4;
+function _extends$6() { return _extends$6 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$6.apply(null, arguments); }
 var SvgClose = function SvgClose(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$5({
+  return /*#__PURE__*/React.createElement("svg", _extends$6({
     xmlns: "http://www.w3.org/2000/svg",
     width: 512,
     height: 512,
     viewBox: "0 0 64 64"
-  }, props), _path$3 || (_path$3 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$4 || (_path$4 = /*#__PURE__*/React.createElement("path", {
     d: "M4.59 59.41a2 2 0 0 0 2.83 0L32 34.83l24.59 24.58a2 2 0 0 0 2.83-2.83L34.83 32 59.41 7.41a2 2 0 0 0-2.83-2.83L32 29.17 7.41 4.59a2 2 0 0 0-2.82 2.82L29.17 32 4.59 56.59a2 2 0 0 0 0 2.82"
   })));
 };
 
 var _g$1;
-function _extends$4() { return _extends$4 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$4.apply(null, arguments); }
+function _extends$5() { return _extends$5 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$5.apply(null, arguments); }
 var SvgHamburger = function SvgHamburger(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$4({
+  return /*#__PURE__*/React.createElement("svg", _extends$5({
     xmlns: "http://www.w3.org/2000/svg",
     width: 512,
     height: 512,
@@ -779,10 +779,10 @@ var HeroContentWrapper = function HeroContentWrapper(_ref) {
   });
 };
 
-var _path$2, _path2$1;
-function _extends$3() { return _extends$3 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$3.apply(null, arguments); }
+var _path$3, _path2$1;
+function _extends$4() { return _extends$4 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$4.apply(null, arguments); }
 var SvgDownArrow = function SvgDownArrow(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$3({
+  return /*#__PURE__*/React.createElement("svg", _extends$4({
     xmlns: "http://www.w3.org/2000/svg",
     width: 512,
     height: 512,
@@ -791,21 +791,21 @@ var SvgDownArrow = function SvgDownArrow(props) {
     strokeMiterlimit: 2,
     clipRule: "evenodd",
     viewBox: "0 0 16 16"
-  }, props), _path$2 || (_path$2 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$3 || (_path$3 = /*#__PURE__*/React.createElement("path", {
     d: "m1.47 8.03 6 6a.75.75 0 0 0 1.06 0l6-6a.749.749 0 1 0-1.06-1.06L8 12.439 2.53 6.97a.749.749 0 1 0-1.06 1.06"
   })), _path2$1 || (_path2$1 = /*#__PURE__*/React.createElement("path", {
     d: "m1.47 3.03 6 6a.75.75 0 0 0 1.06 0l6-6a.749.749 0 1 0-1.06-1.06L8 7.439 2.53 1.97a.749.749 0 1 0-1.06 1.06"
   })));
 };
 
-var _path$1;
-function _extends$2() { return _extends$2 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$2.apply(null, arguments); }
+var _path$2;
+function _extends$3() { return _extends$3 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$3.apply(null, arguments); }
 var SvgLeftArrow = function SvgLeftArrow(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$2({
+  return /*#__PURE__*/React.createElement("svg", _extends$3({
     xmlns: "http://www.w3.org/2000/svg",
     width: 512,
     height: 512
-  }, props), _path$1 || (_path$1 = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$2 || (_path$2 = /*#__PURE__*/React.createElement("path", {
     fillRule: "evenodd",
     d: "M52.246 239.578c-9.043 9.043-9.043 23.803 0 32.846L229.378 449.55c9.057 9.057 23.79 9.057 32.846 0l9.908-9.908c9.065-9.065 9.067-23.79.001-32.857l-134.37-134.357c-9.067-9.065-9.067-23.793 0-32.858l134.369-134.358c9.067-9.066 9.066-23.79-.001-32.856l-9.908-9.908c-9.043-9.043-23.803-9.043-32.846 0zM416.988 62.446c9.052-9.053 23.799-9.052 32.851 0l9.908 9.908c9.048 9.048 9.049 23.808 0 32.857L325.384 239.57c-9.066 9.066-9.066 23.792 0 32.858l134.364 134.358c9.052 9.051 9.051 23.806 0 32.857l-9.908 9.908c-9.056 9.056-23.795 9.057-32.851 0L255.591 288.148c-45.274 45.229-33.822 33.759-.033-.033l-15.69-15.691c-9.049-9.049-9.048-23.798 0-32.847z",
     clipRule: "evenodd"
@@ -813,9 +813,9 @@ var SvgLeftArrow = function SvgLeftArrow(props) {
 };
 
 var _g;
-function _extends$1() { return _extends$1 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$1.apply(null, arguments); }
+function _extends$2() { return _extends$2 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$2.apply(null, arguments); }
 var SvgRightArrow = function SvgRightArrow(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends$1({
+  return /*#__PURE__*/React.createElement("svg", _extends$2({
     xmlns: "http://www.w3.org/2000/svg",
     width: 512,
     height: 512,
@@ -829,13 +829,13 @@ var SvgRightArrow = function SvgRightArrow(props) {
   }))));
 };
 
-var _path, _path2;
-function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+var _path$1, _path2;
+function _extends$1() { return _extends$1 = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends$1.apply(null, arguments); }
 var SvgUpArrow = function SvgUpArrow(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends({
+  return /*#__PURE__*/React.createElement("svg", _extends$1({
     xmlns: "http://www.w3.org/2000/svg",
     viewBox: "0 0 64 64"
-  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+  }, props), _path$1 || (_path$1 = /*#__PURE__*/React.createElement("path", {
     fill: "#010101",
     d: "M57.3 64c-1.15 0-2.29-.45-3.14-1.35L32 39.23 9.85 62.65a4.317 4.317 0 0 1-6.11.17 4.33 4.33 0 0 1-.18-6.12l25.3-26.74c.82-.86 1.95-1.35 3.14-1.35s2.32.49 3.14 1.35l25.3 26.74a4.317 4.317 0 0 1-.17 6.11c-.84.8-1.91 1.19-2.97 1.19"
   })), _path2 || (_path2 = /*#__PURE__*/React.createElement("path", {
@@ -1423,6 +1423,23 @@ var PricingCarousel = function PricingCarousel(_ref) {
   });
 };
 
+var _path;
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+var SvgMenuArrow = function SvgMenuArrow(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 512,
+    height: 512,
+    fillRule: "evenodd",
+    strokeLinejoin: "round",
+    strokeMiterlimit: 2,
+    clipRule: "evenodd",
+    viewBox: "0 0 16 16"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    d: "m1.47 5.53 6 6a.75.75 0 0 0 1.06 0l6-6a.749.749 0 1 0-1.06-1.06L8 9.939 2.53 4.47a.749.749 0 1 0-1.06 1.06"
+  })));
+};
+
 var css_248z = ".accordion {\n  width: 100%;\n  max-width: 600px;\n  margin: auto;\n  padding: 10px;\n}\n.accordion .accordion-item {\n  border: 1px solid #eee;\n  border-radius: 8px;\n  margin-bottom: 12px;\n  overflow: hidden;\n  transition: box-shadow 0.3s ease;\n}\n.accordion .accordion-item:last-child {\n  margin-bottom: 0;\n}\n.accordion .accordion-item .accordion-header {\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 500;\n  padding: 16px;\n  cursor: pointer;\n  transition: background-color 0.3s ease, color 0.3s ease;\n  border: none;\n  background: none;\n  outline: none;\n  appearance: none;\n}\n.accordion .accordion-item .accordion-header:focus {\n  outline: none;\n  box-shadow: none;\n}\n.accordion .accordion-item .accordion-header .arrow-icon {\n  align-items: center;\n  justify-content: center;\n  transition: transform 0.3s ease;\n}\n.accordion .accordion-item .accordion-header .arrow-icon svg {\n  width: 100%;\n  height: 100%;\n  display: block;\n  transition: fill 0.3s ease;\n}\n.accordion .accordion-item .accordion-header .arrow-icon.rotated {\n  transform: rotate(180deg);\n}\n.accordion .accordion-item .accordion-content {\n  max-height: 0;\n  overflow: hidden;\n  font-size: 14px;\n  padding: 0 16px;\n  background-color: #fafafa;\n  color: #444;\n  transition: max-height 0.3s ease-out, padding 0.3s ease-out;\n}\n.accordion .accordion-item .accordion-content.show {\n  max-height: 300px;\n  padding: 12px 16px;\n}";
 styleInject(css_248z);
 
@@ -1492,7 +1509,7 @@ var Accordion = function Accordion(_ref) {
           style: headerStyle,
           children: [item.question, jsx("span", {
             className: "arrow-icon ".concat(isOpen ? "rotated" : ""),
-            children: jsx(SvgDownArrow, {
+            children: jsx(SvgMenuArrow, {
               style: {
                 width: width,
                 height: height,
