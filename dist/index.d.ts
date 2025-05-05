@@ -211,6 +211,19 @@ interface PricingCarouselProps {
 
 declare const PricingCarousel: React$1.FC<PricingCarouselProps>;
 
+interface AccordionItem {
+    question: string;
+    answer: string;
+}
+interface AccordionProps {
+    title?: string;
+    questions: AccordionItem[];
+    openColor?: string;
+    className?: string;
+}
+
+declare const Accordion: React$1.FC<AccordionProps>;
+
 declare const theme: {
     colors: {
         primary: string;
@@ -304,5 +317,5 @@ interface ThemeProviderProps {
     children: React$1.ReactNode;
 }
 
-export { FullScreenHero, HeroCarousel, HeroContentWrapper, IconCard, Navbar, PricingCard, PricingCarousel, ScrollIndicator, Separator, ServiceCard, ServiceHighlightCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
+export { Accordion, FullScreenHero, HeroCarousel, HeroContentWrapper, IconCard, Navbar, PricingCard, PricingCarousel, ScrollIndicator, Separator, ServiceCard, ServiceHighlightCard, SideBar, SimpleButton, TestimonialCard, ThemeProvider, theme, useTheme };
 export type { Theme, ThemeProviderProps };

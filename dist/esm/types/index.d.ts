@@ -12,4 +12,5 @@ export { default as IconCard } from './component/IconCard/IconCard';
 export { default as ServiceHighlightCard } from './component/ServiceHighlightCard/ServiceHighlightCard';
 export { default as PricingCard } from './component/PricingCard/PricingCard';
 export { default as PricingCarousel } from './component/PricingCarousel/PricingCarousel';
+export { default as Accordion } from './component/Accordion/Accordion';
 export * from './theme/index';
