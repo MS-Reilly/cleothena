@@ -1425,17 +1425,14 @@ var PricingCarousel = function PricingCarousel(_ref) {
 
 var _path;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-var SvgMenuArrow = function SvgMenuArrow(props) {
+var SvgMenuArrow1 = function SvgMenuArrow1(props) {
   return /*#__PURE__*/React.createElement("svg", _extends({
     xmlns: "http://www.w3.org/2000/svg",
-    width: 24,
-    height: 24,
-    fill: "none"
+    xmlSpace: "preserve",
+    width: 612.007,
+    height: 612.007
   }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
-    fill: "#000",
-    fillRule: "evenodd",
-    d: "M6.47 8.97a.75.75 0 0 1 1.06 0L12 13.44l4.47-4.47a.75.75 0 1 1 1.06 1.06l-5 5a.75.75 0 0 1-1.06 0l-5-5a.75.75 0 0 1 0-1.06",
-    clipRule: "evenodd"
+    d: "M596.168 130.647c-21.119-21.169-55.382-21.169-76.526 0L306.013 366.44 92.384 130.647c-21.144-21.169-55.382-21.169-76.525 0s-21.144 55.458 0 76.627l248.504 274.31c11.438 11.438 26.672 16.482 41.651 15.54 14.953.942 30.213-4.102 41.65-15.54l248.505-274.31c21.118-21.169 21.118-55.457-.001-76.627"
   })));
 };
 
@@ -1468,9 +1465,9 @@ var Accordion = function Accordion(_ref) {
     _colors$closedBg = colors.closedBg,
     closedBg = _colors$closedBg === void 0 ? "#ffffff" : _colors$closedBg;
   var _arrow$width = arrow.width,
-    width = _arrow$width === void 0 ? "16px" : _arrow$width,
+    width = _arrow$width === void 0 ? "10px" : _arrow$width,
     _arrow$height = arrow.height,
-    height = _arrow$height === void 0 ? "16px" : _arrow$height,
+    height = _arrow$height === void 0 ? "10px" : _arrow$height,
     _arrow$fillOpen = arrow.fillOpen,
     fillOpen = _arrow$fillOpen === void 0 ? "#ffffff" : _arrow$fillOpen,
     _arrow$fillClosed = arrow.fillClosed,
@@ -1508,14 +1505,10 @@ var Accordion = function Accordion(_ref) {
           style: headerStyle,
           children: [item.question, jsx("span", {
             className: "arrow-icon ".concat(isOpen ? "rotated" : ""),
-            style: {
-              width: width,
-              height: height
-            },
-            children: jsx(SvgMenuArrow, {
+            children: jsx(SvgMenuArrow1, {
               style: {
-                width: "50px",
-                height: "50px",
+                width: width,
+                height: height,
                 fill: isOpen ? fillOpen : fillClosed
               }
             })

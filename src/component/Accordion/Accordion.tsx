@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { AccordionProps } from "./Accordion.types";
 import { useTheme } from "../../theme/hooks/useTheme";
-import Arrow from "../../Assets/icons/menu-arrow.svg"; // using ReactComponent for inline SVG
+import Arrow from "../../Assets/icons/menu-arrow1.svg"; // using ReactComponent for inline SVG
 import "./Accordion.scss";
 
 const Accordion: React.FC<AccordionProps> = ({
@@ -25,8 +25,8 @@ const Accordion: React.FC<AccordionProps> = ({
   } = colors;
 
   const {
-    width = "16px",
-    height = "16px",
+    width = "10px",
+    height = "10px",
     fillOpen = "#ffffff",
     fillClosed = "#000000",
   } = arrow;
@@ -64,17 +64,11 @@ const Accordion: React.FC<AccordionProps> = ({
               style={headerStyle}
             >
               {item.question}
-              <span
-                className={`arrow-icon ${isOpen ? "rotated" : ""}`}
-                style={{
-                  width,
-                  height,
-                }}
-              >
+              <span className={`arrow-icon ${isOpen ? "rotated" : ""}`}>
                 <Arrow
                   style={{
-                    width: "50px",
-                    height: "50px",
+                    width,
+                    height,
                     fill: isOpen ? fillOpen : fillClosed,
                   }}
                 />
