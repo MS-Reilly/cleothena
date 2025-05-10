@@ -44,21 +44,23 @@ const ImageCarousel = ({
           </div>
         ))}
       </div>
-      <div className="carousel-dots">
-        {images.map((_, index) => (
-          <span
-            key={index}
-            className={`dot ${index === currentIndex ? "active" : ""}`}
-            style={{
-              backgroundColor:
-                index === currentIndex
-                  ? theme.colors?.primary || "#FF9F1A"
-                  : "#ccc",
-            }}
-            onClick={() => setCurrentIndex(index)}
-          />
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className="carousel-dots">
+          {images.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${index === currentIndex ? "active" : ""}`}
+              style={{
+                backgroundColor:
+                  index === currentIndex
+                    ? theme.colors?.primary || "#FF9F1A"
+                    : "#ccc",
+              }}
+              onClick={() => setCurrentIndex(index)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

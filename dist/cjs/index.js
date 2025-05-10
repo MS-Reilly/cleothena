@@ -1598,7 +1598,7 @@ var ImageCarousel = function ImageCarousel(_ref) {
           })
         }, index);
       })
-    }), jsxRuntime.jsx("div", {
+    }), images.length > 1 && jsxRuntime.jsx("div", {
       className: "carousel-dots",
       children: images.map(function (_, index) {
         var _theme$colors;
