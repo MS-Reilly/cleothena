@@ -581,6 +581,11 @@ var Navbar = function Navbar(_ref) {
   var logo = _ref.logo,
     _ref$links = _ref.links,
     links = _ref$links === void 0 ? [] : _ref$links,
+    _ref$linkColor = _ref.linkColor,
+    linkColor = _ref$linkColor === void 0 ? "#000000" : _ref$linkColor;
+    _ref.linkHoverColor;
+    var _ref$activeLinkColor = _ref.activeLinkColor,
+    activeLinkColor = _ref$activeLinkColor === void 0 ? "#7AE2CF" : _ref$activeLinkColor,
     _ref$position = _ref.position,
     position = _ref$position === void 0 ? "sticky" : _ref$position,
     _ref$className = _ref.className,
@@ -649,10 +654,9 @@ var Navbar = function Navbar(_ref) {
               to: link.href,
               className: "nav-link",
               style: function style(_ref2) {
-                var _theme$colors$neutral3;
                 var isActive = _ref2.isActive;
                 return {
-                  color: isActive ? navbarStyles.color : (_theme$colors$neutral3 = theme.colors.neutral) === null || _theme$colors$neutral3 === void 0 ? void 0 : _theme$colors$neutral3.grey,
+                  color: isActive ? activeLinkColor : linkColor,
                   fontWeight: isActive ? "bold" : "normal",
                   textDecoration: "none"
                 };
@@ -666,10 +670,10 @@ var Navbar = function Navbar(_ref) {
                   end: true,
                   className: "nav-link",
                   style: function style(_ref3) {
-                    var _theme$colors$neutral4;
+                    var _theme$colors$neutral3;
                     var isActive = _ref3.isActive;
                     return {
-                      color: isActive ? navbarStyles.color : (_theme$colors$neutral4 = theme.colors.neutral) === null || _theme$colors$neutral4 === void 0 ? void 0 : _theme$colors$neutral4.grey,
+                      color: isActive ? navbarStyles.color : (_theme$colors$neutral3 = theme.colors.neutral) === null || _theme$colors$neutral3 === void 0 ? void 0 : _theme$colors$neutral3.grey,
                       fontWeight: isActive ? "bold" : "normal",
                       textDecoration: "none"
                     };

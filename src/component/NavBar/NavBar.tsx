@@ -10,6 +10,9 @@ import { useSafeLocation } from "../../utils/useSafeLocation";
 const Navbar: React.FC<NavbarProps> = ({
   logo,
   links = [],
+  linkColor = "#000000",
+  linkHoverColor = "#ffffff",
+  activeLinkColor = "#7AE2CF",
   position = "sticky",
   className = "",
   ghost = false,
@@ -76,9 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   to={link.href}
                   className={"nav-link"}
                   style={({ isActive }) => ({
-                    color: isActive
-                      ? navbarStyles.color
-                      : theme.colors.neutral?.grey,
+                    color: isActive ? activeLinkColor : linkColor,
                     fontWeight: isActive ? "bold" : "normal",
                     textDecoration: "none",
                   })}
