@@ -744,7 +744,7 @@ var FullScreenHero = function FullScreenHero(_ref) {
   return jsxs("div", {
     className: "fullscreen-hero",
     style: _objectSpread2({}, style),
-    children: [jsx("img", {
+    children: [image && jsx("img", {
       src: image,
       alt: "Hero Background",
       className: "fullscreen-hero__image"
