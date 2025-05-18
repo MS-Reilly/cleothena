@@ -8,12 +8,18 @@ const ImageCarousel = ({
   interval = 3000,
   imageWidth = "80%",
   imageHeight = "auto",
+  onSlideChange,
+  borderRadius = "0px",
 }: ImageCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const theme = useTheme() || {};
 
   useEffect(() => {
+    if (onSlideChange) {
+      onSlideChange(currentIndex);
+    }
+
     timeoutRef.current = setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, interval);
@@ -21,7 +27,7 @@ const ImageCarousel = ({
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [currentIndex, interval, images.length]);
+  }, [currentIndex, interval, images.length, onSlideChange]);
 
   return (
     <div
@@ -40,10 +46,16 @@ const ImageCarousel = ({
             key={index}
             style={{ width: imageWidth, height: imageHeight }}
           >
-            <img src={img} alt={`Slide ${index}`} className="carousel-image" />
+            <img
+              src={img}
+              alt={`Slide ${index}`}
+              className="carousel-image"
+              style={{ borderRadius }}
+            />
           </div>
         ))}
       </div>
+
       {images.length > 1 && (
         <div className="carousel-dots">
           {images.map((_, index) => (
@@ -56,7 +68,10 @@ const ImageCarousel = ({
                     ? theme.colors?.primary || "#FF9F1A"
                     : "#ccc",
               }}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                setCurrentIndex(index);
+                if (onSlideChange) onSlideChange(index);
+              }}
             />
           ))}
         </div>

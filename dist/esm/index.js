@@ -1541,7 +1541,10 @@ var ImageCarousel = function ImageCarousel(_ref) {
     _ref$imageWidth = _ref.imageWidth,
     imageWidth = _ref$imageWidth === void 0 ? "80%" : _ref$imageWidth,
     _ref$imageHeight = _ref.imageHeight,
-    imageHeight = _ref$imageHeight === void 0 ? "auto" : _ref$imageHeight;
+    imageHeight = _ref$imageHeight === void 0 ? "auto" : _ref$imageHeight,
+    onSlideChange = _ref.onSlideChange,
+    _ref$borderRadius = _ref.borderRadius,
+    borderRadius = _ref$borderRadius === void 0 ? "0px" : _ref$borderRadius;
   var _useState = useState(0),
     _useState2 = _slicedToArray(_useState, 2),
     currentIndex = _useState2[0],
@@ -1549,6 +1552,9 @@ var ImageCarousel = function ImageCarousel(_ref) {
   var timeoutRef = useRef(null);
   var theme = useTheme() || {};
   useEffect(function () {
+    if (onSlideChange) {
+      onSlideChange(currentIndex);
+    }
     timeoutRef.current = setTimeout(function () {
       setCurrentIndex(function (prevIndex) {
         return (prevIndex + 1) % images.length;
@@ -1557,7 +1563,7 @@ var ImageCarousel = function ImageCarousel(_ref) {
     return function () {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [currentIndex, interval, images.length]);
+  }, [currentIndex, interval, images.length, onSlideChange]);
   return jsxs("div", {
     className: "image-carousel",
     style: {
@@ -1578,7 +1584,10 @@ var ImageCarousel = function ImageCarousel(_ref) {
           children: jsx("img", {
             src: img,
             alt: "Slide ".concat(index),
-            className: "carousel-image"
+            className: "carousel-image",
+            style: {
+              borderRadius: borderRadius
+            }
           })
         }, index);
       })
@@ -1592,7 +1601,8 @@ var ImageCarousel = function ImageCarousel(_ref) {
             backgroundColor: index === currentIndex ? ((_theme$colors = theme.colors) === null || _theme$colors === void 0 ? void 0 : _theme$colors.primary) || "#FF9F1A" : "#ccc"
           },
           onClick: function onClick() {
-            return setCurrentIndex(index);
+            setCurrentIndex(index);
+            if (onSlideChange) onSlideChange(index);
           }
         }, index);
       })

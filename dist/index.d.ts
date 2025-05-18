@@ -240,13 +240,14 @@ declare const Accordion: React$1.FC<AccordionProps>;
 
 interface ImageCarouselProps {
     images: string[];
-    title?: string;
     interval?: number;
     imageWidth?: string;
     imageHeight?: string;
+    onSlideChange?: (index: number) => void;
+    borderRadius?: string;
 }
 
-declare const ImageCarousel: ({ images, interval, imageWidth, imageHeight, }: ImageCarouselProps) => react_jsx_runtime.JSX.Element;
+declare const ImageCarousel: ({ images, interval, imageWidth, imageHeight, onSlideChange, borderRadius, }: ImageCarouselProps) => react_jsx_runtime.JSX.Element;
 
 declare const theme: {
     colors: {

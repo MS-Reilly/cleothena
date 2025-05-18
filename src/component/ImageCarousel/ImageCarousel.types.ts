@@ -1,8 +1,8 @@
 export interface ImageCarouselProps {
-    images: string[];
-    title?: string;
-    interval?: number;
-    imageWidth?: string;
-    imageHeight?: string;
-  }
-  
+  images: string[];
+  interval?: number;
+  imageWidth?: string;
+  imageHeight?: string;
+  onSlideChange?: (index: number) => void;
+  borderRadius?: string; // ✅ add this
+}
