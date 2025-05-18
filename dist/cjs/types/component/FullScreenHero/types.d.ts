@@ -11,6 +11,7 @@ export interface FullScreenHeroProps {
 }
 export interface HeroContentWrapperProps {
     children: React.ReactNode;
+    overlay?: boolean;
     overlayColor?: string;
     gradientDirection?: string;
 }

@@ -788,13 +788,15 @@ var FullScreenHero = function FullScreenHero(_ref) {
 
 var HeroContentWrapper = function HeroContentWrapper(_ref) {
   var children = _ref.children,
+    _ref$overlay = _ref.overlay,
+    overlay = _ref$overlay === void 0 ? true : _ref$overlay,
     _ref$overlayColor = _ref.overlayColor,
     overlayColor = _ref$overlayColor === void 0 ? "rgba(0, 0, 0, 0.3)" : _ref$overlayColor,
     _ref$gradientDirectio = _ref.gradientDirection,
     gradientDirection = _ref$gradientDirectio === void 0 ? "to bottom" : _ref$gradientDirectio;
   return jsxRuntime.jsxs("div", {
     className: "heroWrapper",
-    children: [jsxRuntime.jsx("div", {
+    children: [overlay && jsxRuntime.jsx("div", {
       className: "heroOverlay",
       style: {
         background: "linear-gradient(".concat(gradientDirection, ", ").concat(overlayColor, " 0%, transparent 80%)")

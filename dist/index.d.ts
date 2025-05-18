@@ -73,6 +73,7 @@ interface FullScreenHeroProps {
 }
 interface HeroContentWrapperProps {
     children: React.ReactNode;
+    overlay?: boolean;
     overlayColor?: string;
     gradientDirection?: string;
 }
