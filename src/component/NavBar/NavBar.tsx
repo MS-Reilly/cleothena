@@ -70,7 +70,7 @@ const Navbar: React.FC<NavbarProps> = ({
         position,
         top: 0,
         width: "100%",
-        zIndex: ghost ? 0 : 50,
+        zIndex: ghost ? 0 : 100,
       } as React.CSSProperties & Record<string, string>),
     [
       linkColor,

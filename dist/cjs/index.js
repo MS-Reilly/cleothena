@@ -381,7 +381,7 @@ var Navbar = function Navbar(_ref3) {
       position: position,
       top: 0,
       width: "100%",
-      zIndex: ghost ? 0 : 50
+      zIndex: ghost ? 0 : 100
     };
   }, [linkColor, linkHoverColor, activeLinkColor, subLinkColor, navBg, navShadow, ghost, position, (_theme$typography2 = theme.typography) === null || _theme$typography2 === void 0 ? void 0 : _theme$typography2.fontFamily]);
   /* warn if outside <Router> (Storybook) */
