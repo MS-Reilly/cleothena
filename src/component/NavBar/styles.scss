@@ -25,6 +25,8 @@ $link-active: var(--link-active-color, #7AE2CF);
   justify-content: space-between;
   transition: background 0.35s ease, box-shadow 0.35s ease;
   padding: 10px 10px;
+  background-color: var(--navbar-bg, #fff);
+  box-shadow: var(--navbar-shadow, none);
   /* box-shadow fallback from theme via inline style */
 
   .navbar-container {

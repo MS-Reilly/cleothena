@@ -30,7 +30,6 @@ const Navbar: React.FC<NavbarProps> = ({
   position = "sticky",
   className = "",
   ghost = false,
-  sidebarProps = {},
 }) => {
   /* ───────────── responsive toggle ───────────── */
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -61,8 +60,10 @@ const Navbar: React.FC<NavbarProps> = ({
       "--link-hover-color": linkHoverColor,
       "--link-active-color": activeLinkColor,
       "--sub-link-color": subLinkColor,
+      "--navbar-bg": navBg,
+      "--navbar-shadow": navShadow,
       backgroundColor: navBg,
-      color: theme.colors?.primary || theme.colors?.neutral?.black || "#000",
+      color: linkColor,
       boxShadow: ghost ? "none" : navShadow,
       fontFamily: theme.typography?.fontFamily || "Arial, sans-serif",
       position,
@@ -125,13 +126,6 @@ const Navbar: React.FC<NavbarProps> = ({
               variant="sm"
             />
             <SimpleButton title="Sign In" color="primary" variant="sm" />
-          </div>
-        )}
-
-        {/* Mobile sidebar trigger */}
-        {isMobile && (
-          <div className="navbar-toggle">
-            <SideBar logo={logo} sidebarConfig={links} {...sidebarProps} />
           </div>
         )}
       </div>
