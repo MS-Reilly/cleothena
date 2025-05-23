@@ -292,11 +292,14 @@ var SimpleButton = function SimpleButton(_ref) {
   }));
 };
 
-var css_248z$d = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sb-show-main {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\n.navbar {\n  box-sizing: border-box;\n  width: 100%;\n  max-width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  transition: all 0.3s ease;\n  box-shadow: 16px;\n  padding: 10px 10px;\n}\n.navbar .navbar-container {\n  display: flex;\n  width: 100%;\n  justify-content: space-between;\n  align-items: center;\n}\n.navbar .navbar-links {\n  display: flex;\n  gap: 20px;\n  align-items: center;\n}\n.navbar .navbar-item {\n  position: relative;\n  text-decoration: none;\n}\n.navbar .navbar-item .nav-link {\n  font-weight: 500;\n  text-decoration: none;\n  padding: 10px;\n  border-radius: 5px;\n  transition: all 0.3s ease;\n}\n.navbar .navbar-item:hover .navbar-dropdown {\n  display: flex;\n  flex-direction: column;\n  transition: all 0.3s ease-in-out;\n}\n.navbar .navbar-item:hover .navbar-dropdown .nav-link {\n  font-weight: 500;\n  text-decoration: none;\n  padding: 10px;\n  border-radius: 5px;\n  transition: all 0.3s ease;\n}\n.navbar .navbar-dropdown {\n  display: none;\n  position: absolute;\n  background: white;\n  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);\n  padding: 10px;\n  border-radius: 5px;\n}\n.navbar .navbar-toggle {\n  display: none;\n  background: transparent;\n  border: none;\n  cursor: pointer;\n}\n.navbar .navbar-mobile {\n  display: none;\n  flex-direction: column;\n  padding: 10px;\n}\n@media (max-width: 768px) {\n  .navbar .navbar-links {\n    display: none;\n  }\n  .navbar .navbar-toggle {\n    display: block;\n  }\n  .navbar .navbar-mobile {\n    display: flex;\n  }\n}";
-styleInject(css_248z$d);
+// src/utils/useSafeLocation.ts
+var useSafeLocation = function useSafeLocation() {
+  var context = React.useContext(reactRouterDom.UNSAFE_LocationContext);
+  return context ? reactRouterDom.useLocation() : null;
+};
 
-var css_248z$c = "@charset \"UTF-8\";\n@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sidebar {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 250px;\n  background-color: white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transform: translateX(-100%);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  /* ✅ Close Button Positioned at Absolute Top-Right */\n  /* ✅ Sidebar Header */\n  /* ✅ Sidebar Content (Scrollable) */\n  /* ✅ Sidebar Footer */\n}\n.sidebar.mobile-open {\n  transform: translateX(0);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);\n}\n.sidebar.mobile-closed {\n  transform: translateX(-100%);\n}\n.sidebar.sidebar-right {\n  right: 0;\n  left: auto;\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right.mobile-open {\n  transform: translateX(0);\n}\n.sidebar.sidebar-right.mobile-closed {\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right .close-btn {\n  right: auto;\n  left: 10px;\n}\n.sidebar .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n  z-index: 1100;\n}\n.sidebar .close-btn:hover {\n  transform: scale(1.1);\n  opacity: 0.8;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 25px 15px 15px;\n  border-bottom: 1px solid #e3e6f0;\n  position: relative;\n}\n.sidebar .sidebar-header .logo {\n  max-width: 180px;\n}\n.sidebar .sidebar-header .logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.sidebar .sidebar-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 15px;\n  max-height: calc(100vh - 70px - 60px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 1px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background-color: #f8f9fa;\n  border-radius: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background-color: #f8f9fa;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background-color: #f0f0f0;\n}\n.sidebar .sidebar-footer {\n  padding: 10px;\n  border-top: 1px solid #e3e6f0;\n  background: white;\n}\n.sidebar .sidebar-footer .helper-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  text-align: center;\n  font-size: 0.85rem;\n  padding: 10px;\n  background-color: #e0f7fa;\n  color: #343a40;\n  border-radius: 8px;\n  transition: opacity 0.4s ease, transform 0.4s ease;\n}\n.sidebar .sidebar-footer .helper-card:hover {\n  opacity: 1;\n  transform: translateY(0);\n}\n.sidebar .sidebar-footer .helper-card button {\n  margin-top: 10px;\n  padding: 5px 10px;\n  background-color: #2EC4B6;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  transition: background-color 0.3s ease;\n}\n.sidebar .sidebar-footer .helper-card button:hover {\n  background-color: #00ADA9;\n}\n\n.sidebar-item {\n  box-sizing: border-box;\n  width: 100%;\n}\n.sidebar-item .item-header {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 2px 7px;\n  border-radius: 0.5rem;\n  cursor: pointer;\n  transition: background 0.3s ease, color 0.3s ease;\n  background-color: transparent;\n  gap: 10px;\n}\n.sidebar-item .item-header:hover {\n  background-color: #f7f7f7;\n}\n.sidebar-item .item-header.active {\n  background-color: #e0f7fa;\n  color: #344767;\n}\n.sidebar-item .item-header.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n  color: #6e708c;\n}\n.sidebar-item .item-header .icon {\n  font-size: 1.8rem;\n  transition: color 0.3s ease;\n}\n.sidebar-item .item-header .title {\n  flex-grow: 1;\n  font-weight: 600;\n  text-align: left;\n}\n.sidebar-item .item-header .expand-icon {\n  font-size: 1rem;\n  color: #999999;\n  transition: color 0.3s ease;\n}\n.sidebar-item .sub-items {\n  margin-top: 0.5rem;\n  padding-left: 20px;\n  list-style: none;\n}\n.sidebar-item .sub-items .sub-item {\n  margin-bottom: 0.5rem;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  padding: 4px 8px;\n  border-radius: 0.5rem;\n  transition: background 0.2s ease, color 0.2s ease;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link:hover {\n  background-color: #f9f9f9;\n  color: #2ec4b6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.active {\n  background-color: #d6f5f8;\n  color: #344767;\n  font-weight: bold;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n  font-size: 0.9rem;\n  font-weight: 500;\n}";
-styleInject(css_248z$c);
+var css_248z$d = "@charset \"UTF-8\";\n@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sidebar {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 250px;\n  background-color: white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transform: translateX(-100%);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n  /* ✅ Close Button Positioned at Absolute Top-Right */\n  /* ✅ Sidebar Header */\n  /* ✅ Sidebar Content (Scrollable) */\n  /* ✅ Sidebar Footer */\n}\n.sidebar.mobile-open {\n  transform: translateX(0);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);\n}\n.sidebar.mobile-closed {\n  transform: translateX(-100%);\n}\n.sidebar.sidebar-right {\n  right: 0;\n  left: auto;\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right.mobile-open {\n  transform: translateX(0);\n}\n.sidebar.sidebar-right.mobile-closed {\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right .close-btn {\n  right: auto;\n  left: 10px;\n}\n.sidebar .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n  z-index: 1100;\n}\n.sidebar .close-btn:hover {\n  transform: scale(1.1);\n  opacity: 0.8;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 25px 15px 15px;\n  border-bottom: 1px solid #e3e6f0;\n  position: relative;\n}\n.sidebar .sidebar-header .logo {\n  max-width: 180px;\n}\n.sidebar .sidebar-header .logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.sidebar .sidebar-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 15px;\n  max-height: calc(100vh - 70px - 60px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: flex-start;\n  gap: 1px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background-color: #f8f9fa;\n  border-radius: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb:hover {\n  background-color: #f8f9fa;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background-color: #f0f0f0;\n}\n.sidebar .sidebar-footer {\n  padding: 10px;\n  border-top: 1px solid #e3e6f0;\n  background: white;\n}\n.sidebar .sidebar-footer .helper-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  text-align: center;\n  font-size: 0.85rem;\n  padding: 10px;\n  background-color: #e0f7fa;\n  color: #343a40;\n  border-radius: 8px;\n  transition: opacity 0.4s ease, transform 0.4s ease;\n}\n.sidebar .sidebar-footer .helper-card:hover {\n  opacity: 1;\n  transform: translateY(0);\n}\n.sidebar .sidebar-footer .helper-card button {\n  margin-top: 10px;\n  padding: 5px 10px;\n  background-color: #2EC4B6;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  transition: background-color 0.3s ease;\n}\n.sidebar .sidebar-footer .helper-card button:hover {\n  background-color: #00ADA9;\n}\n\n.sidebar-item {\n  box-sizing: border-box;\n  width: 100%;\n}\n.sidebar-item .item-header {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 2px 7px;\n  border-radius: 0.5rem;\n  cursor: pointer;\n  transition: background 0.3s ease, color 0.3s ease;\n  background-color: transparent;\n  gap: 10px;\n}\n.sidebar-item .item-header:hover {\n  background-color: #f7f7f7;\n}\n.sidebar-item .item-header.active {\n  background-color: #e0f7fa;\n  color: #344767;\n}\n.sidebar-item .item-header.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n  color: #6e708c;\n}\n.sidebar-item .item-header .icon {\n  font-size: 1.8rem;\n  transition: color 0.3s ease;\n}\n.sidebar-item .item-header .title {\n  flex-grow: 1;\n  font-weight: 600;\n  text-align: left;\n}\n.sidebar-item .item-header .expand-icon {\n  font-size: 1rem;\n  color: #999999;\n  transition: color 0.3s ease;\n}\n.sidebar-item .sub-items {\n  margin-top: 0.5rem;\n  padding-left: 20px;\n  list-style: none;\n}\n.sidebar-item .sub-items .sub-item {\n  margin-bottom: 0.5rem;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link {\n  text-decoration: none;\n  display: flex;\n  align-items: center;\n  padding: 4px 8px;\n  border-radius: 0.5rem;\n  transition: background 0.2s ease, color 0.2s ease;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link:hover {\n  background-color: #f9f9f9;\n  color: #2ec4b6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.active {\n  background-color: #d6f5f8;\n  color: #344767;\n  font-weight: bold;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.disabled {\n  cursor: not-allowed;\n  opacity: 0.6;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n  font-size: 0.9rem;\n  font-weight: 500;\n}";
+styleInject(css_248z$d);
 
 function lightenColor(hex, percent) {
   // Ensure hex is valid
@@ -322,12 +325,6 @@ function lightenColor(hex, percent) {
   }).join("");
   return newColor;
 }
-
-// src/utils/useSafeLocation.ts
-var useSafeLocation = function useSafeLocation() {
-  var context = React.useContext(reactRouterDom.UNSAFE_LocationContext);
-  return context ? reactRouterDom.useLocation() : null;
-};
 
 var SidebarItem = function SidebarItem(_ref) {
   var _item$children;
@@ -597,63 +594,96 @@ var SideBar = function SideBar(_ref) {
   });
 };
 
-var Navbar = function Navbar(_ref) {
-  var logo = _ref.logo,
-    _ref$links = _ref.links,
-    links = _ref$links === void 0 ? [] : _ref$links,
-    _ref$linkColor = _ref.linkColor,
-    linkColor = _ref$linkColor === void 0 ? "#000000" : _ref$linkColor;
-    _ref.linkHoverColor;
-    var _ref$activeLinkColor = _ref.activeLinkColor,
-    activeLinkColor = _ref$activeLinkColor === void 0 ? "#7AE2CF" : _ref$activeLinkColor,
-    _ref$position = _ref.position,
-    position = _ref$position === void 0 ? "sticky" : _ref$position,
-    _ref$className = _ref.className,
-    className = _ref$className === void 0 ? "" : _ref$className,
-    _ref$ghost = _ref.ghost,
-    ghost = _ref$ghost === void 0 ? false : _ref$ghost,
-    _ref$sidebarProps = _ref.sidebarProps,
-    sidebarProps = _ref$sidebarProps === void 0 ? {} : _ref$sidebarProps;
+var css_248z$c = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n/* ------------------------------------------------------------\n   CSS custom-props receive colours from React inline style\n   ----------------------------------------------------------*/\n/* ------------------------------------------------------------\n   Global reset for Storybook canvas (optional)\n   ----------------------------------------------------------*/\n.sb-show-main {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\n/* ------------------------------------------------------------\n   Navbar\n   ----------------------------------------------------------*/\n.navbar {\n  box-sizing: border-box;\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  transition: background 0.35s ease, box-shadow 0.35s ease;\n  padding: 10px 10px;\n  /* box-shadow fallback from theme via inline style */\n  /* ---------- logo ---------- */\n  /* ---------- desktop links ---------- */\n  /* ---------- mobile only ---------- */\n}\n.navbar .navbar-container {\n  display: flex;\n  width: 100%;\n  align-items: center;\n  justify-content: space-between;\n}\n.navbar .navbar-logo {\n  display: flex;\n  align-items: center;\n  text-decoration: none;\n}\n.navbar .navbar-links {\n  display: flex;\n  flex-wrap: wrap;\n  column-gap: 1.5rem;\n  align-items: center;\n  font-size: clamp(0.9rem, 0.9vw, 1rem);\n}\n.navbar .navbar-item {\n  position: relative;\n  /* top-level link */\n  /* ---------- dropdown ---------- */\n  /* open dropdown on hover or keyboard focus */\n}\n.navbar .navbar-item .nav-link > span {\n  color: var(--link-color, #000);\n  padding: 0.65rem 0.75rem;\n  border-radius: 0.35rem;\n  transition: color 0.2s ease, background 0.2s ease;\n  font-weight: 500;\n}\n.navbar .navbar-item .nav-link > span[data-active=true] {\n  color: var(--link-active-color, #7AE2CF);\n  font-weight: 600;\n}\n.navbar .navbar-item:hover .nav-link > span, .navbar .navbar-item:focus-within .nav-link > span {\n  color: var(--link-hover-color, #133E87);\n}\n.navbar .navbar-item .navbar-dropdown {\n  position: absolute;\n  left: 50%;\n  top: calc(100% + 0.5rem);\n  transform: translateX(-50%) translateY(0.5rem);\n  min-width: 12rem;\n  padding: 0.5rem 0;\n  background: #fff;\n  border-radius: 0.5rem;\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);\n  display: flex;\n  flex-direction: column;\n  gap: 0;\n  opacity: 0;\n  visibility: hidden;\n  pointer-events: none;\n  transition: opacity 0.25s ease, transform 0.25s ease;\n}\n.navbar .navbar-item .navbar-dropdown .nav-link > span {\n  display: block;\n  padding: 0.55rem 1rem;\n  white-space: nowrap;\n  color: var(--sub-link-color, var(--link-color));\n}\n.navbar .navbar-item .navbar-dropdown .nav-link > span[data-active=true] {\n  color: var(--link-active-color, #7AE2CF);\n  font-weight: 600;\n}\n.navbar .navbar-item .navbar-dropdown .nav-link:hover > span {\n  background: #CBDCEB;\n  color: var(--link-hover-color, #133E87);\n}\n.navbar .navbar-item:hover .navbar-dropdown, .navbar .navbar-item:focus-within .navbar-dropdown {\n  opacity: 1;\n  visibility: visible;\n  pointer-events: auto;\n  transform: translateX(-50%) translateY(0);\n}\n.navbar .navbar-toggle {\n  display: none;\n}\n@media (max-width: 768px) {\n  .navbar .navbar-links {\n    display: none;\n  }\n  .navbar .navbar-toggle {\n    display: block;\n  }\n}";
+styleInject(css_248z$c);
+
+/*────────────────────────────────────────────────────────
+  Helper: keeps active state in data-attribute
+────────────────────────────────────────────────────────*/
+var ActiveAwareLink = function ActiveAwareLink(_ref) {
+  var to = _ref.to,
+    _children = _ref.children;
+  return jsxRuntime.jsx(reactRouterDom.NavLink, {
+    to: to,
+    end: true,
+    className: "nav-link",
+    style: {
+      textDecoration: "none"
+    },
+    children: function children(_ref2) {
+      var isActive = _ref2.isActive;
+      return jsxRuntime.jsx("span", {
+        "data-active": isActive ? "true" : "false",
+        children: _children
+      });
+    }
+  });
+};
+var Navbar = function Navbar(_ref3) {
+  var _theme$colors, _ref4, _navStyle$shadow2, _theme$shadows, _theme$colors4, _theme$colors5, _theme$typography2;
+  var logo = _ref3.logo,
+    _ref3$links = _ref3.links,
+    links = _ref3$links === void 0 ? [] : _ref3$links,
+    _ref3$navStyle = _ref3.navStyle,
+    navStyle = _ref3$navStyle === void 0 ? {} : _ref3$navStyle,
+    _ref3$position = _ref3.position,
+    position = _ref3$position === void 0 ? "sticky" : _ref3$position,
+    _ref3$className = _ref3.className,
+    className = _ref3$className === void 0 ? "" : _ref3$className,
+    _ref3$ghost = _ref3.ghost,
+    ghost = _ref3$ghost === void 0 ? false : _ref3$ghost,
+    _ref3$sidebarProps = _ref3.sidebarProps,
+    sidebarProps = _ref3$sidebarProps === void 0 ? {} : _ref3$sidebarProps;
+  /* ───────────── responsive toggle ───────────── */
   var _useState = React.useState(window.innerWidth < 768),
     _useState2 = _slicedToArray(_useState, 2),
     isMobile = _useState2[0],
     setIsMobile = _useState2[1];
-  var _useState3 = React.useState(false),
-    _useState4 = _slicedToArray(_useState3, 2);
-    _useState4[0];
-    var setIsMobileOpen = _useState4[1];
-  var location = useSafeLocation();
-  if (!location) {
-    console.warn("⚠️ Navbar is rendered without router context.");
-  }
-  // Detect window resize and update isMobile state
   React.useEffect(function () {
-    var handleResize = function handleResize() {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
-        setIsMobileOpen(false); // Ensure mobile menu closes when switching back to desktop
-      }
+    var onResize = function onResize() {
+      return setIsMobile(window.innerWidth < 768);
     };
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", onResize);
     return function () {
-      return window.removeEventListener("resize", handleResize);
+      return window.removeEventListener("resize", onResize);
     };
   }, []);
-  // Default theme colors if missing from theme provider
+  /* ─────────────── design tokens ─────────────── */
   var theme = useTheme() || {};
+  var _navStyle$link = navStyle.link,
+    linkColor = _navStyle$link === void 0 ? "#000" : _navStyle$link,
+    _navStyle$linkHover = navStyle.linkHover,
+    linkHoverColor = _navStyle$linkHover === void 0 ? "#133E87" : _navStyle$linkHover,
+    _navStyle$linkActive = navStyle.linkActive,
+    activeLinkColor = _navStyle$linkActive === void 0 ? "#7AE2CF" : _navStyle$linkActive,
+    _navStyle$subLink = navStyle.subLink,
+    subLinkColor = _navStyle$subLink === void 0 ? linkColor : _navStyle$subLink,
+    _navStyle$bg = navStyle.bg,
+    navBg = _navStyle$bg === void 0 ? ghost ? "transparent" : (_theme$colors = theme.colors) === null || _theme$colors === void 0 || (_theme$colors = _theme$colors.neutral) === null || _theme$colors === void 0 ? void 0 : _theme$colors.white : _navStyle$bg,
+    _navStyle$shadow = navStyle.shadow,
+    navShadow = _navStyle$shadow === void 0 ? (_ref4 = (_navStyle$shadow2 = navStyle.shadow) !== null && _navStyle$shadow2 !== void 0 ? _navStyle$shadow2 : (_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.md) !== null && _ref4 !== void 0 ? _ref4 : "0 2px 5px rgba(0,0,0,.12)" : _navStyle$shadow;
+  /* ───────── inline styles & CSS vars ────────── */
   var navbarStyles = React.useMemo(function () {
-    var _theme$colors$neutral, _theme$colors$neutral2, _theme$shadows, _theme$typography;
+    var _theme$colors2, _theme$colors3, _theme$typography;
     return {
-      backgroundColor: ghost ? "transparent" : (_theme$colors$neutral = theme.colors.neutral) === null || _theme$colors$neutral === void 0 ? void 0 : _theme$colors$neutral.white,
-      color: theme.colors.primary || ((_theme$colors$neutral2 = theme.colors.neutral) === null || _theme$colors$neutral2 === void 0 ? void 0 : _theme$colors$neutral2.black) || "#000000",
-      boxShadow: ghost ? "none" : ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.md) || "0 2px 5px rgba(0,0,0,0.3)",
+      "--link-color": linkColor,
+      "--link-hover-color": linkHoverColor,
+      "--link-active-color": activeLinkColor,
+      "--sub-link-color": subLinkColor,
+      backgroundColor: navBg,
+      color: ((_theme$colors2 = theme.colors) === null || _theme$colors2 === void 0 ? void 0 : _theme$colors2.primary) || ((_theme$colors3 = theme.colors) === null || _theme$colors3 === void 0 || (_theme$colors3 = _theme$colors3.neutral) === null || _theme$colors3 === void 0 ? void 0 : _theme$colors3.black) || "#000",
+      boxShadow: ghost ? "none" : navShadow,
       fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Arial, sans-serif",
-      zIndex: ghost ? 0 : 50,
-      position: position === "fixed" ? "fixed" : position === "sticky" ? "sticky" : "static",
+      position: position,
       top: 0,
-      width: "100%"
+      width: "100%",
+      zIndex: ghost ? 0 : 50
     };
-  }, [theme, position, ghost]);
+  }, [linkColor, linkHoverColor, activeLinkColor, subLinkColor, navBg, navShadow, ghost, position, (_theme$colors4 = theme.colors) === null || _theme$colors4 === void 0 ? void 0 : _theme$colors4.primary, (_theme$colors5 = theme.colors) === null || _theme$colors5 === void 0 || (_theme$colors5 = _theme$colors5.neutral) === null || _theme$colors5 === void 0 ? void 0 : _theme$colors5.black, (_theme$typography2 = theme.typography) === null || _theme$typography2 === void 0 ? void 0 : _theme$typography2.fontFamily]);
+  /* warn if outside <Router> (Storybook) */
+  var location = useSafeLocation();
+  if (!location) console.warn("⚠️  Navbar rendered without router context.");
+  /* ─────────────────── markup ─────────────────── */
   return jsxRuntime.jsx("nav", {
     className: "navbar ".concat(className),
     style: navbarStyles,
@@ -661,43 +691,21 @@ var Navbar = function Navbar(_ref) {
       className: "navbar-container",
       children: [jsxRuntime.jsx(reactRouterDom.Link, {
         to: "/",
-        children: jsxRuntime.jsx("div", {
-          className: "navbar-logo",
-          children: logo
-        })
+        className: "navbar-logo",
+        children: logo
       }), !isMobile && jsxRuntime.jsxs("div", {
         className: "navbar-links",
         children: [links.map(function (link) {
           return jsxRuntime.jsxs("div", {
             className: "navbar-item",
-            children: [jsxRuntime.jsx(reactRouterDom.NavLink, {
+            children: [jsxRuntime.jsx(ActiveAwareLink, {
               to: link.href,
-              className: "nav-link",
-              style: function style(_ref2) {
-                var isActive = _ref2.isActive;
-                return {
-                  color: isActive ? activeLinkColor : linkColor,
-                  fontWeight: isActive ? "bold" : "normal",
-                  textDecoration: "none"
-                };
-              },
               children: link.label
             }), link.children && jsxRuntime.jsx("div", {
               className: "navbar-dropdown",
               children: link.children.map(function (child) {
-                return jsxRuntime.jsx(reactRouterDom.NavLink, {
+                return jsxRuntime.jsx(ActiveAwareLink, {
                   to: child.href,
-                  end: true,
-                  className: "nav-link",
-                  style: function style(_ref3) {
-                    var _theme$colors$neutral3;
-                    var isActive = _ref3.isActive;
-                    return {
-                      color: isActive ? navbarStyles.color : (_theme$colors$neutral3 = theme.colors.neutral) === null || _theme$colors$neutral3 === void 0 ? void 0 : _theme$colors$neutral3.grey,
-                      fontWeight: isActive ? "bold" : "normal",
-                      textDecoration: "none"
-                    };
-                  },
                   children: child.label
                 }, child.label);
               })
@@ -714,7 +722,7 @@ var Navbar = function Navbar(_ref) {
           variant: "sm"
         })]
       }), isMobile && jsxRuntime.jsx("div", {
-        className: "flex",
+        className: "navbar-toggle",
         children: jsxRuntime.jsx(SideBar, _objectSpread2({
           logo: logo,
           sidebarConfig: links

@@ -1,97 +1,139 @@
-@use '../../theme/style/variables' as *; // ✅ This allows direct access to variables
+@use "../../theme/style/variables" as *; // gives access to $spacer-md etc.
 
+/* ------------------------------------------------------------
+   CSS custom-props receive colours from React inline style
+   ----------------------------------------------------------*/
+$link: var(--link-color, #000);
+$link-hover: var(--link-hover-color, #133E87);
+$link-active: var(--link-active-color, #7AE2CF);
 
+/* ------------------------------------------------------------
+   Global reset for Storybook canvas (optional)
+   ----------------------------------------------------------*/
 .sb-show-main {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-
+/* ------------------------------------------------------------
+   Navbar
+   ----------------------------------------------------------*/
 .navbar {
   box-sizing: border-box;
   width: 100%;
-  max-width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  transition: all 0.3s ease;
-  box-shadow: $spacer-md;
-  padding: 10px 10px ;
-
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+  padding: 10px 10px;
+  /* box-shadow fallback from theme via inline style */
 
   .navbar-container {
     display: flex;
     width: 100%;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
   }
 
+  /* ---------- logo ---------- */
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  /* ---------- desktop links ---------- */
   .navbar-links {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap; // prevents overflow
+    column-gap: 1.5rem;
     align-items: center;
+    font-size: clamp(0.9rem, 0.9vw, 1rem); // slight shrink on narrow widths
   }
 
   .navbar-item {
     position: relative;
-    text-decoration: none;
 
-    .nav-link{
+    /* top-level link */
+    .nav-link>span {
+      color: $link;
+      padding: 0.65rem 0.75rem;
+      border-radius: 0.35rem;
+      transition: color 0.2s ease, background 0.2s ease;
       font-weight: 500;
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
 
-    &:hover .navbar-dropdown {
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s ease-in-out;
-
-      .nav-link{
-        font-weight: 500;
-        text-decoration: none;
-        padding: 10px;
-        border-radius: 5px;
-        transition: all 0.3s ease;
+      &[data-active="true"] {
+        color: $link-active;
+        font-weight: 600;
       }
     }
+
+    &:hover .nav-link>span,
+    &:focus-within .nav-link>span {
+      color: $link-hover;
+    }
+
+    /* ---------- dropdown ---------- */
+    .navbar-dropdown {
+      position: absolute;
+      left: 50%;
+      top: calc(100% + 0.5rem);
+      transform: translateX(-50%) translateY(0.5rem);
+
+      min-width: 12rem; // uniform width
+      padding: 0.5rem 0;
+      background: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+
+      display: flex;
+      flex-direction: column;
+      gap: 0; // no additional gap between items
+
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+
+      .nav-link>span {
+        display: block;
+        padding: 0.55rem 1rem;
+        white-space: nowrap;
+        color: var(--sub-link-color, var(--link-color));
+
+        &[data-active="true"] {
+          color: $link-active;
+          font-weight: 600;
+        }
+      }
+
+      .nav-link:hover>span {
+        background: #CBDCEB;
+        color: $link-hover;
+      }
+    }
+
+    /* open dropdown on hover or keyboard focus */
+    &:hover .navbar-dropdown,
+    &:focus-within .navbar-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
   }
 
-  .navbar-dropdown {
-    display: none;
-    position: absolute;
-    background: white;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 5px;
-    
-
-  }
-
+  /* ---------- mobile only ---------- */
   .navbar-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-
-  .navbar-mobile {
-    display: none;
-    flex-direction: column;
-    padding: 10px;
+    display: none; // inline SideBar already has its own trigger
   }
 
   @media (max-width: 768px) {
     .navbar-links {
       display: none;
     }
+
     .navbar-toggle {
       display: block;
-    }
-    .navbar-mobile {
-      display: flex;
     }
   }
 }

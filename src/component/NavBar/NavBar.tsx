@@ -1,128 +1,136 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { useTheme } from "../../theme/hooks/useTheme";
-import { NavbarProps } from "./types";
-import "./styles.scss";
+import { useSafeLocation } from "../../utils/useSafeLocation";
+import { NavbarProps, NavStyle } from "./types";
+
 import SimpleButton from "../SimpleButton/SimpleButton";
 import SideBar from "../SideBar/SideBar";
-import { NavLink, Link, useLocation } from "react-router-dom";
-import { useSafeLocation } from "../../utils/useSafeLocation";
+
+import "./styles.scss";
+
+/*────────────────────────────────────────────────────────
+  Helper: keeps active state in data-attribute
+────────────────────────────────────────────────────────*/
+const ActiveAwareLink: React.FC<{ to: string; children: React.ReactNode }> = ({
+  to,
+  children,
+}) => (
+  <NavLink to={to} end className="nav-link" style={{ textDecoration: "none" }}>
+    {({ isActive }) => (
+      <span data-active={isActive ? "true" : "false"}>{children}</span>
+    )}
+  </NavLink>
+);
 
 const Navbar: React.FC<NavbarProps> = ({
   logo,
   links = [],
-  linkColor = "#000000",
-  linkHoverColor = "#ffffff",
-  activeLinkColor = "#7AE2CF",
+  navStyle = {} as NavStyle,
   position = "sticky",
   className = "",
   ghost = false,
   sidebarProps = {},
 }) => {
+  /* ───────────── responsive toggle ───────────── */
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [isMobileOpen, setIsMobileOpen] = useState(false);
-
-  const location = useSafeLocation();
-  if (!location) {
-    console.warn("⚠️ Navbar is rendered without router context.");
-  }
-
-  // Detect window resize and update isMobile state
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
-        setIsMobileOpen(false); // Ensure mobile menu closes when switching back to desktop
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    const onResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Default theme colors if missing from theme provider
+  /* ─────────────── design tokens ─────────────── */
   const theme = useTheme() || {};
 
-  const navbarStyles = useMemo(
+  const {
+    link: linkColor = "#000",
+    linkHover: linkHoverColor = "#133E87",
+    linkActive: activeLinkColor = "#7AE2CF",
+    subLink: subLinkColor = linkColor, // fallback
+    bg: navBg = ghost ? "transparent" : theme.colors?.neutral?.white,
+    shadow: navShadow = navStyle.shadow ??
+      theme.shadows?.md ??
+      "0 2px 5px rgba(0,0,0,.12)",
+  } = navStyle;
+
+  /* ───────── inline styles & CSS vars ────────── */
+  const navbarStyles = useMemo<React.CSSProperties>(
     () => ({
-      backgroundColor: ghost ? "transparent" : theme.colors.neutral?.white,
-      color: theme.colors.primary || theme.colors.neutral?.black || "#000000",
-      boxShadow: ghost
-        ? "none"
-        : theme.shadows?.md || "0 2px 5px rgba(0,0,0,0.3)",
+      "--link-color": linkColor,
+      "--link-hover-color": linkHoverColor,
+      "--link-active-color": activeLinkColor,
+      "--sub-link-color": subLinkColor,
+      backgroundColor: navBg,
+      color: theme.colors?.primary || theme.colors?.neutral?.black || "#000",
+      boxShadow: ghost ? "none" : navShadow,
       fontFamily: theme.typography?.fontFamily || "Arial, sans-serif",
-      zIndex: ghost ? 0 : 50,
-      position:
-        position === "fixed"
-          ? "fixed"
-          : position === "sticky"
-          ? "sticky"
-          : "static",
+      position,
       top: 0,
       width: "100%",
+      zIndex: ghost ? 0 : 50,
     }),
-    [theme, position, ghost]
+    [
+      linkColor,
+      linkHoverColor,
+      activeLinkColor,
+      subLinkColor,
+      navBg,
+      navShadow,
+      ghost,
+      position,
+      theme.colors?.primary,
+      theme.colors?.neutral?.black,
+      theme.typography?.fontFamily,
+    ]
   );
 
+  /* warn if outside <Router> (Storybook) */
+  const location = useSafeLocation();
+  if (!location) console.warn("⚠️  Navbar rendered without router context.");
+
+  /* ─────────────────── markup ─────────────────── */
   return (
     <nav className={`navbar ${className}`} style={navbarStyles}>
       <div className="navbar-container">
         {/* Logo */}
-        <Link to="/">
-          <div className="navbar-logo">{logo}</div>
+        <Link to="/" className="navbar-logo">
+          {logo}
         </Link>
 
-        {/* Desktop Navigation (Only Visible on Desktop) */}
+        {/* Desktop navigation */}
         {!isMobile && (
           <div className="navbar-links">
             {links.map((link) => (
               <div key={link.label} className="navbar-item">
-                <NavLink
-                  to={link.href}
-                  className={"nav-link"}
-                  style={({ isActive }) => ({
-                    color: isActive ? activeLinkColor : linkColor,
-                    fontWeight: isActive ? "bold" : "normal",
-                    textDecoration: "none",
-                  })}
-                >
-                  {link.label}
-                </NavLink>
+                <ActiveAwareLink to={link.href}>{link.label}</ActiveAwareLink>
+
                 {link.children && (
                   <div className="navbar-dropdown">
                     {link.children.map((child) => (
-                      <NavLink
-                        key={child.label}
-                        to={child.href}
-                        end
-                        className={"nav-link"}
-                        style={({ isActive }) => ({
-                          color: isActive
-                            ? navbarStyles.color
-                            : theme.colors.neutral?.grey,
-                          fontWeight: isActive ? "bold" : "normal",
-                          textDecoration: "none",
-                        })}
-                      >
+                      <ActiveAwareLink key={child.label} to={child.href}>
                         {child.label}
-                      </NavLink>
+                      </ActiveAwareLink>
                     ))}
                   </div>
                 )}
               </div>
             ))}
 
+            {/* CTA buttons */}
             <SimpleButton
               title="Sign Up"
               color="secondary"
-              outline={true}
-              variant={"sm"}
+              outline
+              variant="sm"
             />
-            <SimpleButton title="Sign In" color="primary" variant={"sm"} />
+            <SimpleButton title="Sign In" color="primary" variant="sm" />
           </div>
         )}
 
-        {/* Mobile Menu Toggle (Only Visible on Mobile) */}
+        {/* Mobile sidebar trigger */}
         {isMobile && (
-          <div className="flex">
+          <div className="navbar-toggle">
             <SideBar logo={logo} sidebarConfig={links} {...sidebarProps} />
           </div>
         )}
