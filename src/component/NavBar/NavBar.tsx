@@ -54,23 +54,24 @@ const Navbar: React.FC<NavbarProps> = ({
   } = navStyle;
 
   /* ───────── inline styles & CSS vars ────────── */
-  const navbarStyles = useMemo<React.CSSProperties>(
-    () => ({
-      "--link-color": linkColor,
-      "--link-hover-color": linkHoverColor,
-      "--link-active-color": activeLinkColor,
-      "--sub-link-color": subLinkColor,
-      "--navbar-bg": navBg,
-      "--navbar-shadow": navShadow,
-      backgroundColor: navBg,
-      color: linkColor,
-      boxShadow: ghost ? "none" : navShadow,
-      fontFamily: theme.typography?.fontFamily || "Arial, sans-serif",
-      position,
-      top: 0,
-      width: "100%",
-      zIndex: ghost ? 0 : 50,
-    }),
+  const navbarStyles = useMemo(
+    () =>
+      ({
+        "--link-color": linkColor,
+        "--link-hover-color": linkHoverColor,
+        "--link-active-color": activeLinkColor,
+        "--sub-link-color": subLinkColor,
+        "--navbar-bg": navBg,
+        "--navbar-shadow": navShadow,
+        backgroundColor: navBg,
+        color: linkColor,
+        boxShadow: ghost ? "none" : navShadow,
+        fontFamily: theme.typography?.fontFamily || "Arial, sans-serif",
+        position,
+        top: 0,
+        width: "100%",
+        zIndex: ghost ? 0 : 50,
+      } as React.CSSProperties & Record<string, string>),
     [
       linkColor,
       linkHoverColor,
@@ -80,8 +81,6 @@ const Navbar: React.FC<NavbarProps> = ({
       navShadow,
       ghost,
       position,
-      theme.colors?.primary,
-      theme.colors?.neutral?.black,
       theme.typography?.fontFamily,
     ]
   );

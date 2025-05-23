@@ -304,7 +304,7 @@ var ActiveAwareLink = function ActiveAwareLink(_ref) {
   });
 };
 var Navbar = function Navbar(_ref3) {
-  var _theme$colors, _ref4, _navStyle$shadow2, _theme$shadows, _theme$colors2, _theme$colors3, _theme$typography2;
+  var _theme$colors, _ref4, _navStyle$shadow2, _theme$shadows, _theme$typography2;
   var logo = _ref3.logo,
     _ref3$links = _ref3.links,
     links = _ref3$links === void 0 ? [] : _ref3$links,
@@ -363,7 +363,7 @@ var Navbar = function Navbar(_ref3) {
       width: "100%",
       zIndex: ghost ? 0 : 50
     };
-  }, [linkColor, linkHoverColor, activeLinkColor, subLinkColor, navBg, navShadow, ghost, position, (_theme$colors2 = theme.colors) === null || _theme$colors2 === void 0 ? void 0 : _theme$colors2.primary, (_theme$colors3 = theme.colors) === null || _theme$colors3 === void 0 || (_theme$colors3 = _theme$colors3.neutral) === null || _theme$colors3 === void 0 ? void 0 : _theme$colors3.black, (_theme$typography2 = theme.typography) === null || _theme$typography2 === void 0 ? void 0 : _theme$typography2.fontFamily]);
+  }, [linkColor, linkHoverColor, activeLinkColor, subLinkColor, navBg, navShadow, ghost, position, (_theme$typography2 = theme.typography) === null || _theme$typography2 === void 0 ? void 0 : _theme$typography2.fontFamily]);
   /* warn if outside <Router> (Storybook) */
   var location = useSafeLocation();
   if (!location) console.warn("⚠️  Navbar rendered without router context.");
