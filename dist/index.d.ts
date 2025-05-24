@@ -17,12 +17,6 @@ type SimpleButtonProps = {
 
 declare const SimpleButton: React$1.FC<SimpleButtonProps>;
 
-type NavItem = {
-    label: string;
-    href: string;
-    icon?: React.ReactNode;
-    children?: NavItem[];
-};
 /** Design-tokens for a single Navbar instance (all optional) */
 interface NavStyle {
     bg?: string;
@@ -34,20 +28,24 @@ interface NavStyle {
     subLinkHover?: string;
 }
 interface NavbarProps {
-    logo?: React.ReactNode;
-    links: NavItem[];
-    /** Unified styling object (preferred and only way to theme) */
+    logo: React.ReactNode;
+    links?: {
+        label: string;
+        href: string;
+        children?: {
+            label: string;
+            href: string;
+        }[];
+    }[];
     navStyle?: NavStyle;
-    position?: "static" | "fixed" | "sticky";
-    theme?: "light" | "dark";
+    position?: "fixed" | "sticky" | "absolute" | "static";
     className?: string;
-    ghost?: boolean;
-    sidebarProps?: Omit<SideBarProps, "sidebarConfig" | "logo">;
+    endElements?: React.ReactNode;
 }
 
 declare const Navbar: React$1.FC<NavbarProps>;
 
-interface SideBarProps$1 {
+interface SideBarProps {
     logo: string;
     sidebarConfig?: SidebarSectionConfig[];
     side?: "left" | "right";
@@ -69,7 +67,7 @@ interface SidebarItemConfig {
     [key: string]: any;
 }
 
-declare const SideBar: React$1.FC<SideBarProps$1>;
+declare const SideBar: React$1.FC<SideBarProps>;
 
 interface FullScreenHeroProps {
     image: string;

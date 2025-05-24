@@ -15,13 +15,17 @@ export interface NavStyle {
     subLinkHover?: string;
 }
 export interface NavbarProps {
-    logo?: React.ReactNode;
-    links: NavItem[];
-    /** Unified styling object (preferred and only way to theme) */
+    logo: React.ReactNode;
+    links?: {
+        label: string;
+        href: string;
+        children?: {
+            label: string;
+            href: string;
+        }[];
+    }[];
     navStyle?: NavStyle;
-    position?: "static" | "fixed" | "sticky";
-    theme?: "light" | "dark";
+    position?: "fixed" | "sticky" | "absolute" | "static";
     className?: string;
-    ghost?: boolean;
-    sidebarProps?: Omit<SideBarProps, "sidebarConfig" | "logo">;
+    endElements?: React.ReactNode;
 }

@@ -4,14 +4,8 @@ import { useTheme } from "../../theme/hooks/useTheme";
 import { useSafeLocation } from "../../utils/useSafeLocation";
 import { NavbarProps, NavStyle } from "./types";
 
-import SimpleButton from "../SimpleButton/SimpleButton";
-import SideBar from "../SideBar/SideBar";
-
 import "./styles.scss";
 
-/*────────────────────────────────────────────────────────
-  Helper: keeps active state in data-attribute
-────────────────────────────────────────────────────────*/
 const ActiveAwareLink: React.FC<{ to: string; children: React.ReactNode }> = ({
   to,
   children,
@@ -29,9 +23,8 @@ const Navbar: React.FC<NavbarProps> = ({
   navStyle = {} as NavStyle,
   position = "sticky",
   className = "",
-  ghost = false,
+  endElements, // 👈 custom content injected by parent
 }) => {
-  /* ───────────── responsive toggle ───────────── */
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < 768);
@@ -39,21 +32,19 @@ const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  /* ─────────────── design tokens ─────────────── */
   const theme = useTheme() || {};
 
   const {
     link: linkColor = "#000",
     linkHover: linkHoverColor = "#133E87",
     linkActive: activeLinkColor = "#7AE2CF",
-    subLink: subLinkColor = linkColor, // fallback
-    bg: navBg = ghost ? "transparent" : theme.colors?.neutral?.white,
+    subLink: subLinkColor = linkColor,
+    bg: navBg = theme.colors?.neutral?.white,
     shadow: navShadow = navStyle.shadow ??
       theme.shadows?.md ??
       "0 2px 5px rgba(0,0,0,.12)",
   } = navStyle;
 
-  /* ───────── inline styles & CSS vars ────────── */
   const navbarStyles = useMemo(
     () =>
       ({
@@ -65,12 +56,12 @@ const Navbar: React.FC<NavbarProps> = ({
         "--navbar-shadow": navShadow,
         backgroundColor: navBg,
         color: linkColor,
-        boxShadow: ghost ? "none" : navShadow,
+        boxShadow: navShadow,
         fontFamily: theme.typography?.fontFamily || "Arial, sans-serif",
         position,
         top: 0,
         width: "100%",
-        zIndex: ghost ? 0 : 100,
+        zIndex: 100,
       } as React.CSSProperties & Record<string, string>),
     [
       linkColor,
@@ -79,17 +70,14 @@ const Navbar: React.FC<NavbarProps> = ({
       subLinkColor,
       navBg,
       navShadow,
-      ghost,
       position,
       theme.typography?.fontFamily,
     ]
   );
 
-  /* warn if outside <Router> (Storybook) */
   const location = useSafeLocation();
-  if (!location) console.warn("⚠️  Navbar rendered without router context.");
+  if (!location) console.warn("⚠️ Navbar rendered without router context.");
 
-  /* ─────────────────── markup ─────────────────── */
   return (
     <nav className={`navbar ${className}`} style={navbarStyles}>
       <div className="navbar-container">
@@ -98,13 +86,12 @@ const Navbar: React.FC<NavbarProps> = ({
           {logo}
         </Link>
 
-        {/* Desktop navigation */}
+        {/* Desktop links */}
         {!isMobile && (
           <div className="navbar-links">
             {links.map((link) => (
               <div key={link.label} className="navbar-item">
                 <ActiveAwareLink to={link.href}>{link.label}</ActiveAwareLink>
-
                 {link.children && (
                   <div className="navbar-dropdown">
                     {link.children.map((child) => (
@@ -116,16 +103,12 @@ const Navbar: React.FC<NavbarProps> = ({
                 )}
               </div>
             ))}
-
-            {/* CTA buttons */}
-            <SimpleButton
-              title="Sign Up"
-              color="secondary"
-              outline
-              variant="sm"
-            />
-            <SimpleButton title="Sign In" color="primary" variant="sm" />
           </div>
+        )}
+
+        {/* Custom end elements */}
+        {!isMobile && endElements && (
+          <div className="navbar-end-elements">{endElements}</div>
         )}
       </div>
     </nav>

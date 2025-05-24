@@ -281,9 +281,6 @@ var useSafeLocation = function useSafeLocation() {
 var css_248z$d = "@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n/* ------------------------------------------------------------\n   CSS custom-props receive colours from React inline style\n   ----------------------------------------------------------*/\n/* ------------------------------------------------------------\n   Global reset for Storybook canvas (optional)\n   ----------------------------------------------------------*/\n.sb-show-main {\n  padding: 0 !important;\n  margin: 0 !important;\n}\n\n/* ------------------------------------------------------------\n   Navbar\n   ----------------------------------------------------------*/\n.navbar {\n  box-sizing: border-box;\n  width: 100%;\n  display: flex;\n  justify-content: space-between;\n  transition: background 0.35s ease, box-shadow 0.35s ease;\n  padding: 10px 10px;\n  background-color: var(--navbar-bg, #fff);\n  box-shadow: var(--navbar-shadow, none);\n  /* box-shadow fallback from theme via inline style */\n  /* ---------- logo ---------- */\n  /* ---------- desktop links ---------- */\n  /* ---------- mobile only ---------- */\n}\n.navbar .navbar-container {\n  display: flex;\n  width: 100%;\n  align-items: center;\n  justify-content: space-between;\n}\n.navbar .navbar-logo {\n  display: flex;\n  align-items: center;\n  text-decoration: none;\n}\n.navbar .navbar-links {\n  display: flex;\n  flex-wrap: wrap;\n  column-gap: 1.5rem;\n  align-items: center;\n  font-size: clamp(0.9rem, 0.9vw, 1rem);\n}\n.navbar .navbar-item {\n  position: relative;\n  /* top-level link */\n  /* ---------- dropdown ---------- */\n  /* open dropdown on hover or keyboard focus */\n}\n.navbar .navbar-item .nav-link > span {\n  color: var(--link-color, #000);\n  padding: 0.65rem 0.75rem;\n  border-radius: 0.35rem;\n  transition: color 0.2s ease, background 0.2s ease;\n  font-weight: 500;\n}\n.navbar .navbar-item .nav-link > span[data-active=true] {\n  color: var(--link-active-color, #7AE2CF);\n  font-weight: 600;\n}\n.navbar .navbar-item:hover .nav-link > span, .navbar .navbar-item:focus-within .nav-link > span {\n  color: var(--link-hover-color, #133E87);\n}\n.navbar .navbar-item .navbar-dropdown {\n  position: absolute;\n  left: 50%;\n  top: calc(100% + 0.5rem);\n  transform: translateX(-50%) translateY(0.5rem);\n  min-width: 12rem;\n  padding: 0.5rem 0;\n  background: #fff;\n  border-radius: 0.5rem;\n  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);\n  display: flex;\n  flex-direction: column;\n  gap: 0;\n  opacity: 0;\n  visibility: hidden;\n  pointer-events: none;\n  transition: opacity 0.25s ease, transform 0.25s ease;\n}\n.navbar .navbar-item .navbar-dropdown .nav-link > span {\n  display: block;\n  padding: 0.55rem 1rem;\n  white-space: nowrap;\n  color: var(--sub-link-color, var(--link-color));\n}\n.navbar .navbar-item .navbar-dropdown .nav-link > span[data-active=true] {\n  color: var(--link-active-color, #7AE2CF);\n  font-weight: 600;\n}\n.navbar .navbar-item .navbar-dropdown .nav-link:hover > span {\n  background: #CBDCEB;\n  color: var(--link-hover-color, #133E87);\n}\n.navbar .navbar-item:hover .navbar-dropdown, .navbar .navbar-item:focus-within .navbar-dropdown {\n  opacity: 1;\n  visibility: visible;\n  pointer-events: auto;\n  transform: translateX(-50%) translateY(0);\n}\n.navbar .navbar-toggle {\n  display: none;\n}\n@media (max-width: 768px) {\n  .navbar .navbar-links {\n    display: none;\n  }\n  .navbar .navbar-toggle {\n    display: block;\n  }\n}";
 styleInject(css_248z$d);
 
-/*────────────────────────────────────────────────────────
-  Helper: keeps active state in data-attribute
-────────────────────────────────────────────────────────*/
 var ActiveAwareLink = function ActiveAwareLink(_ref) {
   var to = _ref.to,
     _children = _ref.children;
@@ -314,9 +311,7 @@ var Navbar = function Navbar(_ref3) {
     position = _ref3$position === void 0 ? "sticky" : _ref3$position,
     _ref3$className = _ref3.className,
     className = _ref3$className === void 0 ? "" : _ref3$className,
-    _ref3$ghost = _ref3.ghost,
-    ghost = _ref3$ghost === void 0 ? false : _ref3$ghost;
-  /* ───────────── responsive toggle ───────────── */
+    endElements = _ref3.endElements;
   var _useState = useState(window.innerWidth < 768),
     _useState2 = _slicedToArray(_useState, 2),
     isMobile = _useState2[0],
@@ -330,7 +325,6 @@ var Navbar = function Navbar(_ref3) {
       return window.removeEventListener("resize", onResize);
     };
   }, []);
-  /* ─────────────── design tokens ─────────────── */
   var theme = useTheme() || {};
   var _navStyle$link = navStyle.link,
     linkColor = _navStyle$link === void 0 ? "#000" : _navStyle$link,
@@ -341,10 +335,9 @@ var Navbar = function Navbar(_ref3) {
     _navStyle$subLink = navStyle.subLink,
     subLinkColor = _navStyle$subLink === void 0 ? linkColor : _navStyle$subLink,
     _navStyle$bg = navStyle.bg,
-    navBg = _navStyle$bg === void 0 ? ghost ? "transparent" : (_theme$colors = theme.colors) === null || _theme$colors === void 0 || (_theme$colors = _theme$colors.neutral) === null || _theme$colors === void 0 ? void 0 : _theme$colors.white : _navStyle$bg,
+    navBg = _navStyle$bg === void 0 ? (_theme$colors = theme.colors) === null || _theme$colors === void 0 || (_theme$colors = _theme$colors.neutral) === null || _theme$colors === void 0 ? void 0 : _theme$colors.white : _navStyle$bg,
     _navStyle$shadow = navStyle.shadow,
     navShadow = _navStyle$shadow === void 0 ? (_ref4 = (_navStyle$shadow2 = navStyle.shadow) !== null && _navStyle$shadow2 !== void 0 ? _navStyle$shadow2 : (_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.md) !== null && _ref4 !== void 0 ? _ref4 : "0 2px 5px rgba(0,0,0,.12)" : _navStyle$shadow;
-  /* ───────── inline styles & CSS vars ────────── */
   var navbarStyles = useMemo(function () {
     var _theme$typography;
     return {
@@ -356,18 +349,16 @@ var Navbar = function Navbar(_ref3) {
       "--navbar-shadow": navShadow,
       backgroundColor: navBg,
       color: linkColor,
-      boxShadow: ghost ? "none" : navShadow,
+      boxShadow: navShadow,
       fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Arial, sans-serif",
       position: position,
       top: 0,
       width: "100%",
-      zIndex: ghost ? 0 : 100
+      zIndex: 100
     };
-  }, [linkColor, linkHoverColor, activeLinkColor, subLinkColor, navBg, navShadow, ghost, position, (_theme$typography2 = theme.typography) === null || _theme$typography2 === void 0 ? void 0 : _theme$typography2.fontFamily]);
-  /* warn if outside <Router> (Storybook) */
+  }, [linkColor, linkHoverColor, activeLinkColor, subLinkColor, navBg, navShadow, position, (_theme$typography2 = theme.typography) === null || _theme$typography2 === void 0 ? void 0 : _theme$typography2.fontFamily]);
   var location = useSafeLocation();
-  if (!location) console.warn("⚠️  Navbar rendered without router context.");
-  /* ─────────────────── markup ─────────────────── */
+  if (!location) console.warn("⚠️ Navbar rendered without router context.");
   return jsx("nav", {
     className: "navbar ".concat(className),
     style: navbarStyles,
@@ -377,9 +368,9 @@ var Navbar = function Navbar(_ref3) {
         to: "/",
         className: "navbar-logo",
         children: logo
-      }), !isMobile && jsxs("div", {
+      }), !isMobile && jsx("div", {
         className: "navbar-links",
-        children: [links.map(function (link) {
+        children: links.map(function (link) {
           return jsxs("div", {
             className: "navbar-item",
             children: [jsx(ActiveAwareLink, {
@@ -395,16 +386,10 @@ var Navbar = function Navbar(_ref3) {
               })
             })]
           }, link.label);
-        }), jsx(SimpleButton, {
-          title: "Sign Up",
-          color: "secondary",
-          outline: true,
-          variant: "sm"
-        }), jsx(SimpleButton, {
-          title: "Sign In",
-          color: "primary",
-          variant: "sm"
-        })]
+        })
+      }), !isMobile && endElements && jsx("div", {
+        className: "navbar-end-elements",
+        children: endElements
       })]
     })
   });
