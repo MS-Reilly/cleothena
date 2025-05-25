@@ -1,23 +1,25 @@
-export interface SideBarProps {
-  logo: string;
-  sidebarConfig?: SidebarSectionConfig[];
-  side?: "left" | "right";
-  hamburgerStyle?: React.CSSProperties;
-  hamburgerFill?: string;
-}
-
-export interface SidebarSectionConfig {
-  section: string;
-  items: SidebarItemConfig[];
-  [key: string]: any;
-}
+import { CSSProperties } from "react";
 
 export interface SidebarItemConfig {
-  title: string;
-  path?: string;
-  icon?: React.ReactNode;
-  disabled?: boolean;
-  color?: string;
-  subItems?: SidebarItemConfig[];
-  [key: string]: any;
+  label: string;
+  href: string;
+  icon?: React.ElementType;
+  children?: SidebarItemConfig[];
+}
+
+export interface SideBarStyle {
+  bg?: string;
+  link?: string;
+  shadow?: string;
+}
+
+export interface SideBarProps {
+  logo?: React.ReactNode;
+  sidebarConfig?: SidebarItemConfig[];
+  side?: "left" | "right";
+  hamburgerStyle?: CSSProperties;
+  hamburgerFill?: string;
+  className?: string;
+  sideBarStyle?: SideBarStyle;
+  footerContent?: React.ReactNode;
 }

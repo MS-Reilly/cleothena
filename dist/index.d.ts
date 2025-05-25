@@ -1,4 +1,4 @@
-import React$1, { ReactNode, CSSProperties } from 'react';
+import React$1, { CSSProperties, ReactNode } from 'react';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 
 type ButtonVariant = 'xs' | 'sm' | 'md' | 'lg';
@@ -45,26 +45,26 @@ interface NavbarProps {
 
 declare const Navbar: React$1.FC<NavbarProps>;
 
-interface SideBarProps {
-    logo: string;
-    sidebarConfig?: SidebarSectionConfig[];
-    side?: "left" | "right";
-    hamburgerStyle?: React.CSSProperties;
-    hamburgerFill?: string;
-}
-interface SidebarSectionConfig {
-    section: string;
-    items: SidebarItemConfig[];
-    [key: string]: any;
-}
 interface SidebarItemConfig {
-    title: string;
-    path?: string;
-    icon?: React.ReactNode;
-    disabled?: boolean;
-    color?: string;
-    subItems?: SidebarItemConfig[];
-    [key: string]: any;
+    label: string;
+    href: string;
+    icon?: React.ElementType;
+    children?: SidebarItemConfig[];
+}
+interface SideBarStyle {
+    bg?: string;
+    link?: string;
+    shadow?: string;
+}
+interface SideBarProps {
+    logo?: React.ReactNode;
+    sidebarConfig?: SidebarItemConfig[];
+    side?: "left" | "right";
+    hamburgerStyle?: CSSProperties;
+    hamburgerFill?: string;
+    className?: string;
+    sideBarStyle?: SideBarStyle;
+    footerContent?: React.ReactNode;
 }
 
 declare const SideBar: React$1.FC<SideBarProps>;

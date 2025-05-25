@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import SidebarItem from "./SidebarItem";
 import "./styles.scss";
 import CloseIcon from "./../../Assets/icons/close.svg";
 import HamburgerIcon from "./../../Assets/icons/hamburger.svg";
-import { SideBarProps } from "./types";
+import { SideBarProps, SideBarStyle } from "./types";
 import { useTheme } from "../../theme/hooks/useTheme";
 import { lightenColor } from "../../utils/colorUtils";
 import SimpleButton from "../SimpleButton/SimpleButton";
@@ -15,6 +15,9 @@ const SideBar: React.FC<SideBarProps> = ({
   side = "left",
   hamburgerStyle = { height: "25px", width: "25px", cursor: "pointer" },
   hamburgerFill = "#000000",
+  className = "",
+  sideBarStyle = {} as SideBarStyle,
+  footerContent,
 }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -22,6 +25,24 @@ const SideBar: React.FC<SideBarProps> = ({
   const location = useSafeLocation();
 
   const theme = useTheme() || {};
+
+  const {
+    bg = theme.colors?.neutral?.white || "#fff",
+    link = "#000",
+    shadow = theme.shadows?.md || "0 2px 8px rgba(0,0,0,0.1)",
+  } = sideBarStyle;
+
+  const sidebarStyles = useMemo(
+    () =>
+      ({
+        "--sidebar-bg": bg,
+        "--sidebar-shadow": shadow,
+        backgroundColor: bg,
+        color: link,
+        boxShadow: shadow,
+      } as React.CSSProperties & Record<string, string>),
+    [bg, link, shadow]
+  );
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -52,7 +73,6 @@ const SideBar: React.FC<SideBarProps> = ({
 
   return (
     <>
-      {/* Hamburger Icon */}
       {!isMobileOpen && (
         <HamburgerIcon
           ref={hamburgerRef}
@@ -63,12 +83,12 @@ const SideBar: React.FC<SideBarProps> = ({
         />
       )}
 
-      {/* Sidebar */}
       <div
         ref={sidebarRef}
         className={`sidebar ${
           isMobileOpen ? "mobile-open" : "mobile-closed"
-        } sidebar-${side}`}
+        } sidebar-${side} ${className}`}
+        style={sidebarStyles}
       >
         <div className="sidebar-header">
           <div className="logo">{logo}</div>
@@ -87,21 +107,7 @@ const SideBar: React.FC<SideBarProps> = ({
           )}
         </div>
 
-        <div className="sidebar-footer">
-          <div
-            className="helper-card"
-            style={{
-              backgroundColor: lightenColor(
-                theme.colors?.secondary || "#ccc",
-                0.9
-              ),
-            }}
-          >
-            <p>¿Necesitas Ayuda?</p>
-            <span>Envíanos un mensaje</span>
-            <SimpleButton color="primary" variant="sm" title="¡Contáctanos!" />
-          </div>
-        </div>
+        <div className="sidebar-footer">{footerContent}</div>
       </div>
     </>
   );
