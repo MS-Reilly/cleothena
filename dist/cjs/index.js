@@ -613,7 +613,7 @@ var SideBar = function SideBar(_ref) {
     _ref$sidebarConfig = _ref.sidebarConfig,
     sidebarConfig = _ref$sidebarConfig === void 0 ? [] : _ref$sidebarConfig,
     _ref$side = _ref.side,
-    side = _ref$side === void 0 ? "left" : _ref$side,
+    side = _ref$side === void 0 ? "right" : _ref$side,
     _ref$hamburgerStyle = _ref.hamburgerStyle,
     hamburgerStyle = _ref$hamburgerStyle === void 0 ? {
       height: "25px",

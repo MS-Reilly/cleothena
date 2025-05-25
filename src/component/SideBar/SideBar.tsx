@@ -10,7 +10,7 @@ import { useSafeLocation } from "../../utils/useSafeLocation";
 const SideBar: React.FC<SideBarProps> = ({
   logo,
   sidebarConfig = [],
-  side = "left",
+  side = "right",
   hamburgerStyle = { height: "25px", width: "25px", cursor: "pointer" },
   hamburgerFill = "#000000",
   className = "",
