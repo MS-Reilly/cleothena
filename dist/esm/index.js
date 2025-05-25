@@ -426,15 +426,16 @@ function lightenColor(hex, percent) {
 var SidebarItem = function SidebarItem(_ref) {
   var _item$children;
   var item = _ref.item,
-    isOpen = _ref.isOpen;
+    isOpen = _ref.isOpen,
+    _ref$linkClassName = _ref.linkClassName,
+    linkClassName = _ref$linkClassName === void 0 ? "" : _ref$linkClassName,
+    _ref$itemStyle = _ref.itemStyle,
+    itemStyle = _ref$itemStyle === void 0 ? {} : _ref$itemStyle;
   var _useState = useState(false),
     _useState2 = _slicedToArray(_useState, 2),
     isExpanded = _useState2[0],
     setIsExpanded = _useState2[1];
   var location = useSafeLocation();
-  if (!location) {
-    console.warn("⚠️ SidebarItem is rendered without router context.");
-  }
   var theme = useTheme() || {};
   var styles = useMemo(function () {
     var _theme$colors$neutral, _theme$colors$neutral2, _theme$typography;
@@ -444,7 +445,6 @@ var SidebarItem = function SidebarItem(_ref) {
       fontFamily: ((_theme$typography = theme.typography) === null || _theme$typography === void 0 ? void 0 : _theme$typography.fontFamily) || "Arial, sans-serif"
     };
   }, [theme]);
-  // Check if any child is active using the href field.
   var isAnyChildActive = location ? (_item$children = item.children) === null || _item$children === void 0 ? void 0 : _item$children.some(function (child) {
     return location.pathname.startsWith(child.href || "");
   }) : false;
@@ -459,17 +459,17 @@ var SidebarItem = function SidebarItem(_ref) {
   };
   var Icon = item.icon;
   return jsxs("div", {
-    className: "sidebar-item",
+    className: "sidebar-item ".concat(itemStyle.wrapper || ""),
     style: styles,
     children: [item.children ? jsxs("div", {
-      className: "item-header ".concat(isAnyChildActive ? "active" : "notActive", " ").concat(item.disabled ? "disabled" : ""),
+      className: "item-header ".concat(itemStyle.header || "", " ").concat(isAnyChildActive ? "active" : "notActive", " ").concat(item.disabled ? "disabled" : ""),
       onClick: item.disabled ? undefined : toggleExpand,
       style: {
         cursor: item.disabled ? "not-allowed" : "pointer",
         backgroundColor: isAnyChildActive ? lightenColor(theme.colors.secondary, 0.1) : "transparent"
       },
       children: [jsx("span", {
-        className: "icon",
+        className: "icon ".concat(itemStyle.icon || ""),
         children: Icon && jsx(Icon, {
           width: 20,
           height: 20,
@@ -478,13 +478,13 @@ var SidebarItem = function SidebarItem(_ref) {
           }
         })
       }), jsx("span", {
-        className: "title",
+        className: "title ".concat(itemStyle.title || ""),
         style: {
           color: isAnyChildActive ? theme.colors.neutral.white : theme.colors.neutral.grey
         },
         children: item.label
       }), isOpen && !item.disabled && jsx("span", {
-        className: "expand-icon",
+        className: "expand-icon ".concat(itemStyle.expandIcon || ""),
         style: {
           color: isAnyChildActive ? theme.colors.neutral.white : theme.colors.neutral.grey
         },
@@ -494,7 +494,7 @@ var SidebarItem = function SidebarItem(_ref) {
       to: item.disabled ? "#" : item.href || "#",
       className: function className(_ref2) {
         var isActive = _ref2.isActive;
-        return "item-header ".concat(isActive ? "active" : "notActive", " ").concat(item.disabled ? "disabled" : "");
+        return "item-header ".concat(itemStyle.header || "", " ").concat(linkClassName, " ").concat(isActive ? "active" : "notActive", " ").concat(item.disabled ? "disabled" : "");
       },
       style: function style(_ref3) {
         var isActive = _ref3.isActive;
@@ -508,7 +508,7 @@ var SidebarItem = function SidebarItem(_ref) {
         var isActive = _ref4.isActive;
         return jsxs(Fragment, {
           children: [jsx("span", {
-            className: "icon",
+            className: "icon ".concat(itemStyle.icon || ""),
             children: Icon && jsx(Icon, {
               width: 18,
               height: 18,
@@ -517,7 +517,7 @@ var SidebarItem = function SidebarItem(_ref) {
               }
             })
           }), jsx("span", {
-            className: "title",
+            className: "title ".concat(itemStyle.title || ""),
             style: {
               color: isActive ? theme.colors.neutral.white : theme.colors.neutral.grey
             },
@@ -534,7 +534,7 @@ var SidebarItem = function SidebarItem(_ref) {
             to: child.disabled ? "#" : child.href || "#",
             className: function className(_ref5) {
               var isActive = _ref5.isActive;
-              return "sub-item-link ".concat(isActive ? "active" : "notActive", " ").concat(child.disabled ? "disabled" : "");
+              return "sub-item-link ".concat(itemStyle.subItemLink || "", " ").concat(isActive ? "active" : "notActive", " ").concat(child.disabled ? "disabled" : "");
             },
             style: function style(_ref6) {
               var isActive = _ref6.isActive;
@@ -546,7 +546,7 @@ var SidebarItem = function SidebarItem(_ref) {
             },
             end: true,
             children: jsx("span", {
-              className: "sub-title",
+              className: "sub-title ".concat(itemStyle.subTitle || ""),
               style: {
                 color: child.disabled ? "#b0b0b0" : theme.colors.neutral.grey
               },
