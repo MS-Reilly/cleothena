@@ -7,34 +7,31 @@ import { useSafeLocation } from "../../utils/useSafeLocation";
 import { NavLink } from "react-router-dom";
 
 interface SidebarItemStyle {
-  wrapper?: string;
-  header?: string;
-  link?: string;
-  icon?: string;
-  title?: string;
-  expandIcon?: string;
-  subItemLink?: string;
-  subTitle?: string;
+  wrapperStyle?: React.CSSProperties;
+  headerStyle?: React.CSSProperties;
+  iconStyle?: React.CSSProperties;
+  titleStyle?: React.CSSProperties;
+  expandIconStyle?: React.CSSProperties;
+  subItemLinkStyle?: React.CSSProperties;
+  subTitleStyle?: React.CSSProperties;
 }
 
 interface SidebarItemProps {
   item: SidebarItemConfig;
   isOpen: boolean;
-  linkClassName?: string;
   itemStyle?: SidebarItemStyle;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
   item,
   isOpen,
-  linkClassName = "",
   itemStyle = {},
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const location = useSafeLocation();
   const theme = useTheme() || {};
 
-  const styles = useMemo(
+  const baseStyle = useMemo(
     () => ({
       backgroundColor: theme.colors.neutral?.white || "#ffffff",
       color: theme.colors.primary || theme.colors.neutral?.black || "#000000",
@@ -60,10 +57,13 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   const Icon = item.icon;
 
   return (
-    <div className={`sidebar-item ${itemStyle.wrapper || ""}`} style={styles}>
+    <div
+      className="sidebar-item"
+      style={{ ...baseStyle, ...itemStyle.wrapperStyle }}
+    >
       {item.children ? (
         <div
-          className={`item-header ${itemStyle.header || ""} ${
+          className={`item-header ${
             isAnyChildActive ? "active" : "notActive"
           } ${item.disabled ? "disabled" : ""}`}
           onClick={item.disabled ? undefined : toggleExpand}
@@ -72,9 +72,17 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             backgroundColor: isAnyChildActive
               ? lightenColor(theme.colors.secondary, 0.1)
               : "transparent",
+            display: "flex",
+            alignItems: "center",
+            padding: "10px 16px",
+            borderRadius: 8,
+            ...itemStyle.headerStyle,
           }}
         >
-          <span className={`icon ${itemStyle.icon || ""}`}>
+          <span
+            className="icon"
+            style={{ marginRight: 10, ...itemStyle.iconStyle }}
+          >
             {Icon && (
               <Icon
                 width={20}
@@ -88,22 +96,27 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
             )}
           </span>
           <span
-            className={`title ${itemStyle.title || ""}`}
+            className="title"
             style={{
               color: isAnyChildActive
                 ? theme.colors.neutral.white
                 : theme.colors.neutral.grey,
+              fontWeight: 600,
+              ...itemStyle.titleStyle,
             }}
           >
             {item.label}
           </span>
           {isOpen && !item.disabled && (
             <span
-              className={`expand-icon ${itemStyle.expandIcon || ""}`}
+              className="expand-icon"
               style={{
+                marginLeft: "auto",
                 color: isAnyChildActive
                   ? theme.colors.neutral.white
                   : theme.colors.neutral.grey,
+                fontSize: "1rem",
+                ...itemStyle.expandIconStyle,
               }}
             >
               {isExpanded ? "-" : "+"}
@@ -114,21 +127,30 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         <NavLink
           to={item.disabled ? "#" : item.href || "#"}
           className={({ isActive }) =>
-            `item-header ${itemStyle.header || ""} ${linkClassName} ${
-              isActive ? "active" : "notActive"
-            } ${item.disabled ? "disabled" : ""}`
+            `item-header ${isActive ? "active" : "notActive"} ${
+              item.disabled ? "disabled" : ""
+            }`
           }
           style={({ isActive }) => ({
             cursor: item.disabled ? "not-allowed" : "pointer",
             backgroundColor: isActive
               ? lightenColor(theme.colors.secondary, 0.1)
               : "transparent",
+            display: "flex",
+            alignItems: "center",
+            padding: "10px 16px",
+            borderRadius: 8,
+            textDecoration: "none",
+            ...itemStyle.headerStyle,
           })}
           end
         >
           {({ isActive }) => (
             <>
-              <span className={`icon ${itemStyle.icon || ""}`}>
+              <span
+                className="icon"
+                style={{ marginRight: 10, ...itemStyle.iconStyle }}
+              >
                 {Icon && (
                   <Icon
                     width={18}
@@ -142,11 +164,13 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                 )}
               </span>
               <span
-                className={`title ${itemStyle.title || ""}`}
+                className="title"
                 style={{
                   color: isActive
                     ? theme.colors.neutral.white
                     : theme.colors.neutral.grey,
+                  fontWeight: 600,
+                  ...itemStyle.titleStyle,
                 }}
               >
                 {item.label}
@@ -158,14 +182,14 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 
       {isExpanded && isOpen && item.children && !item.disabled && (
         <ul className="sub-items">
-          {item.children.map((child, index: number) => (
+          {item.children.map((child, index) => (
             <li key={index} className="sub-item">
               <NavLink
                 to={child.disabled ? "#" : child.href || "#"}
                 className={({ isActive }) =>
-                  `sub-item-link ${itemStyle.subItemLink || ""} ${
-                    isActive ? "active" : "notActive"
-                  } ${child.disabled ? "disabled" : ""}`
+                  `sub-item-link ${isActive ? "active" : "notActive"} ${
+                    child.disabled ? "disabled" : ""
+                  }`
                 }
                 style={({ isActive }) => ({
                   pointerEvents: child.disabled ? "none" : "auto",
@@ -177,15 +201,21 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
                   backgroundColor: isActive
                     ? lightenColor(theme.colors.secondary, 0.1)
                     : "transparent",
+                  padding: "8px 12px",
+                  borderRadius: 6,
+                  fontSize: "0.92rem",
+                  textDecoration: "none",
+                  ...itemStyle.subItemLinkStyle,
                 })}
                 end
               >
                 <span
-                  className={`sub-title ${itemStyle.subTitle || ""}`}
+                  className="sub-title"
                   style={{
                     color: child.disabled
                       ? "#b0b0b0"
                       : theme.colors.neutral.grey,
+                    ...itemStyle.subTitleStyle,
                   }}
                 >
                   {child.label}
