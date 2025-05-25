@@ -9,6 +9,9 @@ export interface SideBarStyle {
     bg?: string;
     link?: string;
     shadow?: string;
+    borderRadius?: string;
+    padding?: string;
+    width?: string;
 }
 export interface SideBarProps {
     logo?: React.ReactNode;
@@ -18,5 +21,6 @@ export interface SideBarProps {
     hamburgerFill?: string;
     className?: string;
     sideBarStyle?: SideBarStyle;
+    navBarStyle?: CSSProperties;
     footerContent?: React.ReactNode;
 }

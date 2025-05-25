@@ -8,9 +8,12 @@ export interface SidebarItemConfig {
 }
 
 export interface SideBarStyle {
-  bg?: string;
-  link?: string;
-  shadow?: string;
+  bg?: string; // Background colour
+  link?: string; // Text and icon colour
+  shadow?: string; // Box shadow
+  borderRadius?: string; // Optional border radius
+  padding?: string; // Optional padding inside
+  width?: string; // Width of sidebar
 }
 
 export interface SideBarProps {
@@ -21,5 +24,6 @@ export interface SideBarProps {
   hamburgerFill?: string;
   className?: string;
   sideBarStyle?: SideBarStyle;
+  navBarStyle?: CSSProperties; // ✅ Add this
   footerContent?: React.ReactNode;
 }

@@ -55,6 +55,9 @@ interface SideBarStyle {
     bg?: string;
     link?: string;
     shadow?: string;
+    borderRadius?: string;
+    padding?: string;
+    width?: string;
 }
 interface SideBarProps {
     logo?: React.ReactNode;
@@ -64,6 +67,7 @@ interface SideBarProps {
     hamburgerFill?: string;
     className?: string;
     sideBarStyle?: SideBarStyle;
+    navBarStyle?: CSSProperties;
     footerContent?: React.ReactNode;
 }
 

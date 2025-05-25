@@ -415,7 +415,7 @@ var Navbar = function Navbar(_ref3) {
   });
 };
 
-var css_248z$c = "@charset \"UTF-8\";\n@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sidebar {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 250px;\n  background-color: white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transform: translateX(-100%);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n}\n.sidebar.mobile-open {\n  transform: translateX(0);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);\n}\n.sidebar.mobile-closed {\n  transform: translateX(-100%);\n}\n.sidebar.sidebar-right {\n  right: 0;\n  left: auto;\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right.mobile-open {\n  transform: translateX(0);\n}\n.sidebar.sidebar-right.mobile-closed {\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right .close-btn {\n  right: auto;\n  left: 10px;\n}\n.sidebar .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n  z-index: 1100;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n}\n.sidebar .close-btn:hover {\n  transform: scale(1.1);\n  opacity: 0.8;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 25px 15px 15px;\n  border-bottom: 1px solid #e3e6f0;\n  position: relative;\n}\n.sidebar .sidebar-header .logo {\n  max-width: 180px;\n}\n.sidebar .sidebar-header .logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.sidebar .sidebar-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 15px;\n  max-height: calc(100vh - 70px - 60px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 1px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background-color: #f8f9fa;\n  border-radius: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background-color: #f0f0f0;\n}\n.sidebar .sidebar-footer {\n  padding: 10px;\n  border-top: 1px solid #e3e6f0;\n  background: white;\n}\n.sidebar .sidebar-footer .helper-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  text-align: center;\n  font-size: 0.85rem;\n  padding: 10px;\n  background-color: #e0f7fa;\n  color: #343a40;\n  border-radius: 8px;\n  transition: opacity 0.4s ease, transform 0.4s ease;\n}\n.sidebar .sidebar-footer .helper-card:hover {\n  opacity: 1;\n  transform: translateY(0);\n}\n.sidebar .sidebar-footer .helper-card button {\n  margin-top: 10px;\n  padding: 5px 10px;\n  background-color: #2EC4B6;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  transition: background-color 0.3s ease;\n}\n.sidebar .sidebar-footer .helper-card button:hover {\n  background-color: #00ADA9;\n}\n\n/* ─────────────────────────────────────────────\n   Responsive Tweaks\n────────────────────────────────────────────── */\n@media (max-width: 1024px) {\n  .sidebar {\n    width: 220px;\n  }\n  .sidebar .sidebar-header {\n    padding-top: 20px;\n  }\n  .sidebar .sidebar-footer .helper-card {\n    font-size: 0.8rem;\n  }\n}\n@media (max-width: 768px) {\n  .sidebar {\n    width: 200px;\n  }\n  .sidebar .sidebar-header .logo {\n    max-width: 140px;\n  }\n  .sidebar .sidebar-footer .helper-card {\n    font-size: 0.75rem;\n  }\n}\n@media (max-width: 480px) {\n  .sidebar {\n    width: 180px;\n  }\n  .sidebar .close-btn {\n    top: 6px;\n    right: 6px;\n    width: 20px;\n    height: 20px;\n  }\n  .sidebar .sidebar-footer .helper-card {\n    font-size: 0.7rem;\n  }\n}\n/* ─────────────────────────────────────────────\n   Sidebar Items + Submenus (Cleaned)\n────────────────────────────────────────────── */\n.sidebar-item {\n  width: 100%;\n}\n.sidebar-item .item-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 10px 16px;\n  border-radius: 8px;\n  text-decoration: none;\n  cursor: pointer;\n  background-color: transparent;\n  transition: background-color 0.3s ease;\n}\n.sidebar-item .item-header:hover {\n  background-color: #f5f7fa;\n}\n.sidebar-item .item-header.active {\n  background-color: #e0f7fa;\n  color: #133E87;\n}\n.sidebar-item .item-header.disabled {\n  opacity: 0.6;\n  pointer-events: none;\n}\n.sidebar-item .item-header .icon {\n  min-width: 20px;\n  height: 20px;\n  flex-shrink: 0;\n}\n.sidebar-item .item-header .icon svg {\n  width: 20px;\n  height: 20px;\n}\n@media (max-width: 768px) {\n  .sidebar-item .item-header .icon svg {\n    width: 18px;\n    height: 18px;\n  }\n}\n@media (max-width: 480px) {\n  .sidebar-item .item-header .icon svg {\n    width: 16px;\n    height: 16px;\n  }\n}\n.sidebar-item .item-header .title {\n  flex-grow: 1;\n  font-size: 1rem;\n  font-weight: 600;\n}\n@media (max-width: 768px) {\n  .sidebar-item .item-header .title {\n    font-size: 0.95rem;\n  }\n}\n@media (max-width: 480px) {\n  .sidebar-item .item-header .title {\n    font-size: 0.9rem;\n  }\n}\n.sidebar-item .item-header .expand-icon {\n  font-size: 0.85rem;\n  color: #999;\n  transition: transform 0.2s ease;\n}\n.sidebar-item .item-header .expand-icon.open {\n  transform: rotate(90deg);\n}\n.sidebar-item .sub-items {\n  list-style: none;\n  margin: 4px 0 12px 0;\n  padding-left: 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 8px 12px;\n  border-radius: 6px;\n  font-size: 0.92rem;\n  color: #444;\n  text-decoration: none;\n  transition: background-color 0.2s ease, color 0.2s ease;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link:hover {\n  background-color: #f0f4f8;\n  color: #133E87;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.active {\n  background-color: #d6f5f8;\n  color: #0a3e6f;\n  font-weight: 600;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.disabled {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .icon {\n  width: 16px;\n  height: 16px;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .icon svg {\n  width: 16px;\n  height: 16px;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n  font-size: 0.9rem;\n}\n@media (max-width: 768px) {\n  .sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n    font-size: 0.85rem;\n  }\n}\n@media (max-width: 480px) {\n  .sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n    font-size: 0.8rem;\n  }\n}";
+var css_248z$c = "@charset \"UTF-8\";\n@import url(\"https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap\");\n/*========================= Theme Colors =========================*/\n/* Transparent Colors */\n/* Additional Colors */\n/* Neutral Colors */\n/* Disabled Colors */\n/* Alerts */\n/* Gradients */\n/*========================= Typography =========================*/\n/* Headings */\n/*========================= Spacing =========================*/\n/*========================= Breakpoints =========================*/\n/*========================= Borders & Shadows =========================*/\n/*========================= Transitions =========================*/\n/*========================= Containers =========================*/\n.sidebar {\n  box-sizing: border-box;\n  position: fixed;\n  top: 0;\n  left: 0;\n  height: 100vh;\n  width: 250px;\n  background-color: white;\n  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);\n  transform: translateX(-100%);\n  transition: transform 0.3s ease, box-shadow 0.3s ease;\n  z-index: 1000;\n  display: flex;\n  flex-direction: column;\n}\n.sidebar.mobile-open {\n  transform: translateX(0);\n  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);\n}\n.sidebar.mobile-closed {\n  transform: translateX(-100%);\n}\n.sidebar.sidebar-right {\n  right: 0;\n  left: auto;\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right.mobile-open {\n  transform: translateX(0);\n}\n.sidebar.sidebar-right.mobile-closed {\n  transform: translateX(100%);\n}\n.sidebar.sidebar-right .close-btn {\n  right: auto;\n  left: 10px;\n}\n.sidebar .close-btn {\n  position: absolute;\n  top: 10px;\n  right: 10px;\n  width: 24px;\n  height: 24px;\n  cursor: pointer;\n  z-index: 1100;\n  transition: transform 0.2s ease, opacity 0.2s ease;\n}\n.sidebar .close-btn:hover {\n  transform: scale(1.1);\n  opacity: 0.8;\n}\n.sidebar .sidebar-header {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 25px 15px 15px;\n  border-bottom: 1px solid #e3e6f0;\n  position: relative;\n}\n.sidebar .sidebar-header .logo {\n  max-width: 180px;\n}\n.sidebar .sidebar-header .logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.sidebar .sidebar-content {\n  flex: 1;\n  overflow-y: auto;\n  padding: 15px;\n  max-height: calc(100vh - 70px - 60px);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 1px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar {\n  width: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-thumb {\n  background-color: #f8f9fa;\n  border-radius: 4px;\n}\n.sidebar .sidebar-content::-webkit-scrollbar-track {\n  background-color: #f0f0f0;\n}\n.sidebar .sidebar-footer {\n  padding: 10px;\n  border-top: 1px solid #e3e6f0;\n  background: white;\n}\n.sidebar .sidebar-footer .helper-card {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 10px;\n  text-align: center;\n  font-size: 0.85rem;\n  padding: 10px;\n  background-color: #e0f7fa;\n  color: #343a40;\n  border-radius: 8px;\n  transition: opacity 0.4s ease, transform 0.4s ease;\n}\n.sidebar .sidebar-footer .helper-card:hover {\n  opacity: 1;\n  transform: translateY(0);\n}\n.sidebar .sidebar-footer .helper-card button {\n  margin-top: 10px;\n  padding: 5px 10px;\n  background-color: #2EC4B6;\n  color: white;\n  border: none;\n  border-radius: 4px;\n  transition: background-color 0.3s ease;\n}\n.sidebar .sidebar-footer .helper-card button:hover {\n  background-color: #00ADA9;\n}\n\n/* ─────────────────────────────────────────────\n   Responsive Tweaks\n────────────────────────────────────────────── */\n@media (max-width: 1024px) {\n  .sidebar {\n    width: 220px;\n  }\n  .sidebar .sidebar-header {\n    padding-top: 20px;\n  }\n  .sidebar .sidebar-footer .helper-card {\n    font-size: 0.8rem;\n  }\n}\n@media (max-width: 768px) {\n  .sidebar {\n    width: 200px;\n  }\n  .sidebar .sidebar-header .logo {\n    max-width: 140px;\n  }\n  .sidebar .sidebar-footer .helper-card {\n    font-size: 0.75rem;\n  }\n}\n@media (max-width: 480px) {\n  .sidebar {\n    width: 180px;\n  }\n  .sidebar .close-btn {\n    top: 6px;\n    right: 6px;\n    width: 20px;\n    height: 20px;\n  }\n  .sidebar .sidebar-footer .helper-card {\n    font-size: 0.7rem;\n  }\n}\n/* ─────────────────────────────────────────────\n   Sidebar Items + Submenus (Cleaned)\n────────────────────────────────────────────── */\n.sidebar-item {\n  width: 100%;\n}\n.sidebar-item .item-header {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  padding: 10px 16px;\n  border-radius: 8px;\n  text-decoration: none;\n  cursor: pointer;\n  background-color: transparent;\n  transition: background-color 0.3s ease;\n}\n.sidebar-item .item-header:hover {\n  background-color: #f5f7fa;\n}\n.sidebar-item .item-header.active {\n  background-color: #e0f7fa;\n  color: #133E87;\n}\n.sidebar-item .item-header.disabled {\n  opacity: 0.6;\n  pointer-events: none;\n}\n.sidebar-item .item-header .icon {\n  min-width: 20px;\n  height: 20px;\n  flex-shrink: 0;\n}\n.sidebar-item .item-header .icon svg {\n  width: 20px;\n  height: 20px;\n}\n@media (max-width: 768px) {\n  .sidebar-item .item-header .icon svg {\n    width: 18px;\n    height: 18px;\n  }\n}\n@media (max-width: 480px) {\n  .sidebar-item .item-header .icon svg {\n    width: 16px;\n    height: 16px;\n  }\n}\n.sidebar-item .item-header .title {\n  flex-grow: 1;\n  font-size: 1rem;\n  font-weight: 600;\n}\n@media (max-width: 768px) {\n  .sidebar-item .item-header .title {\n    font-size: 0.95rem;\n  }\n}\n@media (max-width: 480px) {\n  .sidebar-item .item-header .title {\n    font-size: 0.9rem;\n  }\n}\n.sidebar-item .item-header .expand-icon {\n  font-size: 0.85rem;\n  color: #999;\n  transition: transform 0.2s ease;\n}\n.sidebar-item .item-header .expand-icon.open {\n  transform: rotate(90deg);\n}\n.sidebar-item .sub-items {\n  list-style: none;\n  margin: 4px 0 12px 0;\n  padding-left: 32px;\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 8px 12px;\n  border-radius: 6px;\n  font-size: 0.92rem;\n  color: #444;\n  text-decoration: none;\n  transition: background-color 0.2s ease, color 0.2s ease;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link:hover {\n  background-color: #f0f4f8;\n  color: #133E87;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.active {\n  background-color: #d6f5f8;\n  color: #0a3e6f;\n  font-weight: 600;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link.disabled {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .icon {\n  width: 16px;\n  height: 16px;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .icon svg {\n  width: 16px;\n  height: 16px;\n}\n.sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n  font-size: 0.9rem;\n}\n@media (max-width: 768px) {\n  .sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n    font-size: 0.85rem;\n  }\n}\n@media (max-width: 480px) {\n  .sidebar-item .sub-items .sub-item .sub-item-link .sub-title {\n    font-size: 0.8rem;\n  }\n}\n\n.nav-style {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0.75rem 1rem;\n  background-color: #fff;\n  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);\n  z-index: 999;\n}\n.nav-style .nav-hamburger {\n  order: 1;\n}\n.nav-style .nav-logo {\n  order: 2;\n  max-width: 160px;\n}\n.nav-style .nav-logo img {\n  width: 100%;\n  height: auto;\n  display: block;\n}\n.nav-style.nav-style-right .nav-hamburger {\n  order: 2;\n}\n.nav-style.nav-style-right .nav-logo {\n  order: 1;\n}\n.nav-style .hamburger-icon {\n  cursor: pointer;\n  transition: transform 0.2s ease;\n}\n.nav-style .hamburger-icon:hover {\n  transform: scale(1.1);\n}";
 styleInject(css_248z$c);
 
 function lightenColor(hex, percent) {
@@ -626,6 +626,8 @@ var SideBar = function SideBar(_ref) {
     className = _ref$className === void 0 ? "" : _ref$className,
     _ref$sideBarStyle = _ref.sideBarStyle,
     sideBarStyle = _ref$sideBarStyle === void 0 ? {} : _ref$sideBarStyle,
+    _ref$navBarStyle = _ref.navBarStyle,
+    navBarStyle = _ref$navBarStyle === void 0 ? {} : _ref$navBarStyle,
     footerContent = _ref.footerContent;
   var _useState = React.useState(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -640,16 +642,21 @@ var SideBar = function SideBar(_ref) {
     _sideBarStyle$link = sideBarStyle.link,
     link = _sideBarStyle$link === void 0 ? "#000" : _sideBarStyle$link,
     _sideBarStyle$shadow = sideBarStyle.shadow,
-    shadow = _sideBarStyle$shadow === void 0 ? ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.md) || "0 2px 8px rgba(0,0,0,0.1)" : _sideBarStyle$shadow;
-  var sidebarStyles = React.useMemo(function () {
-    return {
-      "--sidebar-bg": bg,
-      "--sidebar-shadow": shadow,
-      backgroundColor: bg,
-      color: link,
-      boxShadow: shadow
-    };
-  }, [bg, link, shadow]);
+    shadow = _sideBarStyle$shadow === void 0 ? ((_theme$shadows = theme.shadows) === null || _theme$shadows === void 0 ? void 0 : _theme$shadows.md) || "0 2px 8px rgba(0,0,0,0.1)" : _sideBarStyle$shadow,
+    _sideBarStyle$borderR = sideBarStyle.borderRadius,
+    borderRadius = _sideBarStyle$borderR === void 0 ? "0px" : _sideBarStyle$borderR,
+    _sideBarStyle$padding = sideBarStyle.padding,
+    padding = _sideBarStyle$padding === void 0 ? "1rem" : _sideBarStyle$padding,
+    _sideBarStyle$width = sideBarStyle.width,
+    width = _sideBarStyle$width === void 0 ? "260px" : _sideBarStyle$width;
+  var sidebarStyles = {
+    backgroundColor: bg,
+    color: link,
+    boxShadow: shadow,
+    borderRadius: borderRadius,
+    padding: padding,
+    width: width
+  };
   React.useEffect(function () {
     var handleOutsideClick = function handleOutsideClick(event) {
       var _hamburgerRef$current;
@@ -670,15 +677,44 @@ var SideBar = function SideBar(_ref) {
       setIsMobileOpen(false);
     }
   }, [location === null || location === void 0 ? void 0 : location.pathname]);
+  React.useEffect(function () {
+    var handleKeyDown = function handleKeyDown(e) {
+      if (e.key === "Escape") {
+        setIsMobileOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return function () {
+      return document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
   return jsxRuntime.jsxs(jsxRuntime.Fragment, {
-    children: [!isMobileOpen && jsxRuntime.jsx(SvgHamburger, {
-      ref: hamburgerRef,
-      className: "hamburger-icon",
-      style: hamburgerStyle,
-      onClick: function onClick() {
-        return setIsMobileOpen(true);
-      },
-      fill: hamburgerFill
+    children: [!isMobileOpen && jsxRuntime.jsxs("div", {
+      className: "nav-style nav-style-".concat(side),
+      style: _objectSpread2({
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "0.75rem 1rem",
+        backgroundColor: "#fff",
+        boxShadow: "0 1px 4px rgba(0,0,0,0.05)"
+      }, navBarStyle),
+      children: [jsxRuntime.jsx("div", {
+        className: "nav-hamburger",
+        children: jsxRuntime.jsx(SvgHamburger, {
+          ref: hamburgerRef,
+          style: hamburgerStyle,
+          onClick: function onClick() {
+            return setIsMobileOpen(true);
+          },
+          fill: hamburgerFill,
+          role: "button",
+          "aria-label": "Open sidebar"
+        })
+      }), jsxRuntime.jsx("div", {
+        className: "nav-logo",
+        children: logo
+      })]
     }), jsxRuntime.jsxs("div", {
       ref: sidebarRef,
       className: "sidebar ".concat(isMobileOpen ? "mobile-open" : "mobile-closed", " sidebar-").concat(side, " ").concat(className),
@@ -697,7 +733,9 @@ var SideBar = function SideBar(_ref) {
             height: "20px",
             width: "20px",
             cursor: "pointer"
-          }
+          },
+          role: "button",
+          "aria-label": "Close sidebar"
         })]
       }), jsxRuntime.jsx("div", {
         className: "sidebar-content",
@@ -707,7 +745,7 @@ var SideBar = function SideBar(_ref) {
             isOpen: isMobileOpen
           }, idx);
         })
-      }), jsxRuntime.jsx("div", {
+      }), footerContent && jsxRuntime.jsx("div", {
         className: "sidebar-footer",
         children: footerContent
       })]

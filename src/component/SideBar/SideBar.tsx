@@ -3,10 +3,8 @@ import SidebarItem from "./SidebarItem";
 import "./styles.scss";
 import CloseIcon from "./../../Assets/icons/close.svg";
 import HamburgerIcon from "./../../Assets/icons/hamburger.svg";
-import { SideBarProps, SideBarStyle } from "./types";
+import { SideBarProps } from "./types";
 import { useTheme } from "../../theme/hooks/useTheme";
-import { lightenColor } from "../../utils/colorUtils";
-import SimpleButton from "../SimpleButton/SimpleButton";
 import { useSafeLocation } from "../../utils/useSafeLocation";
 
 const SideBar: React.FC<SideBarProps> = ({
@@ -16,33 +14,33 @@ const SideBar: React.FC<SideBarProps> = ({
   hamburgerStyle = { height: "25px", width: "25px", cursor: "pointer" },
   hamburgerFill = "#000000",
   className = "",
-  sideBarStyle = {} as SideBarStyle,
+  sideBarStyle = {},
+  navBarStyle = {},
   footerContent,
 }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<any>(null);
   const location = useSafeLocation();
-
   const theme = useTheme() || {};
 
   const {
     bg = theme.colors?.neutral?.white || "#fff",
     link = "#000",
     shadow = theme.shadows?.md || "0 2px 8px rgba(0,0,0,0.1)",
+    borderRadius = "0px",
+    padding = "1rem",
+    width = "260px",
   } = sideBarStyle;
 
-  const sidebarStyles = useMemo(
-    () =>
-      ({
-        "--sidebar-bg": bg,
-        "--sidebar-shadow": shadow,
-        backgroundColor: bg,
-        color: link,
-        boxShadow: shadow,
-      } as React.CSSProperties & Record<string, string>),
-    [bg, link, shadow]
-  );
+  const sidebarStyles: React.CSSProperties = {
+    backgroundColor: bg,
+    color: link,
+    boxShadow: shadow,
+    borderRadius,
+    padding,
+    width,
+  };
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -71,18 +69,48 @@ const SideBar: React.FC<SideBarProps> = ({
     }
   }, [location?.pathname]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMobileOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <>
+      {/* Navigation Bar */}
       {!isMobileOpen && (
-        <HamburgerIcon
-          ref={hamburgerRef}
-          className="hamburger-icon"
-          style={hamburgerStyle}
-          onClick={() => setIsMobileOpen(true)}
-          fill={hamburgerFill}
-        />
+        <div
+          className={`nav-style nav-style-${side}`}
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "0.75rem 1rem",
+            backgroundColor: "#fff",
+            boxShadow: "0 1px 4px rgba(0,0,0,0.05)",
+            ...navBarStyle,
+          }}
+        >
+          <div className="nav-hamburger">
+            <HamburgerIcon
+              ref={hamburgerRef}
+              style={hamburgerStyle}
+              onClick={() => setIsMobileOpen(true)}
+              fill={hamburgerFill}
+              role="button"
+              aria-label="Open sidebar"
+            />
+          </div>
+          <div className="nav-logo">{logo}</div>
+        </div>
       )}
 
+      {/* Sidebar Drawer */}
       <div
         ref={sidebarRef}
         className={`sidebar ${
@@ -96,6 +124,8 @@ const SideBar: React.FC<SideBarProps> = ({
             className="close-btn"
             onClick={() => setIsMobileOpen(false)}
             style={{ height: "20px", width: "20px", cursor: "pointer" }}
+            role="button"
+            aria-label="Close sidebar"
           />
         </div>
 
@@ -107,7 +137,7 @@ const SideBar: React.FC<SideBarProps> = ({
           )}
         </div>
 
-        <div className="sidebar-footer">{footerContent}</div>
+        {footerContent && <div className="sidebar-footer">{footerContent}</div>}
       </div>
     </>
   );

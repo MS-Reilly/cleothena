@@ -328,3 +328,47 @@
     }
   }
 }
+
+.nav-style {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+
+  .nav-hamburger {
+    order: 1;
+  }
+
+  .nav-logo {
+    order: 2;
+    max-width: 160px;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &.nav-style-right {
+    .nav-hamburger {
+      order: 2;
+    }
+
+    .nav-logo {
+      order: 1;
+    }
+  }
+
+  .hamburger-icon {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
