@@ -588,6 +588,7 @@ var SvgHamburger = function SvgHamburger(props) {
 };
 
 var SideBar = function SideBar(_ref) {
+  var _theme$colors;
   var logo = _ref.logo,
     _ref$sidebarConfig = _ref.sidebarConfig,
     sidebarConfig = _ref$sidebarConfig === void 0 ? [] : _ref$sidebarConfig,
@@ -601,7 +602,6 @@ var SideBar = function SideBar(_ref) {
     } : _ref$hamburgerStyle,
     _ref$hamburgerFill = _ref.hamburgerFill,
     hamburgerFill = _ref$hamburgerFill === void 0 ? "#000000" : _ref$hamburgerFill;
-  // Internal state for sidebar open/closed
   var _useState = useState(false),
     _useState2 = _slicedToArray(_useState, 2),
     isMobileOpen = _useState2[0],
@@ -609,17 +609,14 @@ var SideBar = function SideBar(_ref) {
   var sidebarRef = useRef(null);
   var hamburgerRef = useRef(null);
   var location = useSafeLocation();
-  if (!location) {
-    console.warn("⚠️ SideBar is rendered without router context.");
-  }
   var theme = useTheme() || {};
-  // Close sidebar when clicking outside, except when clicking the hamburger icon.
   useEffect(function () {
     var handleOutsideClick = function handleOutsideClick(event) {
-      if (hamburgerRef.current && hamburgerRef.current.contains(event.target)) {
+      var _hamburgerRef$current;
+      if ((_hamburgerRef$current = hamburgerRef.current) !== null && _hamburgerRef$current !== void 0 && _hamburgerRef$current.contains(event.target) || !isMobileOpen) {
         return;
       }
-      if (isMobileOpen && sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
         setIsMobileOpen(false);
       }
     };
@@ -628,7 +625,6 @@ var SideBar = function SideBar(_ref) {
       return document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [isMobileOpen]);
-  // Close the sidebar on route change.
   useEffect(function () {
     if (location) {
       setIsMobileOpen(false);
@@ -636,6 +632,7 @@ var SideBar = function SideBar(_ref) {
   }, [location === null || location === void 0 ? void 0 : location.pathname]);
   return jsxs(Fragment, {
     children: [!isMobileOpen && jsx(SvgHamburger, {
+      ref: hamburgerRef,
       className: "hamburger-icon",
       style: hamburgerStyle,
       onClick: function onClick() {
@@ -663,7 +660,7 @@ var SideBar = function SideBar(_ref) {
         })]
       }), jsx("div", {
         className: "sidebar-content",
-        children: sidebarConfig.map(function (item, idx) {
+        children: (Array.isArray(sidebarConfig) ? sidebarConfig : []).map(function (item, idx) {
           return jsx(SidebarItem, {
             item: item,
             isOpen: isMobileOpen
@@ -674,16 +671,16 @@ var SideBar = function SideBar(_ref) {
         children: jsxs("div", {
           className: "helper-card",
           style: {
-            backgroundColor: lightenColor(theme.colors.secondary, 0.9)
+            backgroundColor: lightenColor(((_theme$colors = theme.colors) === null || _theme$colors === void 0 ? void 0 : _theme$colors.secondary) || "#ccc", 0.9)
           },
           children: [jsx("p", {
-            children: "Necesitas Ayuda?"
+            children: "\xBFNecesitas Ayuda?"
           }), jsx("span", {
-            children: "Envianos un mensaje"
+            children: "Env\xEDanos un mensaje"
           }), jsx(SimpleButton, {
             color: "primary",
             variant: "sm",
-            title: "\xA1Contactanos!"
+            title: "\xA1Cont\xE1ctanos!"
           })]
         })
       })]

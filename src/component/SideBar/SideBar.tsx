@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import SidebarItem from "./SidebarItem";
-import "./styles.scss"; // Styles for the sidebar
+import "./styles.scss";
 import CloseIcon from "./../../Assets/icons/close.svg";
-import HamburgerIcon from "./../../Assets/icons/hamburger.svg"; // Make sure this file exists
+import HamburgerIcon from "./../../Assets/icons/hamburger.svg";
 import { SideBarProps } from "./types";
 import { useTheme } from "../../theme/hooks/useTheme";
 import { lightenColor } from "../../utils/colorUtils";
@@ -13,33 +13,26 @@ const SideBar: React.FC<SideBarProps> = ({
   logo,
   sidebarConfig = [],
   side = "left",
-  hamburgerStyle ={ height: "25px", width: "25px", cursor: "pointer" },
+  hamburgerStyle = { height: "25px", width: "25px", cursor: "pointer" },
   hamburgerFill = "#000000",
 }) => {
-  // Internal state for sidebar open/closed
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<any>(null);
   const location = useSafeLocation();
-    if (!location) {
-      console.warn("⚠️ SideBar is rendered without router context.");
-    }
-
-    
 
   const theme = useTheme() || {};
 
-  // Close sidebar when clicking outside, except when clicking the hamburger icon.
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
-        hamburgerRef.current &&
-        hamburgerRef.current.contains(event.target as Node)
+        hamburgerRef.current?.contains(event.target as Node) ||
+        !isMobileOpen
       ) {
         return;
       }
+
       if (
-        isMobileOpen &&
         sidebarRef.current &&
         !sidebarRef.current.contains(event.target as Node)
       ) {
@@ -51,7 +44,6 @@ const SideBar: React.FC<SideBarProps> = ({
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, [isMobileOpen]);
 
-  // Close the sidebar on route change.
   useEffect(() => {
     if (location) {
       setIsMobileOpen(false);
@@ -60,9 +52,10 @@ const SideBar: React.FC<SideBarProps> = ({
 
   return (
     <>
-      {/* Hamburger Icon displayed when sidebar is closed */}
+      {/* Hamburger Icon */}
       {!isMobileOpen && (
         <HamburgerIcon
+          ref={hamburgerRef}
           className="hamburger-icon"
           style={hamburgerStyle}
           onClick={() => setIsMobileOpen(true)}
@@ -86,24 +79,27 @@ const SideBar: React.FC<SideBarProps> = ({
           />
         </div>
 
-        {/* Sidebar Content */}
         <div className="sidebar-content">
-          {sidebarConfig.map((item, idx) => (
-            <SidebarItem key={idx} item={item} isOpen={isMobileOpen} />
-          ))}
+          {(Array.isArray(sidebarConfig) ? sidebarConfig : []).map(
+            (item, idx) => (
+              <SidebarItem key={idx} item={item} isOpen={isMobileOpen} />
+            )
+          )}
         </div>
 
-        {/* Sidebar Footer */}
         <div className="sidebar-footer">
           <div
             className="helper-card"
             style={{
-              backgroundColor: lightenColor(theme.colors.secondary, 0.9),
+              backgroundColor: lightenColor(
+                theme.colors?.secondary || "#ccc",
+                0.9
+              ),
             }}
           >
-            <p>Necesitas Ayuda?</p>
-            <span>Envianos un mensaje</span>
-            <SimpleButton color="primary" variant="sm" title="¡Contactanos!" />
+            <p>¿Necesitas Ayuda?</p>
+            <span>Envíanos un mensaje</span>
+            <SimpleButton color="primary" variant="sm" title="¡Contáctanos!" />
           </div>
         </div>
       </div>
