@@ -17,6 +17,7 @@ const SideBar: React.FC<SideBarProps> = ({
   sideBarStyle = {},
   navBarStyle = {},
   footerContent,
+  itemStyle,
 }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
@@ -132,7 +133,12 @@ const SideBar: React.FC<SideBarProps> = ({
         <div className="sidebar-content">
           {(Array.isArray(sidebarConfig) ? sidebarConfig : []).map(
             (item, idx) => (
-              <SidebarItem key={idx} item={item} isOpen={isMobileOpen} />
+              <SidebarItem
+                key={idx}
+                item={item}
+                isOpen={isMobileOpen}
+                itemStyle={itemStyle}
+              />
             )
           )}
         </div>

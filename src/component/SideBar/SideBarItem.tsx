@@ -1,26 +1,10 @@
 import React, { useState, useMemo } from "react";
 import "./styles.scss";
-import { SidebarItemConfig } from "./types";
+import { SidebarItemConfig, SidebarItemProps } from "./types";
 import { useTheme } from "../../theme/hooks/useTheme";
 import { lightenColor } from "../../utils/colorUtils";
 import { useSafeLocation } from "../../utils/useSafeLocation";
 import { NavLink } from "react-router-dom";
-
-interface SidebarItemStyle {
-  wrapperStyle?: React.CSSProperties;
-  headerStyle?: React.CSSProperties;
-  iconStyle?: React.CSSProperties;
-  titleStyle?: React.CSSProperties;
-  expandIconStyle?: React.CSSProperties;
-  subItemLinkStyle?: React.CSSProperties;
-  subTitleStyle?: React.CSSProperties;
-}
-
-interface SidebarItemProps {
-  item: SidebarItemConfig;
-  isOpen: boolean;
-  itemStyle?: SidebarItemStyle;
-}
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
   item,

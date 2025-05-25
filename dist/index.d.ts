@@ -59,6 +59,15 @@ interface SideBarStyle {
     padding?: string;
     width?: string;
 }
+interface SidebarItemStyle {
+    wrapperStyle?: React.CSSProperties;
+    headerStyle?: React.CSSProperties;
+    iconStyle?: React.CSSProperties;
+    titleStyle?: React.CSSProperties;
+    expandIconStyle?: React.CSSProperties;
+    subItemLinkStyle?: React.CSSProperties;
+    subTitleStyle?: React.CSSProperties;
+}
 interface SideBarProps {
     logo?: React.ReactNode;
     sidebarConfig?: SidebarItemConfig[];
@@ -69,6 +78,7 @@ interface SideBarProps {
     sideBarStyle?: SideBarStyle;
     navBarStyle?: CSSProperties;
     footerContent?: React.ReactNode;
+    itemStyle?: SidebarItemStyle;
 }
 
 declare const SideBar: React$1.FC<SideBarProps>;

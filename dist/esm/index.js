@@ -629,7 +629,8 @@ var SideBar = function SideBar(_ref) {
     sideBarStyle = _ref$sideBarStyle === void 0 ? {} : _ref$sideBarStyle,
     _ref$navBarStyle = _ref.navBarStyle,
     navBarStyle = _ref$navBarStyle === void 0 ? {} : _ref$navBarStyle,
-    footerContent = _ref.footerContent;
+    footerContent = _ref.footerContent,
+    itemStyle = _ref.itemStyle;
   var _useState = useState(false),
     _useState2 = _slicedToArray(_useState, 2),
     isMobileOpen = _useState2[0],
@@ -743,7 +744,8 @@ var SideBar = function SideBar(_ref) {
         children: (Array.isArray(sidebarConfig) ? sidebarConfig : []).map(function (item, idx) {
           return jsx(SidebarItem, {
             item: item,
-            isOpen: isMobileOpen
+            isOpen: isMobileOpen,
+            itemStyle: itemStyle
           }, idx);
         })
       }), footerContent && jsx("div", {

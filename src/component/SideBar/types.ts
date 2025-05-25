@@ -16,6 +16,22 @@ export interface SideBarStyle {
   width?: string; // Width of sidebar
 }
 
+export interface SidebarItemStyle {
+  wrapperStyle?: React.CSSProperties;
+  headerStyle?: React.CSSProperties;
+  iconStyle?: React.CSSProperties;
+  titleStyle?: React.CSSProperties;
+  expandIconStyle?: React.CSSProperties;
+  subItemLinkStyle?: React.CSSProperties;
+  subTitleStyle?: React.CSSProperties;
+}
+
+export interface SidebarItemProps {
+  item: SidebarItemConfig;
+  isOpen: boolean;
+  itemStyle?: SidebarItemStyle;
+}
+
 export interface SideBarProps {
   logo?: React.ReactNode;
   sidebarConfig?: SidebarItemConfig[];
@@ -26,4 +42,5 @@ export interface SideBarProps {
   sideBarStyle?: SideBarStyle;
   navBarStyle?: CSSProperties; // ✅ Add this
   footerContent?: React.ReactNode;
+  itemStyle?: SidebarItemStyle;
 }
