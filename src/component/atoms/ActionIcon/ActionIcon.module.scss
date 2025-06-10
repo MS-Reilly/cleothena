@@ -1,0 +1,27 @@
+.actionIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    outline: none;
+    background: transparent;
+
+    &:hover {
+        opacity: 0.85;
+    }
+
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
+}
+
+.svgIcon {
+    width: 60%;
+    height: 60%;
+    pointer-events: none;
+    fill: currentColor;
+}

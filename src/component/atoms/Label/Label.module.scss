@@ -1,0 +1,17 @@
+.label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--label-color, #222);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25em;
+    user-select: none;
+    font-family: inherit; // will be overridden by the style prop
+}
+
+.required {
+    color: #e53935;
+    margin-left: 2px;
+    font-size: 1em;
+    line-height: 1;
+}

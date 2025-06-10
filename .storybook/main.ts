@@ -1,7 +1,7 @@
 // .storybook/main.js
-import { mergeConfig } from 'vite';
-import svgr from 'vite-plugin-svgr';
-import { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from "vite";
+import svgr from "vite-plugin-svgr";
+import { StorybookConfig } from "@storybook/react-vite";
 
 /**
  * Storybook configuration object
@@ -12,18 +12,21 @@ import { StorybookConfig } from '@storybook/react-vite';
 const config = {
   stories: [
     // Adjust as needed:
-    '../src/**/*.mdx',
-    '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    "../src/**/*.mdx",
+    "../src/component/atoms/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../src/component/molecules/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../src/component/organisms/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../src/pages/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-onboarding',
-    '@chromatic-com/storybook',
-    '@storybook/addon-interactions',
-    '@storybook/addon-docs',
+    "@storybook/addon-essentials",
+    "@storybook/addon-onboarding",
+    "@chromatic-com/storybook",
+    "@storybook/addon-interactions",
+    "@storybook/addon-docs",
   ],
   framework: {
-    name: '@storybook/react-vite',
+    name: "@storybook/react-vite",
     options: {},
   },
   /**
@@ -36,7 +39,8 @@ const config = {
       plugins: [
         svgr({
           // The defaults are often enough, but you could customize:
-          include: '**/*.svg', exclude: '**/*.svg?url',
+          include: "**/*.svg",
+          exclude: "**/*.svg?url",
         }),
       ],
     });

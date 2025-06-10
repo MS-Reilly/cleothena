@@ -1,0 +1,41 @@
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+}
+
+.labelRow {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 2px;
+}
+
+.inputRow {
+    display: flex;
+    align-items: stretch;
+    gap: 0.25rem;
+}
+
+.leftSlot,
+.rightSlot {
+    display: flex;
+    align-items: center;
+}
+
+.inputWrapper {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+}
+
+.helpText {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 2px;
+}
+
+.errorText {
+    color: #e53935;
+}

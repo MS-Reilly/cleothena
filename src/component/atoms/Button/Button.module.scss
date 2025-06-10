@@ -1,0 +1,58 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px; // Space between icon and text
+    padding: 10px 20px;
+    // Removed specific background-color and color as they are now fully controlled by inline styles
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    // Transition on `background-color` and `color` will now correctly apply to the inline styles
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+
+    // We no longer need this block, as hover is managed by React state
+    // &:hover {
+    //     background-color: var(--button-hover-bg);
+    // }
+}
+
+// Variant specific styles can remain empty or add non-color-related styles
+.primary,
+.secondary,
+.danger,
+.success,
+.info,
+.warning,
+.text {
+    // For example, if a variant needed a specific border that wasn't color-dependent:
+    // border: 1px solid transparent;
+}
+
+
+// Disabled State - Ensure it overrides inline styles as needed
+.disabled {
+    // Using !important is acceptable here because disabled state should truly override everything
+    background-color: #F7F7F7 !important; // Example: From your theme.colors.disabledBg
+    color: #9E9E9E !important; // Example: From your theme.colors.disabledText
+    cursor: not-allowed;
+    border-color: #BDBDBD !important; // If you have a border
+
+    &:hover {
+        background-color: #F7F7F7 !important; // Stays disabled background on hover
+        color: #9E9E9E !important; // Stays disabled text color on hover
+        cursor: not-allowed;
+    }
+}
+
+.icon {
+    display: flex;
+}
+
+.text {
+    // Any specific text styling within the button
+}

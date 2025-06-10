@@ -1,0 +1,100 @@
+.tooltipWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 9999;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--tooltip-text, #fff);
+    background: var(--tooltip-bg, #3C3D37CC);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    white-space: normal; // <-- allow wrapping!
+    max-width: 300px; // <-- optional, keeps it from being huge
+    overflow-wrap: break-word;
+    transition:
+        opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+
+    // Default slide up (for .top)
+    transform: translateY(-8px);
+
+    &::before {
+        content: "";
+        position: absolute;
+        border-width: 5px;
+        border-style: solid;
+    }
+}
+
+.top {
+    transform: translateY(-8px);
+
+    &.show {
+        transform: translateY(0);
+    }
+
+    &::before {
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-color: var(--tooltip-bg, #333) transparent transparent transparent;
+    }
+}
+
+.bottom {
+    transform: translateY(8px);
+
+    &.show {
+        transform: translateY(0);
+    }
+
+    &::before {
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-color: transparent transparent var(--tooltip-bg, #333) transparent;
+    }
+}
+
+.left {
+    transform: translateX(-8px);
+
+    &.show {
+        transform: translateX(0);
+    }
+
+    &::before {
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        border-color: transparent transparent transparent var(--tooltip-bg, #333);
+    }
+}
+
+.right {
+    transform: translateX(8px);
+
+    &.show {
+        transform: translateX(0);
+    }
+
+    &::before {
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        border-color: transparent var(--tooltip-bg, #333) transparent transparent;
+    }
+}
+
+.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}

@@ -1,0 +1,82 @@
+.settingsRoot {
+    min-height: 100vh;
+    background: #ffffff;
+    display: flex;
+    font-family: "Quicksand", sans-serif;
+}
+
+.sidebar {
+    min-width: 210px;
+    max-width: 230px;
+    background: #fff;
+    border-right: 1.5px solid #e4e7ec;
+    display: flex;
+    flex-direction: column;
+    padding: 2.8rem 1.2rem 1.8rem 2rem;
+    gap: 0.7rem;
+    align-items: flex-start;
+}
+
+.sectionTab {
+    font-size: 1.08rem;
+    font-weight: 500;
+    padding: 0.45rem 1.1rem;
+    border: none;
+    background: transparent;
+    color: #353b46;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    outline: none;
+    text-align: left;
+
+    &:hover,
+    &:focus {
+        background: #e4e7ec;
+        color: #1a76e3;
+    }
+}
+
+.active {
+    background: #1a76e3;
+    color: #fff;
+}
+
+.mainContent {
+    flex: 1;
+    padding: 3.5rem 2.5rem 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 0; // for overflow handling
+    overflow-x: auto;
+}
+
+/* Responsive: switch sidebar to top tabs on small screens */
+@media (max-width: 800px) {
+    .settingsRoot {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        min-width: 0;
+        max-width: 100vw;
+        border-right: none;
+        border-bottom: 1.5px solid #e4e7ec;
+        padding: 0.9rem 0.6rem 0.7rem 1rem;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .sectionTab {
+        font-size: 0.99rem;
+        padding: 0.4rem 0.7rem;
+        border-radius: 6px;
+        min-width: 0;
+    }
+
+    .mainContent {
+        padding: 2rem 0.6rem 1.2rem 0.6rem;
+    }
+}

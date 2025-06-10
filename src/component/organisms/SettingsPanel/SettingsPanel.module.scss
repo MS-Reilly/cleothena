@@ -1,0 +1,76 @@
+.settingsPanel {
+    padding: 0;
+    width: 100%;
+}
+
+.title {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: #5c5c5c;
+    letter-spacing: 0.01em;
+    font-family: inherit;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.settingRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding: 0.2rem 0;
+}
+
+.settingLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0; // For text overflow
+}
+
+.label {
+    font-size: 1.02rem;
+    font-weight: 500;
+    color: #24292f;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.helpText {
+    font-size: 0.95rem;
+    color: #7a7a7a;
+    margin-top: 2px;
+    margin-left: 2px;
+    font-weight: 400;
+}
+
+.settingControl {
+    display: flex;
+    align-items: center;
+    min-width: 40px;
+}
+
+/* Disabled styles for labels and controls */
+.disabled {
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+    .settingRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .settingControl {
+        margin-top: 0.2rem;
+    }
+}

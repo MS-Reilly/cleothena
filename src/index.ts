@@ -1,17 +1,17 @@
-export { default as SimpleButton } from './component/SimpleButton/SimpleButton';
-export { default as Navbar } from './component/NavBar/NavBar';
-export { default as SideBar } from './component/SideBar/SideBar';
-export { default as FullScreenHero } from './component/FullScreenHero/FullScreenHero';
-export { default as HeroContentWrapper } from './component/FullScreenHero/HeroContentWrapper';
-export { default as ScrollIndicator } from './component/ScrollIndicator/ScrollIndicator';
-export { default as Separator } from './component/Separator/Separator';
-export { default as HeroCarousel } from './component/HeroCarousel/HeroCarousel';
-export {default as ServiceCard} from './component/ServiceCard/ServiceCard'
-export {default as TestimonialCard} from './component/TestimonialCard/TestimonialCard'
-export {default as IconCard} from './component/IconCard/IconCard'
-export {default as ServiceHighlightCard} from './component/ServiceHighlightCard/ServiceHighlightCard'
-export {default as PricingCard} from './component/PricingCard/PricingCard'
-export {default as PricingCarousel} from './component/PricingCarousel/PricingCarousel'
-export {default as Accordion} from './component/Accordion/Accordion'
-export {default as ImageCarousel} from './component/ImageCarousel/ImageCarousel'
-export * from './theme/index';
+export { default as SimpleButton } from "./component/old/SimpleButton/SimpleButton";
+export { default as Navbar } from "./component/NavBar/NavBar";
+export { default as SideBar } from "./component/old/SideBar/SideBar";
+export { default as FullScreenHero } from "./component/old/FullScreenHero/FullScreenHero";
+export { default as HeroContentWrapper } from "./component/old/FullScreenHero/HeroContentWrapper";
+export { default as ScrollIndicator } from "./component/old/ScrollIndicator/ScrollIndicator";
+export { default as Separator } from "./component/old/Separator/Separator";
+export { default as HeroCarousel } from "./component/old/HeroCarousel/HeroCarousel";
+export { default as ServiceCard } from "./component/old/ServiceCard/ServiceCard";
+export { default as TestimonialCard } from "./component/old/TestimonialCard/TestimonialCard";
+export { default as IconCard } from "./component/old/IconCard/IconCard";
+export { default as ServiceHighlightCard } from "./component/old/ServiceHighlightCard/ServiceHighlightCard";
+export { default as PricingCard } from "./component/old/PricingCard/PricingCard";
+export { default as PricingCarousel } from "./component/old/PricingCarousel/PricingCarousel";
+export { default as Accordion } from "./component/Accordion/Accordion";
+export { default as ImageCarousel } from "./component/old/ImageCarousel/ImageCarousel";
+export * from "./theme/index";
